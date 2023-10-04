@@ -9,7 +9,7 @@ website:
   page-navigation: true
   description: ""
   favicon: "./figures/avatar.jpg"
-  site-url: https://giulianocolosimo.github.io/animal_tracking_23_24/
+  #site-url: https://giulianocolosimo.github.io/animal_tracking_23_24/
   #repo-url: https://github.com/quarto-dev/quarto-demo
   repo-actions: [issue]
   open-graph:
