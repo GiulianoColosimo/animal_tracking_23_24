@@ -1,5 +1,5 @@
 ---
-title: "Animal-tracking nella Biologia della Conservazione"
+title: "Animal-tracking in Biologia della Conservazione"
 author: Giuliano Colosimo
 date: "2023-09-18"
 bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
