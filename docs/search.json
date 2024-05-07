@@ -12,5 +12,215 @@
     "title": "Contact information",
     "section": "",
     "text": "Here you can find my contact information. My office is number 14, located on the first floor of the main building at “Laboratori di Ecologia Sperimentale ed Acquacoltura” in Via Cracovia 1, 00133 Rome, Italy.\n\n\n\n\n\n\n\nYou can reach me by e-mail using the following address:\n\ngiuliano.colosimo@uniroma2.it\n\nOr you can call my office number at:\n\n+39 06 7259 5964"
+  },
+  {
+    "objectID": "classes/1/class_1.html#course-overview",
+    "href": "classes/1/class_1.html#course-overview",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Course overview",
+    "text": "Course overview\n\nThis is a discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours to be administered in person\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used will be in English\nNo specific prior knowledge of is required, but rudiments of basic GIS will definitely help. Students will be extensively exposed to various software and web-tools. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful\nClasses are Tuesday and Thursday (14:00-16:00) in “Aula centro studi pesca” (Laboratori di Ecologia Sperimentale ed Acquacoltura).\nAt the end of the course you will be evaluated with a written exam."
+  },
+  {
+    "objectID": "classes/1/class_1.html#course-evaluation",
+    "href": "classes/1/class_1.html#course-evaluation",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Course evaluation",
+    "text": "Course evaluation\n\nParticipation to class will count towards your final evaluation! That being said, I understand that you may be sick or work. Please, let me know ASAP if you have issues attending classes.\nI will be communicating the dates of the final exam later during the semester.\nAt the end of the course you will be evaluated with a written exam."
+  },
+  {
+    "objectID": "classes/1/class_1.html#topics",
+    "href": "classes/1/class_1.html#topics",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Topics",
+    "text": "Topics\n\n\n\nSetting up your computers\n\nPackages to install\n\nAn introduction to Animal tracking\n\nTagging systems\n\nCRS\n\nTelemetry and GPS\n\nOn-line databases\n\nGBIF\nMovebank\n\nDrivers of species distribution\n\n\n\nHome range estimates\n\nMPC\nKDE\nKriging\nBBM\n\nSpecies distribution modeling\n\nResource selection functions\nStep selection functions\n\nModeling approaches"
+  },
+  {
+    "objectID": "classes/1/class_1.html#resources",
+    "href": "classes/1/class_1.html#resources",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Resources",
+    "text": "Resources\n\nHabitat Suitability and Distribution Models (Antoine Guisan, Thuiller, & Zimmermann, 2020)\nLiterature I will provide every class\nYou are encouraged to contact me by e-mail with questions and doubts or come to my office.\nThe World Wide Web"
+  },
+  {
+    "objectID": "classes/1/class_1.html#topics-1",
+    "href": "classes/1/class_1.html#topics-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Topics",
+    "text": "Topics\n\n\n\nSetting up your computers\n\nPackages to install\n\nAn introduction to Animal tracking\n\nTagging systems\n\nCRS\n\nTelemetry and GPS\n\nOn-line databases\n\nGBIF\nMovebank\n\nDrivers of species distribution\n\n\n\nHome range estimates\n\nMPC\nKDE\nKriging\nBBM\n\nSpecies distribution modeling\n\nResource selection functions\nStep selection functions\n\nModeling approaches"
+  },
+  {
+    "objectID": "classes/1/class_1.html#brief-intro-to-r-and-rstudio",
+    "href": "classes/1/class_1.html#brief-intro-to-r-and-rstudio",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Brief intro to R and RStudio",
+    "text": "Brief intro to R and RStudio\nA number cruncher on steroids\n\n# basic arithmetic\n3 + 5\n\n[1] 8\n\n\n\n# assigning values to object\na &lt;- 5\nb &lt;- 3\n(c &lt;- a + b)\n\n[1] 8\n\n\n\n# multiple type of data\nstr(x &lt;- a)\n\n num 5\n\nstr(y &lt;- \"a\")\n\n chr \"a\"\n\nstr(z &lt;- c(T, F))\n\n logi [1:2] TRUE FALSE"
+  },
+  {
+    "objectID": "classes/1/class_1.html#packages",
+    "href": "classes/1/class_1.html#packages",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Packages",
+    "text": "Packages\n\n\n\n\nTrend of some packages downloaded from CRAN"
+  },
+  {
+    "objectID": "classes/1/class_1.html#useful-packages",
+    "href": "classes/1/class_1.html#useful-packages",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Useful packages",
+    "text": "Useful packages\n\n\n\n\n\n\nWarning\n\n\nBefore we move forward with the installation of useful packages, if you have a Windows computer you PROBABLY need to install one additional package named Rtools. Go to https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html. Download and install Rtools42 installer.\n\n\n\n\nUse the following link to access a file to install the packages that we will need during the course: https://www.dropbox.com/s/0ci151c0ere5roh/installPackages.R?dl=0"
+  },
+  {
+    "objectID": "classes/1/class_1.html#topics-2",
+    "href": "classes/1/class_1.html#topics-2",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Topics",
+    "text": "Topics\n\n\n\nSetting up your computers\n\nBrief introduction to R\nPackages to install\n\nAn introduction to Animal tracking\n\nTagging systems\n\nCRS\n\nTelemetry and GPS\n\nOn-line databases\n\nGBIF\nMovebank\n\nDrivers of species distribution\n\n\n\nHome range estimates\n\nMPC\nKDE\nKriging\nBBM\n\nSpecies distribution modeling\n\nResource selection functions\nStep selection functions\n\nModeling approaches"
+  },
+  {
+    "objectID": "classes/1/class_1.html#tagging-systems",
+    "href": "classes/1/class_1.html#tagging-systems",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Tagging systems",
+    "text": "Tagging systems\nA tag is a label! A tagging system is a way of labeling “something” to provide that something with an unique identifier. People have been tagging animals (wild and captive) for hundreds of years. An animal tag can be as simple as a piece of metal or plastic with a number carved on it or with a standardized meaning."
+  },
+  {
+    "objectID": "classes/1/class_1.html#passive-integrated-transponders-pit",
+    "href": "classes/1/class_1.html#passive-integrated-transponders-pit",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Passive Integrated Transponders (PIT)",
+    "text": "Passive Integrated Transponders (PIT)\nThese tags are widely used for wildlife fauna, especially in long-term capture-mark-recapture studies. They uniquely identify individuals. They generally do not carry any other information but the individual’s ID. They are based on the RFID (Radio-Frequency-Identification) system. When the tag is within reach of a specific radio frequency, it emits a signal containing an alpha-numeric code unique to the animal it has been implanted."
+  },
+  {
+    "objectID": "classes/1/class_1.html#patterns-tagging",
+    "href": "classes/1/class_1.html#patterns-tagging",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Patterns tagging",
+    "text": "Patterns tagging\n\n\nToes and nail clipping\n\n\n\nThis image is from Waichman (1992). The author describes all possible combination of toe clipping to uniquely identify individuals\n\n\n\nFeatures tag\n\n\n\nToads of the genus Bombina have unique spotted patterns. Photo credits: marioeffe"
+  },
+  {
+    "objectID": "classes/1/class_1.html#photo-tagging",
+    "href": "classes/1/class_1.html#photo-tagging",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Photo tagging",
+    "text": "Photo tagging\nMore modern approaches rely on the use of morphometric cues to identify individuals! These techniques are more complex, but somewhat similar to the FaceID technology on your phones."
+  },
+  {
+    "objectID": "classes/1/class_1.html#molecular-tags",
+    "href": "classes/1/class_1.html#molecular-tags",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Molecular tags",
+    "text": "Molecular tags\nFrom the USGS website:\n\nMolecular tagging is a new application of molecular genetic techniques to traditional mark-recapture methodology designed to address situations where traditional methods fail. In such studies, non-invasively collected samples (such as feces, feathers, or fur) are used as a source of DNA that is then genotyped at multiple loci such that each individual animal can be uniquely identified. Thus, each individual’s DNA represents a unique tag analogous to a band or other mark used in traditional mark-recapture studies."
+  },
+  {
+    "objectID": "classes/1/class_1.html#telemetry-study",
+    "href": "classes/1/class_1.html#telemetry-study",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Telemetry study",
+    "text": "Telemetry study\nSmall devices transmitting specific radio frequencies have been, and still are, widely used to track animals. Telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) is a technique that allows to retrieve real time data and information using an array of wireless data transfer protocols.\n\n\n\n\n\nBarrell transmitter implanted in a female Turks and Caicos Rainbow Boa (Chilabothrus chrysogaster). Photo credits: Giuliano Colosimo.\n\n\n\n\n\n\nRadio-telemetry has been, and still is, widely used to retrieve information about the whereabouts of tagged individuals. Photo credits: Giuliano Colosimo."
+  },
+  {
+    "objectID": "classes/1/class_1.html#satellite-tags",
+    "href": "classes/1/class_1.html#satellite-tags",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Satellite tags",
+    "text": "Satellite tags\n\nA male Conolophus marthae with a Wireless Sensor Node (WSN) attached behind its hindlegs. This is a more sofisticated electronic tag that not only allows to identify the individual but also allows to collect important information such as GPS data, temperature and UV light. Photo credits: Giuliano Colosimo."
+  },
+  {
+    "objectID": "classes/1/class_1.html#data-visualization",
+    "href": "classes/1/class_1.html#data-visualization",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Data visualization",
+    "text": "Data visualization\nEventually, data can be organized and analyzed to produce informative animations.\n\nMigration patterns of cranes (Grus grus) from Sweden. The data was downloaded from www.movebank.org."
+  },
+  {
+    "objectID": "classes/1/class_1.html#data-simulation",
+    "href": "classes/1/class_1.html#data-simulation",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Data simulation",
+    "text": "Data simulation\n\nA very useful tool to study animal movements is represented by models and simulations"
+  },
+  {
+    "objectID": "classes/1/class_1.html#litterature-assignment",
+    "href": "classes/1/class_1.html#litterature-assignment",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Litterature assignment",
+    "text": "Litterature assignment\nLez_1_Cagnacci_Animal ecology meets GPS-based radiotelemetry a perfect storm of opportunities and challenges_2010"
+  },
+  {
+    "objectID": "classes/1/class_1.html#setting-up-your-computers",
+    "href": "classes/1/class_1.html#setting-up-your-computers",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Setting up your computers",
+    "text": "Setting up your computers\nTo visualize and analyse data we will be using R and RStudio\nBasic installation\n\nsessionInfo()\n\nR version 4.3.2 (2023-10-31)\nPlatform: aarch64-apple-darwin20 (64-bit)\nRunning under: macOS Sonoma 14.4.1\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: Europe/Rome\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] plotrix_3.8-4  plotly_4.10.4  ggplot2_3.5.1  cranlogs_2.1.1\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.5      jsonlite_1.8.8    dplyr_1.1.4       compiler_4.3.2   \n [5] tidyselect_1.2.1  tidyr_1.3.1       scales_1.3.0      yaml_2.3.8       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] htmlwidgets_1.6.4 tibble_3.2.1      munsell_0.5.1     pillar_1.9.0     \n[17] rlang_1.1.3       utf8_1.2.4        xfun_0.43         lazyeval_0.2.2   \n[21] viridisLite_0.4.2 cli_3.6.2         withr_3.0.0       magrittr_2.0.3   \n[25] digest_0.6.35     grid_4.3.2        rstudioapi_0.16.0 lifecycle_1.0.4  \n[29] vctrs_0.6.5       evaluate_0.23     glue_1.7.0        data.table_1.15.4\n[33] fansi_1.0.6       colorspace_2.1-0  rmarkdown_2.26    purrr_1.0.2      \n[37] httr_1.4.7        tools_4.3.2       pkgconfig_2.0.3   htmltools_0.5.8.1"
+  },
+  {
+    "objectID": "classes/1/class_1.html#an-introduction-to-animal-tracking",
+    "href": "classes/1/class_1.html#an-introduction-to-animal-tracking",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "An introduction to Animal tracking",
+    "text": "An introduction to Animal tracking\nAnimal Tracking is a discipline allowing to gather information about the biology, ecology, behavior and life history of animals starting from data on their position in the natural environment. Major requirements:\n\n\nthe capability to uniquely identify individuals, populations or species (Costa, Foody, Jiménez, & Silva, 2015);\nthe availability of position data for that individual (population or species) and a geographic reference system that helps minimizing errors when making calculations (Antoie Guisan & Zimmermann, 2000)\nthe availability of reliable environmental data!"
+  },
+  {
+    "objectID": "classes/1/class_1.html#tagging-systems-1",
+    "href": "classes/1/class_1.html#tagging-systems-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Tagging systems",
+    "text": "Tagging systems\n\nA male Cyclura carinata with colored bead tags. Photo credits: Giuliano Colosimo."
+  },
+  {
+    "objectID": "classes/1/class_1.html#passive-integrated-transponders-pit-1",
+    "href": "classes/1/class_1.html#passive-integrated-transponders-pit-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Passive Integrated Transponders (PIT)",
+    "text": "Passive Integrated Transponders (PIT)\n\nA Passive Integrated Transponder by Trovan®. Photo credits: Giuliano Colosimo."
+  },
+  {
+    "objectID": "classes/1/class_1.html#photo-tagging-1",
+    "href": "classes/1/class_1.html#photo-tagging-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Photo tagging",
+    "text": "Photo tagging\n\nDevelopment of a photo recognition software to identify iguanas in the wild. Image courtesy of Nathalie Duporge. A nice example and protocol of the use of photografies for the identification of unique individuals is presented in"
+  },
+  {
+    "objectID": "classes/1/class_1.html#molecular-tags-1",
+    "href": "classes/1/class_1.html#molecular-tags-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Molecular tags",
+    "text": "Molecular tags\n\nSelected species and locations for which genetic tagging for demographic insights into population density, growth rates, direct measures of connectivity, or human–wildlife conflict has been successfully applied. Projects using genetic tagging for these demographic insights have been conducted on every continent, except Antarctica, and have sampled a variety of taxa, using many different sources of DNA, but are biased toward mid-large sized mobile mammals. After Lamb et al. (2019)"
+  },
+  {
+    "objectID": "classes/1/class_1.html#satellite-tags-1",
+    "href": "classes/1/class_1.html#satellite-tags-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Satellite tags",
+    "text": "Satellite tags\n\nA male Conolophus marthae with a Wireless Sensor Node (WSN) attached behind its hindlegs. This is a more sofisticated electronic tag that not only allows to identify the individual but also allows to collect important information such as GPS data, temperature and UV light. Photo credits: Giuliano Colosimo."
+  },
+  {
+    "objectID": "classes/1/class_1.html#why-animals-move-the-way-they-do",
+    "href": "classes/1/class_1.html#why-animals-move-the-way-they-do",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Why animals move the way they do!",
+    "text": "Why animals move the way they do!\n\nA simulated path of a tracked animal!"
+  },
+  {
+    "objectID": "classes/1/class_1.html#coordinate-reference-systems-crs",
+    "href": "classes/1/class_1.html#coordinate-reference-systems-crs",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Coordinate Reference Systems (CRS)",
+    "text": "Coordinate Reference Systems (CRS)\n\nA coordinate reference system allows us to use coordinates to locate features on a map. It is a rather important component of tracking, especially when dealing with animals that move significant distances.\nOne of the main issue is that ultimately what we try to do is to represent locations measured on a 3D surface (the earth) to a 2D map. This introduces distortions and errors.\nAnother issue is represented by the fact that the earth is not smooth surface. We can visualize the problem here!\nWe recognize two big classes of coordinate systems:"
+  },
+  {
+    "objectID": "classes/1/class_1.html#telemetry-e-gps",
+    "href": "classes/1/class_1.html#telemetry-e-gps",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Telemetry e GPS",
+    "text": "Telemetry e GPS\n\n\n\nThe term telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) refers to an ensemble of techniques that allow to retrieve real time data and information using an array of wireless data transfer protocols.\nThe acronym GPS stands for Global Positioning System GPS\n\nNAVSTAR = NAVigation System with Timing And Ranging\nn ≥ 4 satellites\nm ≥ 1 receivers\nPseudo-ranges\n\n\n\n\n\n\nSatellite constellation serving the GPS system. Image source"
+  },
+  {
+    "objectID": "classes/1/class_1.html#making-maps-in-r",
+    "href": "classes/1/class_1.html#making-maps-in-r",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Making maps in R",
+    "text": "Making maps in R\n\nlibrary(spData)\nlibrary(spDataLarge)\nlibrary(sf)\n\nworld\n\nSimple feature collection with 177 features and 10 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513\nGeodetic CRS:  WGS 84\n# A tibble: 177 × 11\n   iso_a2 name_long continent region_un subregion type  area_km2     pop lifeExp\n * &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1 FJ     Fiji      Oceania   Oceania   Melanesia Sove…   1.93e4  8.86e5    70.0\n 2 TZ     Tanzania  Africa    Africa    Eastern … Sove…   9.33e5  5.22e7    64.2\n 3 EH     Western … Africa    Africa    Northern… Inde…   9.63e4 NA         NA  \n 4 CA     Canada    North Am… Americas  Northern… Sove…   1.00e7  3.55e7    82.0\n 5 US     United S… North Am… Americas  Northern… Coun…   9.51e6  3.19e8    78.8\n 6 KZ     Kazakhst… Asia      Asia      Central … Sove…   2.73e6  1.73e7    71.6\n 7 UZ     Uzbekist… Asia      Asia      Central … Sove…   4.61e5  3.08e7    71.0\n 8 PG     Papua Ne… Oceania   Oceania   Melanesia Sove…   4.65e5  7.76e6    65.2\n 9 ID     Indonesia Asia      Asia      South-Ea… Sove…   1.82e6  2.55e8    68.9\n10 AR     Argentina South Am… Americas  South Am… Sove…   2.78e6  4.30e7    76.3\n# ℹ 167 more rows\n# ℹ 2 more variables: gdpPercap &lt;dbl&gt;, geom &lt;MULTIPOLYGON [°]&gt;\n\n\n\n\n\nclass(world)\n\n[1] \"sf\"         \"tbl_df\"     \"tbl\"        \"data.frame\""
   }
 ]

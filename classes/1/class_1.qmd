@@ -1,0 +1,485 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 1"
+date: "2024-05-07"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("cranlogs", "plotly", "plotrix")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+## Course overview
+
+-   This is a discretionary course for master level students enrolled in the "Biologia Evoluzionistica, Ecologia e Antropologia Applicata" degree at the University of Rome Tor Vergata. It is worth **2 CFU** for a total of 16 hours to be administered in person
+
+-   The course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used will be in English
+
+-   No specific prior knowledge of is required, but rudiments of basic GIS will definitely help. Students will be extensively exposed to various software and web-tools. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful
+
+-   Classes are Tuesday and Thursday (14:00-16:00) in "Aula centro studi pesca" (Laboratori di Ecologia Sperimentale ed Acquacoltura).
+
+-   At the end of the course you will be evaluated with a written exam.
+
+## Topics
+
+::: columns
+::: {.column width="50%"}
+1.  Setting up your computers
+    -   Packages to install
+2.  An introduction to Animal tracking
+    -   Tagging systems
+3.  CRS
+    -   Telemetry and GPS
+4.  On-line databases
+    -   GBIF
+    -   Movebank
+5.  Drivers of species distribution
+:::
+
+::: {.column width="50%"}
+6.  Home range estimates
+    -   MPC
+    -   KDE
+    -   Kriging
+    -   BBM
+7.  Species distribution modeling
+    -   Resource selection functions
+    -   Step selection functions
+8.  Modeling approaches
+:::
+:::
+
+## Resources
+
+-   Habitat Suitability and Distribution Models [@Guisan2020]
+-   Literature I will provide every class
+-   You are encouraged to contact me by e-mail with questions and doubts or come to my office.
+-   The World Wide Web
+
+## Why animals move the way they do!
+
+![A simulated path of a tracked animal!](./1_12_randomWalk.gif){fig-align="center"}
+
+
+## Topics
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: red;"}
+    -   [Packages to install]{style="color: red;"}
+2.  [An introduction to Animal tracking]{style="color: red;"}
+    -   [Tagging systems]{style="color: red;"}
+3.  [CRS]{style="color: red;"}
+    -   [Telemetry and GPS]{style="color: red;"}
+4.  [On-line databases]{style="color: GhostWhite;"}
+    -   [GBIF]{style="color: GhostWhite;"}
+    -   [Movebank]{style="color: GhostWhite;"}
+5.  [Drivers of species distribution]{style="color: GhostWhite;"}
+:::
+
+::: {.column width="50%"}
+6.  [Home range estimates]{style="color: GhostWhite;"}
+    -   [MPC]{style="color: GhostWhite;"}
+    -   [KDE]{style="color: GhostWhite;"}
+    -   [Kriging]{style="color: GhostWhite;"}
+    -   [BBM]{style="color: GhostWhite;"}
+7.  [Species distribution modeling]{style="color: GhostWhite;"}
+    -   [Resource selection functions]{style="color: GhostWhite;"}
+    -   [Step selection functions]{style="color: GhostWhite;"}
+8.  [Modeling approaches]{style="color: GhostWhite;"}
+:::
+:::
+
+## Setting up your computers
+
+To visualize and analyse data we will be using **R** and **RStudio**
+
+### Basic installation
+
+```{r sI}
+sessionInfo()
+```
+
+## Packages
+
+```{r packs_plot, echo = F, cache = T, fig.cap = "Trend of some packages downloaded from CRAN", fig.align="center", out.width=1500, out.height=700}
+dwnlds <- cran_downloads(from = "2012-01-01",
+                         to = "2024-04-30",
+                         packages = c("ggmap", "sf", "tmap", "move",
+                                      "raster", "rgdal", "sp", "mapview", 
+                                      "ggplot2", "rgdal", "leaflet", "terra"))
+
+plot_ly(
+  data = dwnlds,
+  x = ~date,
+  y = ~count,
+  color = ~package,
+  type = 'scatter', mode = 'lines'
+)
+```
+
+## An introduction to Animal tracking
+
+Animal Tracking is a discipline allowing to gather information about the [biology, ecology, behavior and life history of animals starting from data on their position in the natural environment]{.underline}. Major requirements:
+
+::: incremental
+-   the capability to uniquely identify individuals, populations or species [@Costa2015];
+-   the availability of position data for that individual (population or species) and a geographic reference system that helps minimizing errors when making calculations [@Guisan2000]
+-   the availability of reliable environmental data!
+:::
+
+------------------------------------------------------------------------
+
+## Tagging systems
+
+A tag is a label! A tagging system is a way of labeling "something" to provide that something with an unique identifier. People have been tagging animals (wild and captive) for hundreds of years. An animal tag can be as simple as a piece of metal or plastic with a number carved on it or with a standardized meaning.
+
+## Tagging systems
+
+![A male *Cyclura carinata* with colored bead tags. Photo credits: Giuliano Colosimo.](./1_2_iguana_beads.png){fig-align="center"}
+
+## Passive Integrated Transponders (PIT)
+
+These tags are widely used for wildlife fauna, especially in long-term capture-mark-recapture studies. They uniquely identify individuals. They generally do not carry any other information but the individual's ID. They are based on the RFID (Radio-Frequency-Identification) system. When the tag is within reach of a specific radio frequency, it emits a signal containing an alpha-numeric code unique to the animal it has been implanted.
+
+## Passive Integrated Transponders (PIT)
+
+![A Passive Integrated Transponder by Trovan®. Photo credits: Giuliano Colosimo.](./1_3_pit.png){fig-align="center"}
+
+## Patterns tagging
+
+::: columns
+::: {.column width="50%"}
+#### Toes and nail clipping
+
+![This image is from @Waichman1992. The author describes all possible combination of toe clipping to uniquely identify individuals](./1_4_toe_clipping.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+#### Features tag
+
+![Toads of the genus *Bombina* have unique spotted patterns. Photo credits: [marioeffe](https://www.naturamediterraneo.com/forum/topic.asp?TOPIC_ID=273624)](./1_5_morpho_pattern.png){fig-align="center"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Photo tagging
+
+More modern approaches rely on the use of morphometric cues to identify individuals! These techniques are more complex, but somewhat similar to the FaceID technology on your phones.
+
+## Photo tagging
+
+![Development of a photo recognition software to identify iguanas in the wild. Image courtesy of Nathalie Duporge. A nice example and protocol of the use of photografies for the identification of unique individuals is presented in](./1_6_software_id.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Molecular tags
+
+From the [USGS](https://www.usgs.gov/centers/fort-collins-science-center/science/molecular-tagging) website:
+
+> Molecular tagging is a new application of molecular genetic techniques to traditional mark-recapture methodology designed to address situations where traditional methods fail. In such studies, non-invasively collected samples (such as feces, feathers, or fur) are used as a source of DNA that is then genotyped at multiple loci such that each individual animal can be uniquely identified. Thus, each individual's DNA represents a unique tag analogous to a band or other mark used in traditional mark-recapture studies.
+
+## Molecular tags
+
+![Selected species and locations for which genetic tagging for demographic insights into population density, growth rates, direct measures of connectivity, or human--wildlife conflict has been successfully applied. Projects using genetic tagging for these demographic insights have been conducted on every continent, except Antarctica, and have sampled a variety of taxa, using many different sources of DNA, but are biased toward mid-large sized mobile mammals. After @Lamb2019](./1_7_genetic_tagging_b.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Telemetry study
+
+Small devices transmitting specific radio frequencies have been, and still are, widely used to track animals. Telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) is a technique that allows to retrieve real time data and information using an array of wireless data transfer protocols.
+
+::: columns
+::: {.column width="50%"}
+![Barrell transmitter implanted in a female Turks and Caicos Rainbow Boa (*Chilabothrus chrysogaster*). Photo credits: Giuliano Colosimo.](./1_8_boa_transmitter.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![Radio-telemetry has been, and still is, widely used to retrieve information about the whereabouts of tagged individuals. Photo credits: Giuliano Colosimo.](./1_9_reynolds_antenna.png){fig-align="center"}
+:::
+:::
+
+## Satellite tags
+
+![A male *Conolophus marthae* with a Wireless Sensor Node (WSN) attached behind its hindlegs. This is a more sofisticated electronic tag that not only allows to identify the individual but also allows to collect important information such as GPS data, temperature and UV light. Photo credits: Giuliano Colosimo.](./1_10_iguana_wsn.png){fig-align="center"}
+
+## Data visualization
+
+Eventually, data can be organized and analyzed to produce informative animations.
+
+![Migration patterns of cranes (*Grus grus*) from Sweden. The data was downloaded from [www.movebank.org](www.movebank.org).](./1_11_cranes.gif){fig-align="center"}
+
+## Coordinate Reference Systems (CRS)
+
+-   A coordinate reference system allows us to use coordinates to locate features on a map. It is a rather important component of tracking, especially when dealing with animals that move significant distances.
+
+-   One of the main issue is that ultimately what we try to do is to represent locations measured on a 3D surface (the earth) to a 2D map. This introduces distortions and errors.
+
+-   Another issue is represented by the fact that the earth is not smooth surface. We can visualize the problem [here!](http://icgem.gfz-potsdam.de/vis3d/longtime)
+
+-   We recognize two big classes of coordinate systems:
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="50%"}
+#### Geographic coordinates
+
+-   The earth is represented by a spherical or ellipsoidal surface. The geometric representation of the earth that is used is called *datum*. Distances between points cannot be measured out with geographical coordinates.
+
+- Latitude: denoted by the Greek letter phi (𝜙). It is given as an angle that ranges from −90° at the south pole to 90° at the north pole, with 0° at the Equator.
+
+- Longitude: denoted by the Greek letter lambda (λ). It is given as an angle that ranges from -180° to 180° from east to west and the 0°.
+
+:::
+
+::: {.column width="50%"}
+![Angles (degrees; longitude and latitude), pointing out locations on a spherical or ellipsoidal surface. [Image source.](https://en.wikipedia.org/wiki/Geographic_coordinate_system)](./2_1_geographic.png){fig-align="center"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="50%"}
+
+#### Projected coordinates
+
+-   Measured on a two-dimensional flat space (e.g. in meters; x and y), related to an ellipsoid by projection. In the transition from geometric coordinates to projected ones, a deformation of the images occurs.
+:::
+
+::: {.column width="50%"}
+![There is no system of projections that is not affected by errors and distortions. [Image source.](https://en.wikipedia.org/wiki/Geographic_coordinate_system)](./2_2_projected.png){align="center"}
+:::
+:::
+
+
+## Telemetry e GPS
+
+::: columns
+::: {.column width="50%"}
+-   The term telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) refers to an ensemble of techniques that allow to retrieve real time data and information using an array of wireless data transfer protocols.
+
+-   The acronym GPS stands for Global Positioning System GPS
+
+    -   NAVSTAR = NAVigation System with Timing And Ranging
+    -   n ≥ 4 satellites
+    -   m ≥ 1 receivers
+    -   Pseudo-ranges
+:::
+
+::: {.column width="50%"}
+![Satellite constellation serving the GPS system. [Image source](https://en.wikipedia.org/wiki/File:ConstellationGPS.gif)](./2_3_constellationGPS.gif){align="center" width="110%"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+### How does positioning with range works?
+
+```{r positioning_1, echo=FALSE, fig.align='center'}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+legend("topleft", legend = c("Point of interest (unknown)"),
+       pch = 21, pt.bg = "red", pt.cex = 2)
+```
+
+------------------------------------------------------------------------
+
+```{r positioning_2, echo=FALSE, fig.align='center'}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+points(x = 5, y = 7, pch = 21, bg = "blue", cex = 1.5)
+legend("topleft", legend = c("Point of interest (unknown)",
+                             "Reference point (known)"),
+       pch = c(21, 21), pt.bg = c("red", "blue"),
+       pt.cex = c(2, 1.5))
+```
+
+------------------------------------------------------------------------
+
+```{r positioning_3, echo=FALSE, fig.align='center'}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+points(x = 5, y = 7, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5, y0 = 7, x1 = 5 + 2, y1 = 7)
+draw.circle(x = 5, y = 7, radius = 2, border = "black", lty = 2)
+legend("topleft", legend = c("Point of interest (unknown)",
+                             "Reference point (known)",
+                             "Distance"),
+       pch = c(21, 21, NA), lty = c(NA, NA, 1), pt.bg = c("red", "blue"),
+       pt.cex = c(2, 1.5))
+```
+
+------------------------------------------------------------------------
+
+```{r positioning_4, echo=FALSE, fig.align='center'}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+points(x = 5, y = 7, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5, y0 = 7, x1 = 5 + 2, y1 = 7)
+draw.circle(x = 5, y = 7, radius = 2, border = "black", lty = 2)
+points(x = 8,  y = 12, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5 + 2, y0 = 7, x1 = 8,  y1 = 12)
+AB <- sqrt((8 - (5 + 2))^2 + (12 - 7)^2)
+draw.circle(x = 8, y = 12, radius = AB, border = "black", lty = 2)
+legend("topleft", legend = c("Point of interest (unknown)",
+                             "Reference point (known)",
+                             "Distance"),
+       pch = c(21, 21, NA), lty = c(NA, NA, 1), pt.bg = c("red", "blue"),
+       pt.cex = c(2, 1.5))
+```
+
+------------------------------------------------------------------------
+
+```{r positioning_5, echo=FALSE, fig.align='center'}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+points(x = 5, y = 7, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5, y0 = 7, x1 = 5 + 2, y1 = 7)
+draw.circle(x = 5, y = 7, radius = 2, border = "black", lty = 2)
+points(x = 8,  y = 12, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5 + 2, y0 = 7, x1 = 8,  y1 = 12)
+AB <- sqrt((8 - (5 + 2))^2 + (12 - 7)^2)
+draw.circle(x = 8, y = 12, radius = AB, border = "black", lty = 2)
+points(x = 17,  y = 5, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5 + 2, y0 = 7, x1 = 17,  y1 = 5)
+AC <- sqrt((17 - (5 + 2))^2 + (5 - 7)^2)
+draw.circle(x = 17, y = 5, radius = AC, border = "black", lty = 2)
+legend("topleft", legend = c("Point of interest (unknown)",
+                             "Reference point (known)",
+                             "Distance"),
+       pch = c(21, 21, NA), lty = c(NA, NA, 1), pt.bg = c("red", "blue"),
+       pt.cex = c(2, 1.5))
+```
+
+------------------------------------------------------------------------
+
+-   As you know, distance is a function of time and speed. We can assume with a certain degree of confidence that the speed of our radio signal is fairly constant ($3*10^5$Km/s). If our estimate of time is error-prone, the associated estimate of distance may also be affected by errors. That is why the distance is actually called pseudo-distance.
+
+-   To minimize this error a forth reference point (satellite) is necessary!
+
+-   The GPS receiver knows the position of the satellite because it is the satellite itself that sends it by communicating its orbit in a navigation message (ephemeris).
+
+## Making maps in R
+
+```{r world, echo=TRUE}
+library(spData)
+library(spDataLarge)
+library(sf)
+
+world
+
+```
+
+. . .
+
+<br/>
+
+```{r world1, echo=TRUE}
+class(world)
+```
+
+------------------------------------------------------------------------
+
+```{r world3, echo=TRUE, fig.align = 'center'}
+library(tidyr)
+
+world %>% 
+  st_geometry() %>% 
+  plot(main = "WGS84")
+```
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="\"50%"}
+```{r echo=TRUE, fig.align='center'}
+world %>%
+  st_transform("+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0") %>% 
+  st_geometry() %>% 
+  plot(main = "Lambert azimuthal equal-area.")
+```
+:::
+
+::: {.column width="\"50%"}
+::: fragment
+```{r echo=TRUE, fig.align='center'}
+world %>%
+  st_transform("+proj=aeqd +x_0=0 +y_0=0 +lon_0=0 +lat_0=0") %>% 
+  st_geometry() %>% 
+  plot(main = "Azimuthal equi-distant")
+```
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="\"50%"}
+```{r echo=TRUE, fig.align='center'}
+world %>%
+  st_transform("+proj=cea +zone=15 +datum=WGS84 +units=m +no_defs") %>% 
+  st_geometry() %>% 
+  plot(main = "Equal area cylindrical")
+```
+:::
+
+::: {.column width="\"50%"}
+::: fragment
+```{r echo=TRUE, fig.align='center'}
+world %>%
+  st_transform("+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs") %>% 
+  st_geometry() %>% 
+  plot(main = "Pseudo-Mercator")
+
+```
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Litterature assignment
+
+[Lez_1_Cagnacci_Animal ecology meets GPS-based radiotelemetry a perfect storm of opportunities and challenges_2010](https://drive.proton.me/urls/TZGP2H4RRW#yKlicYbTWViB)
+
+# References
