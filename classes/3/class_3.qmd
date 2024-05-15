@@ -171,7 +171,6 @@ lines(bats)
 ### Plot on a google map background
 - This code is not shown because it won't work for you unless you activate your personal google API key 
 ```{r api, echo=F}
-register_google(key = "AIzaSyBsyw8OkYuwrJKjrNvZqByGfKJjMErxnco")
 bats_df <- as.data.frame(bats)
 m <- get_map(e, zoom=9, source="google", maptype="terrain")
 ggmap(m) + geom_path(data=bats_df, aes(x=location.long, y=location.lat, colour=trackId))
