@@ -1,0 +1,227 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 3"
+date: "2024-05-14"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("cranlogs", "plotly", "plotrix")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+## Topics
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: green;"}
+    -   [Packages to install]{style="color: green;"}
+2.  [An introduction to Animal tracking]{style="color: green;"}
+    -   [Tagging systems]{style="color: green;"}
+3.  [CRS]{style="color: green;"}
+    -   [Telemetry and GPS]{style="color: green;"}
+4.  [Movement Data]{style="color: green;"}
+5.  [On-line databases]{style="color: green;"}
+    -   [GBIF]{style="color: green;"}
+    -   [Movebank]{style="color: green;"}
+:::
+
+::: {.column width="50%"}
+6.  [Drivers of species distribution]{style="color: orange;"}
+7.  [Home range estimates]{style="color: GhostWhite;"}
+    -   [MPC]{style="color: GhostWhite;"}
+    -   [KDE]{style="color: GhostWhite;"}
+    -   [Kriging]{style="color: GhostWhite;"}
+    -   [BBM]{style="color: GhostWhite;"}
+8.  [Species distribution modeling]{style="color: GhostWhite;"}
+    -   [Resource selection functions]{style="color: GhostWhite;"}
+    -   [Step selection functions]{style="color: GhostWhite;"}
+9.  [Modeling approaches]{style="color: GhostWhite;"}
+:::
+:::
+
+## Drivers of species distribution 
+
+- Advances in ecological research have contributed to make the study and understanding of the distribution of biodiversity at various spatial and temporal scale a core aspect of macro-ecology and biodiversity research [@Guisan2020]
+- Three main condition need to met in order for a species to occupy an area and maintain a viable population:
+    1. the species has to reach the site
+    2. the abiotic conditions have to be suitable for the species 
+    3. the biotic environment must be suitable for the species
+    
+## Drivers of species distribution 
+
+![Figure 3.1 after @Guisan2020](./ecoProcesses.png)
+
+## The abiotic environment
+
+- How does the abiotic environment influence the distribution of organisms?
+- What are the different types of environmental influences on species distribution?
+- How do multiple variables jointly determine a species geographic distribution?
+- Habitat: A description of environmental condition (abiotic and biotic) at a given locality at a particular scale of space and time, where organisms are or could potentially live
+- Species can colonize a range of conditions along an environmental gradient, but in most cases the range occupies a small portion of all possible conditions
+- The reasons lie in the physiology of organisms and the specific physiological adaptations that allow certain species to be better competitors in certain habitats and worst competitors in other
+
+## The abiotic environment
+
+- The transition from optimal to poor performance in a specific habitat can be a smooth transition or an abrupt transition
+- In conifer tree, the cambium activity allowing root growth tend to stop rather abruptly below ca. 7ºC at 10cm below ground [@Korner2021]
+- Smoother transitions occur when the gradient has a linear effect on some metabolic rate, progressively lowering individual fitness
+- All important variables should be considered jointly in an analysis in order to define what is known as the environmental niche of a species
+- When considered jointly, the physiological responses of a given species to several environmental variables define a multidimensional volume called a species fundamental environmental niche
+- For plants, the axes of the fundamental niche may typically be resource variable related to light, heat, water and nutrient variability [@Guisan2020]
+
+## The abiotic environment
+
+- If we could estimate the species fundamental niche we would be able to make predictions about where the species could live and thrive
+
+- In practice, measuring the fundamental niche based on field observation is practically impossible as interactions with other species should be factored in
+
+- The response of species in nature is modified by the presence of other species within the same group or across groups combined with the effects of the changing environment.These effects constrint the fundamental niche to what is known as the realized niche
+
+- Sometimes is not possible to measure and map the variables that actually have a measurable effect on species distribution
+
+## Preliminary data analysis
+
+```{r install, echo=TRUE, eval=FALSE}
+install.packages("move2")
+install.packages("readr")
+```
+
+- We can now load all the libraries that are going to be needed to run the excercise
+
+```{r loadlibraries}
+library(move)
+library(dplyr)
+library(sf)
+library(readr)
+library(mapdata)
+library(scales)
+library(ggmap)
+library(mapproj)
+library(ggsn)
+```
+
+## Preliminary data analysis
+
+```{r pda1, eval=TRUE, echo=FALSE}
+### We read in this dataset downloaded from Movebank directly as a move2 object
+bats <- move("../../data/Parti-colored bat Safi Switzerland.csv")
+str(bats)
+```
+
+## Preliminary data analysis
+### Basic plots 1
+
+```{r pda2}
+plot(bats)
+```
+
+## Preliminary data analysis
+### Basic plots 2
+```{r pda3}
+plot(bats, xlab="Longitude", ylab="Latitude", type="b", pch=16, cex=0.5)
+```
+
+## Preliminary data analysis
+### Plot on a map
+
+```{r pda4, cache=TRUE}
+map('worldHires', col="grey", fill=T)
+points(t(colMeans(coordinates(bats))), col=alpha('red',0.5), pch=16)
+points(t(colMeans(coordinates(bats))), col='cyan')
+```
+
+## Preliminary data analysis
+### Plot on a zoomed map
+
+```{r pda5}
+(e<-bbox(extent(bats)*5))
+# note here that the brackets around the assignment ensure that the result is also printed to the console
+map('worldHires', xlim = e[1, ], ylim = e[2, ])
+points(bats)
+lines(bats)
+```
+
+
+## Preliminary data analysis
+### Plot on a google map background
+- This code is not shown because it won't work for you unless you activate your personal google API key 
+```{r api, echo=F}
+register_google(key = "AIzaSyBsyw8OkYuwrJKjrNvZqByGfKJjMErxnco")
+bats_df <- as.data.frame(bats)
+m <- get_map(e, zoom=9, source="google", maptype="terrain")
+ggmap(m) + geom_path(data=bats_df, aes(x=location.long, y=location.lat, colour=trackId))
+
+```
+
+
+## Tidy your data 
+
+- We can identify and remove outliers after a graphical inspection of our data
+- Download a new data set from [this link](https://drive.proton.me/urls/Z8YWTNZET8#lg4QAn0g2Qgk)
+
+```{r tidyPoints, echo=T, eval=FALSE}
+load("PATH_TO_YOUR_DATA/buffalo_cleaned.Rdata") # buffalo
+## Create gray scale
+buffaloGray<-gray((nrow(idData(buffalo))-1):0/nrow(idData(buffalo)))
+## Plot with gray scale
+plot(buffalo, col=buffaloGray, xlab="Longitude", ylab="Latitude")
+```
+
+
+```{r tidyPoints2, echo=FALSE}
+load("../../data/buffalo_cleaned.Rdata") # buffalo
+## Create gray scale
+buffaloGray<-gray((nrow(idData(buffalo))-1):0/nrow(idData(buffalo)))
+## Plot with gray scale
+plot(buffalo, col=buffaloGray, xlab="Longitude", ylab="Latitude")
+```
+
+
+## Tidy your data
+
+```{r tidyPoints3}
+## get the position of the coordinate that has the max longitude
+which.max(coordinates(buffalo)[,1])
+## drop the point with the largest coordinate values
+buffalo <- buffalo[-which.max(coordinates(buffalo)[,1])]
+plot(buffalo, col=buffaloGray, xlab="Longitude", ylab="Latitude")
+
+```
+
+```{r tidyPoints4, echo=FALSE}
+## save the clean dataset for the following days
+save(buffalo, file="../../data/buffalos.Rdata")
+```
+
+```{r tidyPoints5, echo=T, eval=FALSE}
+## save the clean dataset for the following days
+save(buffalo, file="PATH_TO_YOUR_DIRECTORY/buffalos.Rdata")
+```
+
+
+## References

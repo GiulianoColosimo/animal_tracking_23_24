@@ -1,0 +1,253 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 2"
+date: "2024-05-09"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("cranlogs", "plotly", "plotrix")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+## Topics
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: green;"}
+    -   [Packages to install]{style="color: green;"}
+2.  [An introduction to Animal tracking]{style="color: green;"}
+    -   [Tagging systems]{style="color: green;"}
+3.  [CRS]{style="color: green;"}
+    -   [Telemetry and GPS]{style="color: orange;"}
+4.  [Movement Data]{style="color: orange;"}
+5.  [On-line databases]{style="color: orange;"}
+    -   [GBIF]{style="color: orange;"}
+    -   [Movebank]{style="color: orange;"}
+
+:::
+
+::: {.column width="50%"}
+6.  [Drivers of species distribution]{style="color: GhostWhite;"}
+7.  [Home range estimates]{style="color: GhostWhite;"}
+    -   [MPC]{style="color: GhostWhite;"}
+    -   [KDE]{style="color: GhostWhite;"}
+    -   [Kriging]{style="color: GhostWhite;"}
+    -   [BBM]{style="color: GhostWhite;"}
+8.  [Species distribution modeling]{style="color: GhostWhite;"}
+    -   [Resource selection functions]{style="color: GhostWhite;"}
+    -   [Step selection functions]{style="color: GhostWhite;"}
+9.  [Modeling approaches]{style="color: GhostWhite;"}
+:::
+:::
+
+## R packages
+
+![Packages and R tools. Image borrowed from AniMove e-learning classes](./Screenshot 2024-05-08 at 21.48.05.png)
+
+## Movement data
+### Lagragian movement data
+
+- Usually we think of and work with movement data where the position of an animal is collected through a device attached to the animal that allows in principle knowing where the animal is at any time: Lagragian data
+
+    - Radio tracking
+    - Satellite tracking
+    - GPS
+    - Geo-Locators
+
+- The methods differ mainly in their precision
+
+## Movement data
+### Eulerian movement data    
+
+- Eulerian methods violate the unbiased sampling assumption in the spatial domain
+
+    - Camera traps
+    - RFID Tags
+    - Microphon arrays
+    - Rings and band
+
+- The data they provide allow often in specific systems quite a reliable reconstruction of paths
+
+## What is movement?
+
+- Movement is defined as **locations through time**. We can think of movement as a spatio-temporal object. Therefore, a proper definition of space and time is fundamental to analyse data in the proper way
+
+![Brief example of how "movement" could be formalized](./Screenshot 2024-05-08 at 21.52.55.png)
+
+## Space problem
+
+- We have already talked about the space problem...
+
+:::: columns
+::: {.column width="50%"}
+![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot 2024-05-08 at 21.56.05.png)
+:::
+::: {.column width="50%"}
+![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot 2024-05-08 at 21.56.29.png)
+:::
+::::
+
+- We will soon see how to work with CRS in R, how to set them and how to change them
+
+## Time problem
+
+- Time settings are crucial
+- You need to know what your device uses as time
+- Many handheld GPS use and report local time, others use UTC
+- Time in R is relatively easy to work with
+
+```{r time}
+Sys.time()
+```
+
+```{r time2}
+(t <- as.POSIXct("2022-09-12 14:00:00", "%Y-%m-%d %H:%M:%S", tz="CET"))
+```
+
+## Databases
+
+### [movebank.org](https://www.movebank.org/cms/movebank-main)
+
+:::: columns
+::: {.column width="50%"}
+- As of February 2024, Movebank stores 6.1 billion animal locations
+- Billions bio-logged sensor measurements managed by thousands of researchers and wildlife managers 
+- Data represent the movements and behavior of over 200,000 animals and 1,383 species 
+- Approximately over 11 million new data records per day
+:::
+
+::: {.column width="50%"}
+![The movebank.org homepage](./Screenshot 2024-05-08 at 14.05.41.png)
+:::
+::::
+
+## Lets work with some data...
+
+- These are the libraries that we will use. In particular, *move2* [@Kranstauber2023] is a library that allows to access MoveBank data directly and import them in R
+- If you do not have them already, install them using the following lines of code
+
+```{r install, echo=TRUE, eval=FALSE}
+install.packages("move2")
+install.packages("readr")
+```
+
+- We can now load all the libraries that are going to be needed to run the excercise
+
+```{r loadlibraries}
+library(move2)
+library(dplyr)
+library(sf)
+library(readr)
+```
+
+## Get data from Movebank
+
+```{r getMovebank}
+### 1. Directly downloading data from Movebank ####
+
+# For the actual download we will look at three functions:
+# movebank_download_study_info() movebank_download_deployment() movebank_download_study()
+
+### store the movebank credentials for the most used account.
+# you will be promped to set a keyring password
+# by default this will be stored in the key list as service="movebank"
+movebank_store_credentials("RBook", "Obstberg1")
+
+### Browse the Movebank database
+# get the metadata of the studies visible from this account
+(allStudies <- movebank_download_study_info())
+```
+
+## Get data from Movebank
+
+```{r getMovebank2}
+# list studies for which we have download access
+movebank_download_study_info(i_have_download_access=T)
+```
+
+## Get data from Movebank
+
+```{r getMovebank3}
+# select only columns of interest and studies about bats
+movebank_download_study_info() %>% 
+  select(id, name, number_of_deployed_locations) %>% 
+  filter(grepl("Parti-colored bat", name))
+```
+
+. . .
+
+
+```{r getMovebank4}
+# retrieve all sensor ids recognized by Movebank
+movebank_retrieve(
+  entity_type = "tag_type",
+  attributes = c("external_id", "id")
+)
+
+```
+
+## Get data from Movebank
+
+```{r getMovebank5}
+### Download information about a specific Movebank study
+### get the id of the study (also part of the name but with unique match)
+movebank_get_study_id("Parti-colored bat")
+
+# get the metadata of the study
+movebank_download_study_info(study_id = 1918503) %>% 
+  print(width = Inf) #all cols
+```
+
+## Get data from Movebank
+
+```{r getMovebank6}
+### Download LOCATION data as a move2 object ----
+### download all data (all sensors, all animals)
+movebank_download_study(study_id = 1918503) 
+```
+
+## Get data from a CSV file downloaded from Movebank
+
+- We will now assume we downloaded a dataset from Movebank and we will import it in to R
+- Use [this](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10) link to download a .csv file with with the dataset we will be using
+- Place the dataset in a directory where you will be working
+
+```{r getMovebank7, eval=FALSE}
+### We read in this dataset downloaded from Movebank directly as a move2 object
+bats <- mt_read("/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv")
+str(bats)
+```
+
+
+```{r getMovebank7real, eval=TRUE, echo=FALSE}
+### We read in this dataset downloaded from Movebank directly as a move2 object
+bats <- mt_read("../../data/Parti-colored bat Safi Switzerland.csv")
+str(bats)
+```
+
+## References
