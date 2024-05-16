@@ -104,7 +104,30 @@ rm(x)
 
 - Sometimes is not possible to measure and map the variables that actually have a measurable effect on species distribution
 
-## Preliminary data analysis
+
+## Movement pattern analysis
+
+- Azimuth and turning angles:
+    - direction of travel, directionality of movement, and relation to speed
+    - recommended to exclude stationary segments from analysis
+
+- Net square displacement (NSD):
+    - quantifies the net squared distance traveled over time compared to an point of reference (calculates
+distance from each location to the point of reference)
+    - point of reference (nest, den, colony) needed. If there is no point of reference, or animal is nomadic, use
+e.g. FPT
+
+## Movement pattern analysis
+
+- First Time Passage (FTP)
+    - calculates the time it takes to cross a circle of a given radius, i.e. time the animal spends in a given area
+at a certain spatial scale (”draws” circle around each point and calculates how long it takes to leave the
+circle)
+    - the variance of log(fpt) can inform about the scales at which processes are likely to be changing
+    - the slopes of the log(meanFPT) ∼ log(radii), can indicate the type of movement at each scale. Flatter
+slopes indicate more directional movement, steeper slopes more brownian movement
+
+## Install and load the appropriate toolset
 
 ```{r install, echo=TRUE, eval=FALSE}
 install.packages("move")
@@ -113,6 +136,9 @@ install.packages("scales")
 install.packages("ggmap")
 install.packages("mapproj")
 install.packages("ggsn") # or devtools::install_github('oswaldosantos/ggsn')
+install.packages("lubridate")
+install.packages("circular")
+install.packages("adehabitatLT")
 ```
 
 - We can now load all the libraries that are going to be needed to run the exercise
@@ -127,11 +153,24 @@ library(scales)
 library(ggmap)
 library(mapproj)
 library(ggsn)
+library(lubridate)
+library(circular)
+library(adehabitatLT)
 ```
 
 ## Preliminary data analysis
 
-```{r pda1, eval=TRUE, echo=FALSE}
+-   Use [this](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10) link to download a .csv file with with the dataset we will be using
+-   Place the dataset in a directory where you will be working
+
+
+```{r getMovebank7, eval=FALSE}
+### We read in this dataset downloaded from Movebank directly as a move2 object
+bats <- move("/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv")
+str(bats)
+```
+
+```{r getMovebank7real, eval=TRUE, echo=FALSE}
 ### We read in this dataset downloaded from Movebank directly as a move2 object
 bats <- move("../../data/Parti-colored bat Safi Switzerland.csv")
 str(bats)
@@ -224,6 +263,202 @@ save(buffalo, file="../../data/buffalos.Rdata")
 ```{r tidyPoints5, echo=T, eval=FALSE}
 ## save the clean dataset for the following days
 save(buffalo, file="PATH_TO_YOUR_DIRECTORY/buffalos.Rdata")
+```
+
+## Visualizing data for vulture
+
+- Download the [Leo](https://drive.proton.me/urls/0ME89QYNS4#AY9gJIEXEqqq) dataset and put it in your working directory
+
+```{r leo1, echo=TRUE, eval=FALSE}
+Leo <- move("PATH/TO/FILE/Leo-65545.csv.gz")
+Leo
+```
+
+
+```{r leo2, echo=F}
+Leo <- move("../../data/Leo-65545.csv.gz")
+Leo
+```
+
+---
+
+```{r leo3}
+map('worldHires', xlim = Leo@bbox[1, ]+c(-5,5), ylim = Leo@bbox[2, ]+c(-5,5),col="grey", fill=T)
+lines(Leo, col="firebrick", lwd=1.5)
+```
+
+## Visualizing data for vulture
+### Check and tidy data
+
+```{r leo4}
+## get locations per year and month
+tapply(timestamps(Leo), list(year(timestamps(Leo)), month(timestamps(Leo))), length)
+
+## removing years 2012-13 because there is a large gap
+Leo <- Leo[year(Leo$timestamp)<2012,]
+tapply(timestamps(Leo), list(year(timestamps(Leo)), month(timestamps(Leo))), length)
+```
+
+## Visualizing data for vulture
+### Azimuthal distribution of data
+
+```{r leo5}
+categories<- c("1"="Wintering", "2"="Wintering", 
+               "3"="Wintering", "4"="North migration", 
+               "5"="North migration", "6"="Breeding", 
+               "7"="Breeding", "8"="Breeding", 
+               "9"="South migration", "10"="South migration", 
+               "11"="Wintering", "12"="Wintering")
+
+# assign the categories to a new variable based on the timestamp
+Leo$cat<-factor(categories[month(timestamps(Leo))],
+                levels=c("South migration", "Wintering", "North migration", "Breeding"))
+
+# assign NA to segments where subsequent locations fall in different seasons
+Leo$cat[c(Leo$cat[-n.locs(Leo)]!=Leo$cat[-1], TRUE)] <- NA
+
+# store the information in a new data frame
+azimuth <- data.frame(D=angle(Leo),
+                      V=speed(Leo), 
+                      Season=Leo$cat[-1])
+```
+
+
+## Visualizing data for vulture
+### Azimuthal distribution of data
+
+```{r leo6}
+# Define the direction as a circular
+azimuth$Dcirc<-as.circular(azimuth$D, 
+                           rotation="clock", 
+                           units="degrees", 
+                           type="angles", 
+                           modulo="asis", 
+                           zero=0, 
+                           template="geographic")
+
+# select segments above 2 m/s, we are only interested in segments when Leo is moving, and not the stationary error
+azimuth <- azimuth[azimuth$V>=2,]
+
+# remove missing values
+azimuth <- azimuth[complete.cases(azimuth),]
+
+# define a vector that is used to set the order of plotting
+seasons <- levels(Leo$cat)
+```
+
+## Visualizing data for vulture
+### Azimuthal distribution of data
+
+```{r leo7, echo=T, eval=FALSE}
+# change margins of plot
+par(mar=rep(1,4))
+
+# plot all the azimuths
+plot(azimuth$Dcirc, stack=T, shrink=1.6, pch=16, sep=0.05, col="grey")
+
+# loop through seasons and plot a line denisty per season
+for(i in 1:length(seasons)){
+  # subset the azimuth
+  x <- azimuth[azimuth$Season==seasons[i],'Dcirc']
+
+  # calculate density and plot as a line
+  lines(density(x, bw=180, kernel="vonmises"), lwd=2, lty=i)
+
+  # draw an arrow showing mean and resultant length
+  arrows.circular(mean(x), y=rho.circular(x), lwd=2, length=0.1, lty=i)
+}
+
+# add a legend
+legend("bottomleft", lty=c(1,2,3,4), seasons, bty="n", cex=0.85)
+```
+
+## Visualizing data for vulture
+### Azimuthal distribution of data
+
+```{r , leo8, echo=F, eval=T}
+# change margins of plot
+par(mar=rep(1,4))
+
+# plot all the azimuths
+plot(azimuth$Dcirc, stack=T, shrink=1.6, pch=16, sep=0.05, col="grey")
+
+# loop through seasons and plot a line denisty per season
+for(i in 1:length(seasons)){
+  # subset the azimuth
+  x <- azimuth[azimuth$Season==seasons[i],'Dcirc']
+  # calculate density and plot as a line
+  lines(density(x, bw=180, kernel="vonmises"), lwd=2, lty=i)
+  # draw an arrow showing mean and resultant length
+  arrows.circular(mean(x), y=rho.circular(x), lwd=2, length=0.1, lty=i)
+}
+
+# add a legend
+legend("bottomleft", lty=c(1,2,3,4), seasons, bty="n", cex=0.85)
+```
+
+## Visualizing randomly generated data
+### Net squared displacement
+
+```{r echo=T, eval=F}
+# simulate 500 tracks with 1000 steps, with different levels of correlation of turning angles (r) 
+# and convert into move object
+sets <- sort(rep((0.8 + log10(c(seq(1,100, length.out=10)))/10)[1:9],500))
+rCRW <- lapply(lapply(sets, simm.crw, date=1:1000, h=1), as, "Move")
+
+# calculate NSD for all tracks, from origin of trajectory
+rNSD <- unlist(lapply(lapply(lapply(rCRW, coordinates), spDistsN1, pt=c(0,0)), "^", 2))
+mNSD <- tapply(rNSD, list(sort(rep(sets,1000)), rep(1:1000, length(sets))), mean)
+
+par(mar=c(5, 4, 4, 4) + 0.1)
+plot(0,0, type="n", xlim=c(0,1300), ylim=c(0, max(mNSD)),
+     bty="n", xlab="Step", ylab="Net square distance", xaxt="n")
+axis(1, at=c(0,200,400,600,800,1000))
+test <- apply(as.matrix(mNSD), 1, lines, x=1:1000)
+text(cbind(rep(c(1250, 1100), length.out=length(row.names(mNSD))), mNSD[,ncol(mNSD)]), 
+     paste("r=", as.character(round(as.numeric(row.names(mNSD)),3)),sep=""), cex=0.5)
+```
+
+## Visualizing randomly generated data
+### Net squared displacement
+```{r echo=F, eval=T}
+# simulate 500 tracks with 1000 steps, with different levels of correlation of turning angles (r) 
+# and convert into move object
+sets <- sort(rep((0.8 + log10(c(seq(1,100, length.out=10)))/10)[1:9],500))
+rCRW <- lapply(lapply(sets, simm.crw, date=1:1000, h=1), as, "Move")
+# calculate NSD for all tracks, from origin of trajectory
+rNSD <- unlist(lapply(lapply(lapply(rCRW, coordinates), spDistsN1, pt=c(0,0)), "^", 2))
+mNSD <- tapply(rNSD, list(sort(rep(sets,1000)), rep(1:1000, length(sets))), mean)
+
+par(mar=c(5, 4, 4, 4) + 0.1)
+plot(0,0, type="n", xlim=c(0,1300), ylim=c(0, max(mNSD)),
+     bty="n", xlab="Step", ylab="Net square distance", xaxt="n")
+axis(1, at=c(0,200,400,600,800,1000))
+test <- apply(as.matrix(mNSD), 1, lines, x=1:1000)
+text(cbind(rep(c(1250, 1100), length.out=length(row.names(mNSD))), mNSD[,ncol(mNSD)]), 
+     paste("r=", as.character(round(as.numeric(row.names(mNSD)),3)),sep=""), cex=0.5)
+
+# Note to plot:
+# - slope: how fast it gets away from the origin
+```
+
+## Visualizing randomly generated data
+### Net squared displacement
+
+```{r}
+# - r=0.99: very correlated, movement almost in a steady direction, it's walking away from the origin.
+plot(rCRW[[4500]], pch=19)
+points(rCRW[[4500]][1], col="green3", pch=20)
+points(rCRW[[4500]][1000], col="red", pch=20)
+```
+
+## Visualizing randomly generated data
+### Net squared displacement
+```{r}
+# - r=0.8: fairly correlated. movement is wiggly. For example:
+plot(rCRW[[1]], pch=19)
+points(rCRW[[1]][1], col="green3", pch=20)
+points(rCRW[[1]][1000], col="red", pch=20)
 ```
 
 

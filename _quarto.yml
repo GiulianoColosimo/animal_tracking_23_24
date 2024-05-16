@@ -32,29 +32,22 @@ website:
     collapse-level: 2
     contents: 
        - href: ./classes/1/class_1.html
-         text: "Class 1 - Introduction"
+         text: "Class 1 - Introduction" # introduction to animal mmovement and tagging system
+                                        # and setting up computer with R - RStudio and Packages
        - href: ./classes/2/class_2.html
-         text: "Class 2"
+         text: "Class 2"                # 
        - href: ./classes/3/class_3.html
          text: "Class 3"
-#       - href: ./classes/4/class_1.html
+#       - href: ./classes/4/class_4.html
 #         text: "Class 4"
-
-#    contents:
-#      - section: "Course information"
-#        title: "Course information"
-#        contents: 
-#          - href: index.qmd
-#            text: "Overview"
-#          - href: course_syllabus.qmd
-#            text: "Syllabus"
-#          - href: course_schedule.qmd
-#            text: "Schedule"
-#      - section: "Classes"
-#        title: "Classes"
-
-          #- href: ./classes/Class_2.html
-          #  text: "Class 2"
+#       - href: ./classes/5/class_5.html
+#         text: "Class 5"
+#       - href: ./classes/6/class_6.html
+#         text: "Class 6"
+#       - href: ./classes/7/class_7.html
+#         text: "Class 7"
+#       - href: ./classes/8/class_8.html
+#         text: "Class 8"
 
 
     tools:

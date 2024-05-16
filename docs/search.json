@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Animal-tracking in Biologia della Conservazione",
     "section": "",
-    "text": "Introduction\nWelcome to class! These web-pages contain all the information you need to accomplish your class work for Animal-Tracking nella Biologia della Conservazione (2023-2024).\n\n\n\nGeneral information\nThis is an discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” (BEEA) degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours (i.e., 8 classes of 2 hours each) to be administered in person or remotely using Teams during the second semester of academic year 2023/2024.\n\n\n\n\n\n\nNote\n\n\n\nAs attendance is mandatory I will work with enrolled students to find the best time and day so that all can follow the class in person! If needed, we will change the delivery and we could make the class on-line using the Teams platform.\n\n\n\n\n\nTentative schedule. This may change after coordinating with the students on the best time/day for classes.\n\n\n\n\n\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nTo be decided\nTo be decided\nAula centro studi pesca/Teams\n\n\nFinal exam\nTo be decided\nTo be decided\nAula centro studi pesca/Teams\n\n\n\n\n\n\n\nCourse language\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used (including this website!) will be in English.\n\n\nPre-requisites\nThis is an introductory course, so no prior knowledge of this topic is required. Throughout the course students will be extensively exposed to various software and web-tools. All software used is freely available. It is necessary that each student has his/her own laptop in order to better follow the various demonstrations/exercises presented throughout the course. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful. This course does not teach you system administration skills and you should know how to read help files and software guides, as well as retrieve information on-line. Should a student not have a portable computer, all code, demonstrations, and class slides will be uploaded to this website and are available for practice on a desktop computer.\n\n\nTextbook\nAs this is an introductory and discretionary course there is no textbook. All the material covered in class will be available to you on this website. Most of the readings you will be doing is based on peer-reviewed manuscripts published on various scientific journals. Still, if you are really interested in this topic a really good, and advanced book is Guisan, Thuiller, & Zimmermann (2020). As this course will heavily rely on the use of R and R-Studio I am adding here some very useful resources that I encourage to use.\n\nCRAN\nStackOverflow\nBioconductor\nUn Viaggio nell’Ambiente R\n\n\n\nLearning objectives\nThe course aims to train students in the techniques of acquisition, organization, and analysis of data for the long-term tracking and monitoring of animals for conservation purposes. The course offers an overview of the different types of marking and tracking techniques used to monitor wildlife, and promotes an understanding of the best ways to use them in relation to the specific question that needs answer or hypothesis that needs testing. We will cover some of the most important methodologies used to analyse tracking data (for example, the estimation of distribution ranges) and peak in to some of the more advanced data analysis procedures (for example, animal distribution modeling). Through the review of the scientific literature and the discussion of the different animal monitoring techniques and analytical protocols, the course participants will develop the necessary critical skills for understanding the various problems related to the acquisition and organization of time series of data for animal tracking.\n\n\nClass evaluation\nAt the end of the course students will be evaluated on the presentation of a small project that they will undertake throughout the course. We will be reading and discussing primary literature on Movement Ecology. The critical comparison of the various methodologies of data acquisition, organization and processing will constitute the basis for the formulation of the student’s final judgment. Aspects that will be used to assess students’ learning level are their participation and interaction during the course and their ability to present and discuss scientific literature articles.\n\n\nMeeting hours\nEvery student is encouraged to contact me by e-mail with questions, doubts, curiosities about this course. My office hours are between 10:00 and 12:00 every Wednesday. My office is number 14, located on the first floor of the main building at “Laboratori di Ecologia Sperimentale ed Acquacoltura” (see the Contact tab for a map with the location of the office). It is always a good idea to e-mail me before coming to the office, to prevent overcrowding.\n\n\nStudents with disabilities\nPlease, let me know if you require special accommodations to follow this class.\n\n\nDiversity, Equity, and Inclusion\nThe success of this class depends on all of us creating a safe environment where students feel comfortable sharing their thoughts and opinions. We should all strive to be respectful and supportive of one another during class discussions. This class is made better by the contribution of diverse perspectives, and I hope that our class conversations can reflect that.\n\n\n\n\n\n\n\n\nReferences\n\nGuisan, A., Thuiller, W., & Zimmermann, N. E. (2020). Habitat Suitability and Distribution Models (With Applications in R). Ecology, biodiversity and conservation (p. 462). Cambridge, United Kingdom: Cambridge University Press."
+    "text": "Introduction\nWelcome to class! These web-pages contain all the information you need to accomplish your class work for Animal-Tracking nella Biologia della Conservazione (2023-2024).\n\n\n\nGeneral information\nThis is an discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” (BEEA) degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours (i.e., 8 classes of 2 hours each) to be administered in person or remotely using Teams during the second semester of academic year 2023/2024.\n\n\n\n\n\n\nNote\n\n\n\nAs attendance is mandatory I will work with enrolled students to find the best time and day so that all can follow the class in person! If needed, we will change the delivery and we could make the class on-line using the Teams platform.\n\n\n\n\n\nTentative schedule. This may change after coordinating with the students on the best time/day for classes.\n\n\n\n\n\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nTo be decided\nTo be decided\nAula centro studi pesca/Teams\n\n\nFinal exam\nTo be decided\nTo be decided\nAula centro studi pesca/Teams\n\n\n\n\n\n\n\nCourse language\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used (including this website!) will be in English.\n\n\nPre-requisites\nThis is an introductory course, so no prior knowledge of this topic is required. Throughout the course students will be extensively exposed to various software and web-tools. All software used is freely available. It is necessary that each student has his/her own laptop in order to better follow the various demonstrations/exercises presented throughout the course. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful. This course does not teach you system administration skills and you should know how to read help files and software guides, as well as retrieve information on-line. Should a student not have a portable computer, all code, demonstrations, and class slides will be uploaded to this website and are available for practice on a desktop computer.\n\n\nTextbook and resources\nAs this is an introductory and discretionary course there is no textbook. All the material covered in class will be available to you on this website. Most of the readings you will be doing is based on peer-reviewed manuscripts published on various scientific journals. Still, if you are really interested in this topic a really good, and advanced book is Guisan, Thuiller, & Zimmermann (2020). As this course will heavily rely on the use of R and R-Studio I am adding here some very useful resources that I encourage to use.\n\nCRAN\nStackOverflow\nBioconductor\nUn Viaggio nell’Ambiente R\nAniMove\n\n\n\nLearning objectives\nThe course aims to train students in the techniques of acquisition, organization, and analysis of data for the long-term tracking and monitoring of animals for conservation purposes. The course offers an overview of the different types of marking and tracking techniques used to monitor wildlife, and promotes an understanding of the best ways to use them in relation to the specific question that needs answer or hypothesis that needs testing. We will cover some of the most important methodologies used to analyse tracking data (for example, the estimation of distribution ranges) and peak in to some of the more advanced data analysis procedures (for example, animal distribution modeling). Through the review of the scientific literature and the discussion of the different animal monitoring techniques and analytical protocols, the course participants will develop the necessary critical skills for understanding the various problems related to the acquisition and organization of time series of data for animal tracking.\n\n\nClass evaluation\nAt the end of the course students will be evaluated on the presentation of a small project that they will undertake throughout the course. We will be reading and discussing primary literature on Movement Ecology. The critical comparison of the various methodologies of data acquisition, organization and processing will constitute the basis for the formulation of the student’s final judgment. Aspects that will be used to assess students’ learning level are their participation and interaction during the course and their ability to present and discuss scientific literature articles.\n\n\nMeeting hours\nEvery student is encouraged to contact me by e-mail with questions, doubts, curiosities about this course. My office hours are between 10:00 and 12:00 every Wednesday. My office is number 14, located on the first floor of the main building at “Laboratori di Ecologia Sperimentale ed Acquacoltura” (see the Contact tab for a map with the location of the office). It is always a good idea to e-mail me before coming to the office, to prevent overcrowding.\n\n\nStudents with disabilities\nPlease, let me know if you require special accommodations to follow this class.\n\n\nDiversity, Equity, and Inclusion\nThe success of this class depends on all of us creating a safe environment where students feel comfortable sharing their thoughts and opinions. We should all strive to be respectful and supportive of one another during class discussions. This class is made better by the contribution of diverse perspectives, and I hope that our class conversations can reflect that.\n\n\n\n\n\n\n\n\nReferences\n\nGuisan, A., Thuiller, W., & Zimmermann, N. E. (2020). Habitat Suitability and Distribution Models (With Applications in R). Ecology, biodiversity and conservation (p. 462). Cambridge, United Kingdom: Cambridge University Press."
   },
   {
     "objectID": "contacts.html",
@@ -17,8 +17,8 @@
     "objectID": "classes/1/class_1.html#course-overview",
     "href": "classes/1/class_1.html#course-overview",
     "title": "Animal tracking nella biologia della conservazione",
-    "section": "",
-    "text": "This is a discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours to be administered in person\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used will be in English\nNo specific prior knowledge of is required, but rudiments of basic GIS will definitely help. Students will be extensively exposed to various software and web-tools. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful\nClasses are Tuesday and Thursday (14:00-16:00) in “Aula centro studi pesca” (Laboratori di Ecologia Sperimentale ed Acquacoltura).\nAt the end of the course you will be evaluated with a written exam."
+    "section": "Course overview",
+    "text": "Course overview\n\nThis is a discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours to be administered in person\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used will be in English\nNo specific prior knowledge of is required, but rudiments of basic GIS will definitely help. Students will be extensively exposed to various software and web-tools. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful\nClasses are Tuesday and Thursday (14:00-16:00) in “Aula centro studi pesca” (Laboratori di Ecologia Sperimentale ed Acquacoltura).\nAt the end of the course you will be evaluated with a written exam."
   },
   {
     "objectID": "classes/1/class_1.html#course-evaluation",
@@ -60,7 +60,7 @@
     "href": "classes/1/class_1.html#packages",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Packages",
-    "text": "Packages\n\n\nWarning in RColorBrewer::brewer.pal(N, \"Set2\"): n too large, allowed maximum for palette Set2 is 8\nReturning the palette you asked for with that many colors\n\nWarning in RColorBrewer::brewer.pal(N, \"Set2\"): n too large, allowed maximum for palette Set2 is 8\nReturning the palette you asked for with that many colors\n\n\n\n\nTrend of some packages downloaded from CRAN"
+    "text": "Packages\n\n\n\n\nTrend of some packages downloaded from CRAN"
   },
   {
     "objectID": "classes/1/class_1.html#useful-packages",
@@ -95,7 +95,7 @@
     "href": "classes/1/class_1.html#patterns-tagging",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Patterns tagging",
-    "text": "Patterns tagging\n\n\n\nToes and nail clipping\n\n\n\nThis image is from Waichman (1992). The author describes all possible combination of toe clipping to uniquely identify individuals\n\n\n\n\n\nFeatures tag\n\n\n\nToads of the genus Bombina have unique spotted patterns. Photo credits: marioeffe"
+    "text": "Patterns tagging\n\n\nToes and nail clipping\n\n\n\nThis image is from Waichman (1992). The author describes all possible combination of toe clipping to uniquely identify individuals\n\n\n\nFeatures tag\n\n\n\nToads of the genus Bombina have unique spotted patterns. Photo credits: marioeffe"
   },
   {
     "objectID": "classes/1/class_1.html#photo-tagging",
@@ -123,14 +123,14 @@
     "href": "classes/1/class_1.html#satellite-tags",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Satellite tags",
-    "text": "Satellite tags\n\n\n\nA male Conolophus marthae with a Wireless Sensor Node (WSN) attached behind its hindlegs. This is a more sofisticated electronic tag that not only allows to identify the individual but also allows to collect important information such as GPS data, temperature and UV light. Photo credits: Giuliano Colosimo."
+    "text": "Satellite tags\n\nA male Conolophus marthae with a Wireless Sensor Node (WSN) attached behind its hindlegs. This is a more sofisticated electronic tag that not only allows to identify the individual but also allows to collect important information such as GPS data, temperature and UV light. Photo credits: Giuliano Colosimo."
   },
   {
     "objectID": "classes/1/class_1.html#data-visualization",
     "href": "classes/1/class_1.html#data-visualization",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Data visualization",
-    "text": "Data visualization\nEventually, data can be organized and analyzed to produce informative animations.\n\n\n\nMigration patterns of cranes (Grus grus) from Sweden. The data was downloaded from www.movebank.org."
+    "text": "Data visualization\nEventually, data can be organized and analyzed to produce informative animations.\n\nMigration patterns of cranes (Grus grus) from Sweden. The data was downloaded from www.movebank.org."
   },
   {
     "objectID": "classes/1/class_1.html#data-simulation",
@@ -151,7 +151,7 @@
     "href": "classes/1/class_1.html#setting-up-your-computers",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Setting up your computers",
-    "text": "Setting up your computers\nTo visualize and analyse data we will be using R and RStudio\n\nBasic installation\n\nsessionInfo()\n\nR version 4.3.2 (2023-10-31)\nPlatform: aarch64-apple-darwin20 (64-bit)\nRunning under: macOS Sonoma 14.4.1\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: Europe/Rome\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] plotrix_3.8-4  plotly_4.10.4  ggplot2_3.5.1  cranlogs_2.1.1\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.5      jsonlite_1.8.8    dplyr_1.1.4       compiler_4.3.2   \n [5] tidyselect_1.2.1  tidyr_1.3.1       scales_1.3.0      yaml_2.3.8       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] htmlwidgets_1.6.4 tibble_3.2.1      munsell_0.5.1     pillar_1.9.0     \n[17] rlang_1.1.3       utf8_1.2.4        xfun_0.43         lazyeval_0.2.2   \n[21] viridisLite_0.4.2 cli_3.6.2         withr_3.0.0       magrittr_2.0.3   \n[25] digest_0.6.35     grid_4.3.2        rstudioapi_0.16.0 lifecycle_1.0.4  \n[29] vctrs_0.6.5       evaluate_0.23     glue_1.7.0        data.table_1.15.4\n[33] fansi_1.0.6       colorspace_2.1-0  rmarkdown_2.26    purrr_1.0.2      \n[37] httr_1.4.7        tools_4.3.2       pkgconfig_2.0.3   htmltools_0.5.8.1"
+    "text": "Setting up your computers\nTo visualize and analyse data we will be using R and RStudio\nBasic installation\n\nsessionInfo()\n\nR version 4.3.2 (2023-10-31)\nPlatform: aarch64-apple-darwin20 (64-bit)\nRunning under: macOS Sonoma 14.4.1\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: Europe/Rome\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] plotrix_3.8-4  plotly_4.10.4  ggplot2_3.5.1  cranlogs_2.1.1\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.5      jsonlite_1.8.8    dplyr_1.1.4       compiler_4.3.2   \n [5] tidyselect_1.2.1  tidyr_1.3.1       scales_1.3.0      yaml_2.3.8       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] htmlwidgets_1.6.4 tibble_3.2.1      munsell_0.5.1     pillar_1.9.0     \n[17] rlang_1.1.3       utf8_1.2.4        xfun_0.43         lazyeval_0.2.2   \n[21] viridisLite_0.4.2 cli_3.6.2         withr_3.0.0       magrittr_2.0.3   \n[25] digest_0.6.35     grid_4.3.2        rstudioapi_0.16.0 lifecycle_1.0.4  \n[29] vctrs_0.6.5       evaluate_0.23     glue_1.7.0        data.table_1.15.4\n[33] fansi_1.0.6       colorspace_2.1-0  rmarkdown_2.26    purrr_1.0.2      \n[37] httr_1.4.7        tools_4.3.2       pkgconfig_2.0.3   htmltools_0.5.8.1"
   },
   {
     "objectID": "classes/1/class_1.html#an-introduction-to-animal-tracking",
@@ -165,28 +165,28 @@
     "href": "classes/1/class_1.html#tagging-systems-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Tagging systems",
-    "text": "Tagging systems\n\n\n\nA male Cyclura carinata with colored bead tags. Photo credits: Giuliano Colosimo."
+    "text": "Tagging systems\n\nA male Cyclura carinata with colored bead tags. Photo credits: Giuliano Colosimo."
   },
   {
     "objectID": "classes/1/class_1.html#passive-integrated-transponders-pit-1",
     "href": "classes/1/class_1.html#passive-integrated-transponders-pit-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Passive Integrated Transponders (PIT)",
-    "text": "Passive Integrated Transponders (PIT)\n\n\n\nA Passive Integrated Transponder by Trovan®. Photo credits: Giuliano Colosimo."
+    "text": "Passive Integrated Transponders (PIT)\n\nA Passive Integrated Transponder by Trovan®. Photo credits: Giuliano Colosimo."
   },
   {
     "objectID": "classes/1/class_1.html#photo-tagging-1",
     "href": "classes/1/class_1.html#photo-tagging-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Photo tagging",
-    "text": "Photo tagging\n\n\n\nDevelopment of a photo recognition software to identify iguanas in the wild. Image courtesy of Nathalie Duporge. A nice example and protocol of the use of photografies for the identification of unique individuals is presented in"
+    "text": "Photo tagging\n\nDevelopment of a photo recognition software to identify iguanas in the wild. Image courtesy of Nathalie Duporge. A nice example and protocol of the use of photografies for the identification of unique individuals is presented in"
   },
   {
     "objectID": "classes/1/class_1.html#molecular-tags-1",
     "href": "classes/1/class_1.html#molecular-tags-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Molecular tags",
-    "text": "Molecular tags\n\n\n\nSelected species and locations for which genetic tagging for demographic insights into population density, growth rates, direct measures of connectivity, or human–wildlife conflict has been successfully applied. Projects using genetic tagging for these demographic insights have been conducted on every continent, except Antarctica, and have sampled a variety of taxa, using many different sources of DNA, but are biased toward mid-large sized mobile mammals. After Lamb et al. (2019)"
+    "text": "Molecular tags\n\nSelected species and locations for which genetic tagging for demographic insights into population density, growth rates, direct measures of connectivity, or human–wildlife conflict has been successfully applied. Projects using genetic tagging for these demographic insights have been conducted on every continent, except Antarctica, and have sampled a variety of taxa, using many different sources of DNA, but are biased toward mid-large sized mobile mammals. After Lamb et al. (2019)"
   },
   {
     "objectID": "classes/1/class_1.html#satellite-tags-1",
@@ -200,35 +200,35 @@
     "href": "classes/1/class_1.html#why-animals-move-the-way-they-do",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Why animals move the way they do!",
-    "text": "Why animals move the way they do!\n\n\n\nA simulated path of a tracked animal!"
+    "text": "Why animals move the way they do!\n\nA simulated path of a tracked animal!"
   },
   {
     "objectID": "classes/1/class_1.html#coordinate-reference-systems-crs",
     "href": "classes/1/class_1.html#coordinate-reference-systems-crs",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Coordinate Reference Systems (CRS)",
-    "text": "Coordinate Reference Systems (CRS)\n\nA coordinate reference system allows us to use coordinates to locate features on a map. It is a rather important component of tracking, especially when dealing with animals that move significant distances.\nOne of the main issue is that ultimately what we try to do is to represent locations measured on a 3D surface (the earth) to a 2D map. This introduces distortions and errors.\nAnother issue is represented by the fact that the earth is not smooth surface. We can visualize the problem here!\nWe recognize two big classes of coordinate systems:\n\n\n\n\n\nGeographic coordinates\n\nThe earth is represented by a spherical or ellipsoidal surface. The geometric representation of the earth that is used is called datum. Distances between points cannot be measured out with geographical coordinates.\nLatitude: denoted by the Greek letter phi (𝜙). It is given as an angle that ranges from −90° at the south pole to 90° at the north pole, with 0° at the Equator.\nLongitude: denoted by the Greek letter lambda (λ). It is given as an angle that ranges from -180° to 180° from east to west and the 0°.\n\n\n\n\n\n\nAngles (degrees; longitude and latitude), pointing out locations on a spherical or ellipsoidal surface. Image source.\n\n\n\n\n\n\n\n\nProjected coordinates\n\nMeasured on a two-dimensional flat space (e.g. in meters; x and y), related to an ellipsoid by projection. In the transition from geometric coordinates to projected ones, a deformation of the images occurs.\n\n\n\n\n\n\nThere is no system of projections that is not affected by errors and distortions. Image source."
+    "text": "Coordinate Reference Systems (CRS)\n\nA coordinate reference system allows us to use coordinates to locate features on a map. It is a rather important component of tracking, especially when dealing with animals that move significant distances.\nOne of the main issue is that ultimately what we try to do is to represent locations measured on a 3D surface (the earth) to a 2D map. This introduces distortions and errors.\nAnother issue is represented by the fact that the earth is not smooth surface. We can visualize the problem here!\nWe recognize two big classes of coordinate systems:"
   },
   {
     "objectID": "classes/1/class_1.html#telemetry-e-gps",
     "href": "classes/1/class_1.html#telemetry-e-gps",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Telemetry e GPS",
-    "text": "Telemetry e GPS\n\n\n\nThe term telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) refers to an ensemble of techniques that allow to retrieve real time data and information using an array of wireless data transfer protocols.\nThe acronym GPS stands for Global Positioning System GPS\n\nNAVSTAR = NAVigation System with Timing And Ranging\nn ≥ 4 satellites\nm ≥ 1 receivers\nPseudo-ranges\n\n\n\n\n\n\nSatellite constellation serving the GPS system. Image source\n\n\n\n\n\n\nHow does positioning with range works?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAs you know, distance is a function of time and speed. We can assume with a certain degree of confidence that the speed of our radio signal is fairly constant (\\(3*10^5\\)Km/s). If our estimate of time is error-prone, the associated estimate of distance may also be affected by errors. That is why the distance is actually called pseudo-distance.\nTo minimize this error a forth reference point (satellite) is necessary!\nThe GPS receiver knows the position of the satellite because it is the satellite itself that sends it by communicating its orbit in a navigation message (ephemeris)."
+    "text": "Telemetry e GPS\n\n\n\nThe term telemetry (𝛕𝛈𝛌𝛆 = far, 𝛍𝛆𝛕𝛒𝛐𝛎 = measurement) refers to an ensemble of techniques that allow to retrieve real time data and information using an array of wireless data transfer protocols.\nThe acronym GPS stands for Global Positioning System GPS\n\nNAVSTAR = NAVigation System with Timing And Ranging\nn ≥ 4 satellites\nm ≥ 1 receivers\nPseudo-ranges\n\n\n\n\n\n\nSatellite constellation serving the GPS system. Image source"
   },
   {
     "objectID": "classes/1/class_1.html#making-maps-in-r",
     "href": "classes/1/class_1.html#making-maps-in-r",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Making maps in R",
-    "text": "Making maps in R\n\nlibrary(spData)\nlibrary(spDataLarge)\nlibrary(sf)\n\nLinking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE\n\nworld\n\nSimple feature collection with 177 features and 10 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513\nGeodetic CRS:  WGS 84\n# A tibble: 177 × 11\n   iso_a2 name_long continent region_un subregion type  area_km2     pop lifeExp\n * &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1 FJ     Fiji      Oceania   Oceania   Melanesia Sove…   1.93e4  8.86e5    70.0\n 2 TZ     Tanzania  Africa    Africa    Eastern … Sove…   9.33e5  5.22e7    64.2\n 3 EH     Western … Africa    Africa    Northern… Inde…   9.63e4 NA         NA  \n 4 CA     Canada    North Am… Americas  Northern… Sove…   1.00e7  3.55e7    82.0\n 5 US     United S… North Am… Americas  Northern… Coun…   9.51e6  3.19e8    78.8\n 6 KZ     Kazakhst… Asia      Asia      Central … Sove…   2.73e6  1.73e7    71.6\n 7 UZ     Uzbekist… Asia      Asia      Central … Sove…   4.61e5  3.08e7    71.0\n 8 PG     Papua Ne… Oceania   Oceania   Melanesia Sove…   4.65e5  7.76e6    65.2\n 9 ID     Indonesia Asia      Asia      South-Ea… Sove…   1.82e6  2.55e8    68.9\n10 AR     Argentina South Am… Americas  South Am… Sove…   2.78e6  4.30e7    76.3\n# ℹ 167 more rows\n# ℹ 2 more variables: gdpPercap &lt;dbl&gt;, geom &lt;MULTIPOLYGON [°]&gt;\n\n\n. . .\n\n\nclass(world)\n\n[1] \"sf\"         \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\n\nlibrary(tidyr)\n\nworld %&gt;% \n  st_geometry() %&gt;% \n  plot(main = \"WGS84\")\n\n\n\n\n\n\n\n\n\n\n\n\nworld %&gt;%\n  st_transform(\"+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0\") %&gt;% \n  st_geometry() %&gt;% \n  plot(main = \"Lambert azimuthal equal-area.\")\n\n\n\n\n\n\n\n\n\n\n\nworld %&gt;%\n  st_transform(\"+proj=aeqd +x_0=0 +y_0=0 +lon_0=0 +lat_0=0\") %&gt;% \n  st_geometry() %&gt;% \n  plot(main = \"Azimuthal equi-distant\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nworld %&gt;%\n  st_transform(\"+proj=cea +zone=15 +datum=WGS84 +units=m +no_defs\") %&gt;% \n  st_geometry() %&gt;% \n  plot(main = \"Equal area cylindrical\")\n\n\n\n\n\n\n\n\n\n\n\nworld %&gt;%\n  st_transform(\"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs\") %&gt;% \n  st_geometry() %&gt;% \n  plot(main = \"Pseudo-Mercator\")"
+    "text": "Making maps in R\n\nlibrary(spData)\nlibrary(spDataLarge)\nlibrary(sf)\n\nworld\n\nSimple feature collection with 177 features and 10 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513\nGeodetic CRS:  WGS 84\n# A tibble: 177 × 11\n   iso_a2 name_long continent region_un subregion type  area_km2     pop lifeExp\n * &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1 FJ     Fiji      Oceania   Oceania   Melanesia Sove…   1.93e4  8.86e5    70.0\n 2 TZ     Tanzania  Africa    Africa    Eastern … Sove…   9.33e5  5.22e7    64.2\n 3 EH     Western … Africa    Africa    Northern… Inde…   9.63e4 NA         NA  \n 4 CA     Canada    North Am… Americas  Northern… Sove…   1.00e7  3.55e7    82.0\n 5 US     United S… North Am… Americas  Northern… Coun…   9.51e6  3.19e8    78.8\n 6 KZ     Kazakhst… Asia      Asia      Central … Sove…   2.73e6  1.73e7    71.6\n 7 UZ     Uzbekist… Asia      Asia      Central … Sove…   4.61e5  3.08e7    71.0\n 8 PG     Papua Ne… Oceania   Oceania   Melanesia Sove…   4.65e5  7.76e6    65.2\n 9 ID     Indonesia Asia      Asia      South-Ea… Sove…   1.82e6  2.55e8    68.9\n10 AR     Argentina South Am… Americas  South Am… Sove…   2.78e6  4.30e7    76.3\n# ℹ 167 more rows\n# ℹ 2 more variables: gdpPercap &lt;dbl&gt;, geom &lt;MULTIPOLYGON [°]&gt;\n\n\n\n\n\nclass(world)\n\n[1] \"sf\"         \"tbl_df\"     \"tbl\"        \"data.frame\""
   },
   {
     "objectID": "classes/2/class_2.html#topics",
     "href": "classes/2/class_2.html#topics",
     "title": "Animal tracking nella biologia della conservazione",
-    "section": "Topics",
-    "text": "Topics\n\n\n\nSetting up your computers\n\nPackages to install\n\nAn introduction to Animal tracking\n\nTagging systems\n\nCRS\n\nTelemetry and GPS\n\nMovement Data\nOn-line databases\n\nGBIF\nMovebank\n\n\n\n\nDrivers of species distribution\nHome range estimates\n\nMPC\nKDE\nKriging\nBBM\n\nSpecies distribution modeling\n\nResource selection functions\nStep selection functions\n\nModeling approaches"
+    "section": "",
+    "text": "Setting up your computers\n\nPackages to install\n\nAn introduction to Animal tracking\n\nTagging systems\n\nCRS\n\nTelemetry and GPS\n\nMovement Data\nOn-line databases\n\nGBIF\nMovebank\n\n\n\n\nDrivers of species distribution\nHome range estimates\n\nMPC\nKDE\nKriging\nBBM\n\nSpecies distribution modeling\n\nResource selection functions\nStep selection functions\n\nModeling approaches"
   },
   {
     "objectID": "classes/2/class_2.html#references",
@@ -242,35 +242,35 @@
     "href": "classes/2/class_2.html#movement-data",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Movement data",
-    "text": "Movement data\nLagragian movement data\n\nUsually we think of and work with movement data where the position of an animal is collected through a device attached to the animal that allows in principle knowing where the animal is at any time: Lagragian data\n\nRadio tracking\nSatellite tracking\nGPS\nGeo-Locators\n\nThe methods differ mainly in their precision"
+    "text": "Movement data\n\nLagragian movement data\n\nUsually we think of and work with movement data where the position of an animal is collected through a device attached to the animal that allows in principle knowing where the animal is at any time: Lagragian data\n\nRadio tracking\nSatellite tracking\nGPS\nGeo-Locators\n\nThe methods differ mainly in their precision"
   },
   {
     "objectID": "classes/2/class_2.html#movement-data-1",
     "href": "classes/2/class_2.html#movement-data-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Movement data",
-    "text": "Movement data\nEulerian movement data\n\nEulerian methods violate the unbiased sampling assumption in the spatial domain\n\nCamera traps\nRFID Tags\nMicrophon arrays\nRings and band\n\nThe data they provide allow often in specific systems quite a reliable reconstruction of paths"
+    "text": "Movement data\n\nEulerian movement data\n\nEulerian methods violate the unbiased sampling assumption in the spatial domain\n\nCamera traps\nRFID Tags\nMicrophon arrays\nRings and band\n\nThe data they provide allow often in specific systems quite a reliable reconstruction of paths"
   },
   {
     "objectID": "classes/2/class_2.html#databases",
     "href": "classes/2/class_2.html#databases",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Databases",
-    "text": "Databases\nmovebank.org\n\n\n\nAs of February 2024, Movebank stores 6.1 billion animal locations\nBillions bio-logged sensor measurements managed by thousands of researchers and wildlife managers\nData represent the movements and behavior of over 200,000 animals and 1,383 species\nApproximately over 11 million new data records per day\n\n\n\n\n\nThe movebank.org homepage"
+    "text": "Databases\n\nmovebank.org\n\n\n\nAs of February 2024, Movebank stores 6.1 billion animal locations\nBillions bio-logged sensor measurements managed by thousands of researchers and wildlife managers\nData represent the movements and behavior of over 200,000 animals and 1,383 species\nApproximately over 11 million new data records per day\n\n\n\n\n\nThe movebank.org homepage"
   },
   {
     "objectID": "classes/2/class_2.html#r-packages",
     "href": "classes/2/class_2.html#r-packages",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "R packages",
-    "text": "R packages\n\nPackages and R tools. Image borrowed from AniMove e-learning classes"
+    "text": "R packages\n\n\n\nPackages and R tools. Image borrowed from AniMove e-learning classes"
   },
   {
     "objectID": "classes/2/class_2.html#what-is-movement",
     "href": "classes/2/class_2.html#what-is-movement",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "What is movement?",
-    "text": "What is movement?\n\nMovement is defined as locations through time. We can think of movement as a spatio-temporal object. Therefore, a proper definition of space and time is fundamental to analyse data in the proper way\n\n\nBrief example of how “movement” could be formalized"
+    "text": "What is movement?\n\nMovement is defined as locations through time. We can think of movement as a spatio-temporal object. Therefore, a proper definition of space and time is fundamental to analyse data in the proper way\n\n\n\n\nBrief example of how “movement” could be formalized"
   },
   {
     "objectID": "classes/2/class_2.html#space-problem",
@@ -333,7 +333,7 @@
     "href": "classes/2/class_2.html#get-data-from-movebank-2",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Get data from Movebank",
-    "text": "Get data from Movebank\n\n# select only columns of interest and studies about bats\nmovebank_download_study_info() %&gt;% \n  select(id, name, number_of_deployed_locations) %&gt;% \n  filter(grepl(\"Parti-colored bat\", name))\n\n# A tibble: 1 × 3\n       id name                               number_of_deployed_locations\n  &lt;int64&gt; &lt;fct&gt;                                                   [count]\n1 1918503 Parti-colored bat Safi Switzerland                         1740\n\n\n\n\n# retrieve all sensor ids recognized by Movebank\nmovebank_retrieve(\n  entity_type = \"tag_type\",\n  attributes = c(\"external_id\", \"id\")\n)\n\n# A tibble: 21 × 2\n   external_id                  id\n   &lt;chr&gt;                   &lt;int64&gt;\n 1 bird-ring                   397\n 2 gps                         653\n 3 radio-transmitter           673\n 4 argos-doppler-shift       82798\n 5 natural-mark            2365682\n 6 acceleration            2365683\n 7 solar-geolocator        3886361\n 8 accessory-measurements  7842954\n 9 solar-geolocator-raw    9301403\n10 barometer              77740391\n# ℹ 11 more rows"
+    "text": "Get data from Movebank\n\n# select only columns of interest and studies about bats\nmovebank_download_study_info() %&gt;% \n  select(id, name, number_of_deployed_locations) %&gt;% \n  filter(grepl(\"Parti-colored bat\", name))\n\n# A tibble: 1 × 3\n       id name                               number_of_deployed_locations\n  &lt;int64&gt; &lt;fct&gt;                                                   [count]\n1 1918503 Parti-colored bat Safi Switzerland                         1740\n\n\n. . .\n\n# retrieve all sensor ids recognized by Movebank\nmovebank_retrieve(\n  entity_type = \"tag_type\",\n  attributes = c(\"external_id\", \"id\")\n)\n\n# A tibble: 21 × 2\n   external_id                  id\n   &lt;chr&gt;                   &lt;int64&gt;\n 1 bird-ring                   397\n 2 gps                         653\n 3 radio-transmitter           673\n 4 argos-doppler-shift       82798\n 5 natural-mark            2365682\n 6 acceleration            2365683\n 7 solar-geolocator        3886361\n 8 accessory-measurements  7842954\n 9 solar-geolocator-raw    9301403\n10 barometer              77740391\n# ℹ 11 more rows"
   },
   {
     "objectID": "classes/2/class_2.html#get-data-from-movebank-3",
@@ -375,14 +375,14 @@
     "href": "classes/3/class_3.html#preliminary-data-analysis",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\n\ninstall.packages(\"move\")\ninstall.packages(\"mapdata\")\ninstall.packages(\"scales\")\ninstall.packages(\"ggmap\")\ninstall.packages(\"mapproj\")\ninstall.packages(\"ggsn\") # or devtools::install_github('oswaldosantos/ggsn')\n\n\nWe can now load all the libraries that are going to be needed to run the exercise\n\n\nlibrary(move)\nlibrary(dplyr)\nlibrary(sf)\nlibrary(readr)\nlibrary(mapdata)\nlibrary(scales)\nlibrary(ggmap)\nlibrary(mapproj)\nlibrary(ggsn)"
+    "text": "Preliminary data analysis\n\nUse this link to download a .csv file with with the dataset we will be using\nPlace the dataset in a directory where you will be working\n\n\n### We read in this dataset downloaded from Movebank directly as a move2 object\nbats &lt;- move(\"/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv\")\nstr(bats)\n\n\n\nFormal class 'MoveStack' [package \"move\"] with 17 slots\n  ..@ trackId                : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ timestamps             : POSIXct[1:1740], format: \"2002-06-02 22:55:11\" \"2002-06-02 23:04:30\" ...\n  ..@ idData                 :'data.frame': 17 obs. of  7 variables:\n  .. ..$ visible                        : Factor w/ 1 level \"true\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ manually.marked.outlier        : logi [1:17] NA NA NA NA NA NA ...\n  .. ..$ sensor.type                    : Factor w/ 1 level \"radio-transmitter\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ individual.taxon.canonical.name: Factor w/ 1 level \"Vespertilio murinus\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ tag.local.identifier           : Factor w/ 17 levels \"#1918725\",\"#1918728\",..: 8 9 10 11 12 1 2 3 13 4 ...\n  .. ..$ individual.local.identifier    : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: 1 2 3 4 5 6 7 8 9 10 ...\n  .. ..$ study.name                     : Factor w/ 1 level \"Parti-colored bat Safi Switzerland\": 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ sensor                 : Factor w/ 1 level \"radio-transmitter\": 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ data                   :'data.frame': 1740 obs. of  2 variables:\n  .. ..$ event.id : int [1:1740] 16309975 16309976 16309877 16309874 16309878 16309886 16309887 16309888 16309889 16309890 ...\n  .. ..$ timestamp: POSIXct[1:1740], format: \"2002-06-02 22:55:11\" \"2002-06-02 23:04:30\" ...\n  ..@ coords.nrs             : int [1:2] 3 4\n  ..@ coords                 : num [1:1740, 1:2] 8.6 8.61 8.61 8.6 8.6 ...\n  .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. ..$ : chr [1:1740] \"1\" \"2\" \"3\" \"4\" ...\n  .. .. ..$ : chr [1:2] \"location.long\" \"location.lat\"\n  ..@ bbox                   : num [1:2, 1:2] 7.03 46.9 8.69 47.66\n  .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. ..$ : chr [1:2] \"location.long\" \"location.lat\"\n  .. .. ..$ : chr [1:2] \"min\" \"max\"\n  ..@ proj4string            :Formal class 'CRS' [package \"sp\"] with 1 slot\n  .. .. ..@ projargs: chr \"+proj=longlat +datum=WGS84 +no_defs\"\n  .. .. ..$ comment: chr \"GEOGCRS[\\\"unknown\\\",\\n    DATUM[\\\"World Geodetic System 1984\\\",\\n        ELLIPSOID[\\\"WGS 84\\\",6378137,298.25722\"| __truncated__\n  ..@ trackIdUnUsedRecords   : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: \n  ..@ timestampsUnUsedRecords: 'POSIXct' num(0) \n - attr(*, \"tzone\")= chr \"UTC\"\n  ..@ sensorUnUsedRecords    : Factor w/ 1 level \"radio-transmitter\": \n  ..@ dataUnUsedRecords      :'data.frame': 0 obs. of  4 variables:\n  .. ..$ event.id     : int(0) \n  .. ..$ timestamp    : 'POSIXct' num(0) \n - attr(*, \"tzone\")= chr \"UTC\"\n  .. ..$ location.long: num(0) \n  .. ..$ location.lat : num(0) \n  ..@ dateCreation           : POSIXct[1:1], format: \"2023-07-07 03:20:52\"\n  ..@ study                  : chr \"Parti-colored bat Safi Switzerland\"\n  ..@ citation               : chr(0) \n  ..@ license                : chr(0)"
   },
   {
     "objectID": "classes/3/class_3.html#preliminary-data-analysis-1",
     "href": "classes/3/class_3.html#preliminary-data-analysis-1",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\n\n\nFormal class 'MoveStack' [package \"move\"] with 17 slots\n  ..@ trackId                : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ timestamps             : POSIXct[1:1740], format: \"2002-06-02 22:55:11\" \"2002-06-02 23:04:30\" ...\n  ..@ idData                 :'data.frame': 17 obs. of  7 variables:\n  .. ..$ visible                        : Factor w/ 1 level \"true\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ manually.marked.outlier        : logi [1:17] NA NA NA NA NA NA ...\n  .. ..$ sensor.type                    : Factor w/ 1 level \"radio-transmitter\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ individual.taxon.canonical.name: Factor w/ 1 level \"Vespertilio murinus\": 1 1 1 1 1 1 1 1 1 1 ...\n  .. ..$ tag.local.identifier           : Factor w/ 17 levels \"#1918725\",\"#1918728\",..: 8 9 10 11 12 1 2 3 13 4 ...\n  .. ..$ individual.local.identifier    : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: 1 2 3 4 5 6 7 8 9 10 ...\n  .. ..$ study.name                     : Factor w/ 1 level \"Parti-colored bat Safi Switzerland\": 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ sensor                 : Factor w/ 1 level \"radio-transmitter\": 1 1 1 1 1 1 1 1 1 1 ...\n  ..@ data                   :'data.frame': 1740 obs. of  2 variables:\n  .. ..$ event.id : int [1:1740] 16309975 16309976 16309877 16309874 16309878 16309886 16309887 16309888 16309889 16309890 ...\n  .. ..$ timestamp: POSIXct[1:1740], format: \"2002-06-02 22:55:11\" \"2002-06-02 23:04:30\" ...\n  ..@ coords.nrs             : int [1:2] 3 4\n  ..@ coords                 : num [1:1740, 1:2] 8.6 8.61 8.61 8.6 8.6 ...\n  .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. ..$ : chr [1:1740] \"1\" \"2\" \"3\" \"4\" ...\n  .. .. ..$ : chr [1:2] \"location.long\" \"location.lat\"\n  ..@ bbox                   : num [1:2, 1:2] 7.03 46.9 8.69 47.66\n  .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. ..$ : chr [1:2] \"location.long\" \"location.lat\"\n  .. .. ..$ : chr [1:2] \"min\" \"max\"\n  ..@ proj4string            :Formal class 'CRS' [package \"sp\"] with 1 slot\n  .. .. ..@ projargs: chr \"+proj=longlat +datum=WGS84 +no_defs\"\n  .. .. ..$ comment: chr \"GEOGCRS[\\\"unknown\\\",\\n    DATUM[\\\"World Geodetic System 1984\\\",\\n        ELLIPSOID[\\\"WGS 84\\\",6378137,298.25722\"| __truncated__\n  ..@ trackIdUnUsedRecords   : Factor w/ 17 levels \"X21\",\"X42\",\"X127\",..: \n  ..@ timestampsUnUsedRecords: 'POSIXct' num(0) \n - attr(*, \"tzone\")= chr \"UTC\"\n  ..@ sensorUnUsedRecords    : Factor w/ 1 level \"radio-transmitter\": \n  ..@ dataUnUsedRecords      :'data.frame': 0 obs. of  4 variables:\n  .. ..$ event.id     : int(0) \n  .. ..$ timestamp    : 'POSIXct' num(0) \n - attr(*, \"tzone\")= chr \"UTC\"\n  .. ..$ location.long: num(0) \n  .. ..$ location.lat : num(0) \n  ..@ dateCreation           : POSIXct[1:1], format: \"2023-07-07 03:20:52\"\n  ..@ study                  : chr \"Parti-colored bat Safi Switzerland\"\n  ..@ citation               : chr(0) \n  ..@ license                : chr(0)"
+    "text": "Preliminary data analysis\nBasic plots 1\n\nplot(bats)"
   },
   {
     "objectID": "classes/3/class_3.html#references",
@@ -396,28 +396,28 @@
     "href": "classes/3/class_3.html#preliminary-data-analysis-2",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\nBasic plots 1\n\nplot(bats)"
+    "text": "Preliminary data analysis\nBasic plots 2\n\nplot(bats, xlab=\"Longitude\", ylab=\"Latitude\", type=\"b\", pch=16, cex=0.5)"
   },
   {
     "objectID": "classes/3/class_3.html#preliminary-data-analysis-3",
     "href": "classes/3/class_3.html#preliminary-data-analysis-3",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\nBasic plots 2\n\nplot(bats, xlab=\"Longitude\", ylab=\"Latitude\", type=\"b\", pch=16, cex=0.5)"
+    "text": "Preliminary data analysis\nPlot on a map\n\nmap('worldHires', col=\"grey\", fill=T)\npoints(t(colMeans(coordinates(bats))), col=alpha('red',0.5), pch=16)\npoints(t(colMeans(coordinates(bats))), col='cyan')"
   },
   {
     "objectID": "classes/3/class_3.html#preliminary-data-analysis-4",
     "href": "classes/3/class_3.html#preliminary-data-analysis-4",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\nPlot on a map\n\nmap('worldHires', col=\"grey\", fill=T)\npoints(t(colMeans(coordinates(bats))), col=alpha('red',0.5), pch=16)\npoints(t(colMeans(coordinates(bats))), col='cyan')"
+    "text": "Preliminary data analysis\nPlot on a zoomed map\n\n(e&lt;-bbox(extent(bats)*5))\n\n         min      max\ns1  3.691055 12.02844\ns2 45.388508 49.16696\n\n# note here that the brackets around the assignment ensure that the result is also printed to the console\nmap('worldHires', xlim = e[1, ], ylim = e[2, ])\npoints(bats)\nlines(bats)"
   },
   {
     "objectID": "classes/3/class_3.html#preliminary-data-analysis-5",
     "href": "classes/3/class_3.html#preliminary-data-analysis-5",
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Preliminary data analysis",
-    "text": "Preliminary data analysis\nPlot on a zoomed map\n\n(e&lt;-bbox(extent(bats)*5))\n\n         min      max\ns1  3.691055 12.02844\ns2 45.388508 49.16696\n\n# note here that the brackets around the assignment ensure that the result is also printed to the console\nmap('worldHires', xlim = e[1, ], ylim = e[2, ])\npoints(bats)\nlines(bats)"
+    "text": "Preliminary data analysis\nPlot on a google map background\n\nThis code is not shown because it won’t work for you unless you activate your personal google API key"
   },
   {
     "objectID": "classes/3/class_3.html#drivers-of-species-distribution",
@@ -516,5 +516,110 @@
     "title": "Animal tracking nella biologia della conservazione",
     "section": "",
     "text": "This is a discretionary course for master level students enrolled in the “Biologia Evoluzionistica, Ecologia e Antropologia Applicata” degree at the University of Rome Tor Vergata. It is worth 2 CFU for a total of 16 hours to be administered in person\nThe course will be thought in Italian unless international students are present. In this latter case the course will be thought in English. All the material and the literature used will be in English\nNo specific prior knowledge of is required, but rudiments of basic GIS will definitely help. Students will be extensively exposed to various software and web-tools. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful\nClasses are Tuesday and Thursday (14:00-16:00) in “Aula centro studi pesca” (Laboratori di Ecologia Sperimentale ed Acquacoltura).\nAt the end of the course you will be evaluated with a written exam."
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data",
+    "href": "classes/3/class_3.html#visualizing-data",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data",
+    "text": "Visualizing data\n\nDownload the Leo dataset and put it in your working directory\n\n\nLeo &lt;- move(\"../../data/Leo-65545.csv.gz\")\nLeo\nmap('worldHires', xlim = Leo@bbox[1, ]+c(-5,5), ylim = Leo@bbox[2, ]+c(-5,5),col=\"grey\", fill=T)\nlines(Leo, col=\"firebrick\", lwd=1.5)\n\n\n\nclass       : Move \nfeatures    : 35256 \nextent      : -108.8262, -68.58033, 7.16283, 53.82783  (xmin, xmax, ymin, ymax)\ncrs         : +proj=longlat +datum=WGS84 +no_defs \nvariables   : 10\nnames       :  event.id,  timestamp, ground.speed, heading, height.raw, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.migration.state,      utm.easting,     utm.northing, utm.zone, study.local.timestamp \nmin values  :   2333006, 1182024000,            0,       0,          0,                                                                                   , 169798.059287902, 791836.814945502,      12N,            1181991600 \nmax values  : 180011334, 1363680000,          110,     359,       1982,                                                                    SpringMigration, 829886.257338918, 5967229.98624054,      19N,            1363651200 \ntimestamps  : 2007-06-16 20:00:00 ... 2013-03-19 08:00:00 Time difference of 2102 days  (start ... end, duration) \nsensors     : gps \nindiv. data : behavioural.classification, manually.marked.outlier, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.behaviour, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.deployment.special.event, visible, sensor.type, individual.taxon.canonical.name, tag.local.identifier, individual.local.identifier, study.name, study.timezone \nindiv. value: NA NA NA NA true gps Cathartes aura 65545 Leo Turkey Vulture Acopian Center USA GPS Pacific Standard Time \nstudy name  : Turkey Vulture Acopian Center USA GPS \ndate created: 2023-07-07 03:20:52"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\n\nDownload the Leo dataset and put it in your working directory\n\n\nLeo &lt;- move(\"PATH/TO/FILE/Leo-65545.csv.gz\")\nLeo\n\n\n\nclass       : Move \nfeatures    : 35256 \nextent      : -108.8262, -68.58033, 7.16283, 53.82783  (xmin, xmax, ymin, ymax)\ncrs         : +proj=longlat +datum=WGS84 +no_defs \nvariables   : 10\nnames       :  event.id,  timestamp, ground.speed, heading, height.raw, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.migration.state,      utm.easting,     utm.northing, utm.zone, study.local.timestamp \nmin values  :   2333006, 1182024000,            0,       0,          0,                                                                                   , 169798.059287902, 791836.814945502,      12N,            1181991600 \nmax values  : 180011334, 1363680000,          110,     359,       1982,                                                                    SpringMigration, 829886.257338918, 5967229.98624054,      19N,            1363651200 \ntimestamps  : 2007-06-16 20:00:00 ... 2013-03-19 08:00:00 Time difference of 2102 days  (start ... end, duration) \nsensors     : gps \nindiv. data : behavioural.classification, manually.marked.outlier, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.behaviour, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.deployment.special.event, visible, sensor.type, individual.taxon.canonical.name, tag.local.identifier, individual.local.identifier, study.name, study.timezone \nindiv. value: NA NA NA NA true gps Cathartes aura 65545 Leo Turkey Vulture Acopian Center USA GPS Pacific Standard Time \nstudy name  : Turkey Vulture Acopian Center USA GPS \ndate created: 2023-07-07 03:20:52"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture-1",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\nCheck and tidy data\n\n## get locations per year and month\ntapply(timestamps(Leo), list(year(timestamps(Leo)), month(timestamps(Leo))), length)\n\n       1   2   3   4   5   6   7   8   9  10  11  12\n2007  NA  NA  NA  NA  NA 300 699 701 698 717 658 677\n2008 716 626 685 705 710 701 713 727 705 687 621 672\n2009 643 579 648 671 616 510 641 728 702 706 660 622\n2010 680 562 558 556 537 502 721 683 639 706 599 640\n2011 601 586 649 609 563 344 541 706 667 307  NA  NA\n2012  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 321 444\n2013 432 404 255  NA  NA  NA  NA  NA  NA  NA  NA  NA\n\n## removing years 2012-13 because there is a large gap\nLeo &lt;- Leo[year(Leo$timestamp)&lt;2012,]\ntapply(timestamps(Leo), list(year(timestamps(Leo)), month(timestamps(Leo))), length)\n\n       1   2   3   4   5   6   7   8   9  10  11  12\n2007  NA  NA  NA  NA  NA 300 699 701 698 717 658 677\n2008 716 626 685 705 710 701 713 727 705 687 621 672\n2009 643 579 648 671 616 510 641 728 702 706 660 622\n2010 680 562 558 556 537 502 721 683 639 706 599 640\n2011 601 586 649 609 563 344 541 706 667 307  NA  NA"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture-2",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture-2",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\nAzimuthal distribution of data\n\ncategories&lt;- c(\"1\"=\"Wintering\", \"2\"=\"Wintering\", \n               \"3\"=\"Wintering\", \"4\"=\"North migration\", \n               \"5\"=\"North migration\", \"6\"=\"Breeding\", \n               \"7\"=\"Breeding\", \"8\"=\"Breeding\", \n               \"9\"=\"South migration\", \"10\"=\"South migration\", \n               \"11\"=\"Wintering\", \"12\"=\"Wintering\")\n\n# assign the categories to a new variable based on the timestamp\nLeo$cat&lt;-factor(categories[month(timestamps(Leo))],\n                levels=c(\"South migration\", \"Wintering\", \"North migration\", \"Breeding\"))\n\n# assign NA to segments where subsequent locations fall in different seasons\nLeo$cat[c(Leo$cat[-n.locs(Leo)]!=Leo$cat[-1], TRUE)] &lt;- NA\n\n# store the information in a new data frame\nazimuth &lt;- data.frame(D=angle(Leo),\n                      V=speed(Leo), \n                      Season=Leo$cat[-1])"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture-3",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture-3",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\nAzimuthal distribution of data\n\n# Define the direction as a circular\nazimuth$Dcirc&lt;-as.circular(azimuth$D, \n                           rotation=\"clock\", \n                           units=\"degrees\", \n                           type=\"angles\", \n                           modulo=\"asis\", \n                           zero=0, \n                           template=\"geographic\")\n\n# select segments above 2 m/s, we are only interested in segments when Leo is moving, and not the stationary error\nazimuth &lt;- azimuth[azimuth$V&gt;=2,]\n\n# remove missing values\nazimuth &lt;- azimuth[complete.cases(azimuth),]\n\n# define a vector that is used to set the order of plotting\nseasons &lt;- levels(Leo$cat)"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture-4",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture-4",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\nAzimuthal distribution of data\n\n# change margins of plot\npar(mar=rep(1,4))\n\n# plot all the azimuths\nplot(azimuth$Dcirc, stack=T, shrink=1.6, pch=16, sep=0.05, col=\"grey\")\n\n# loop through seasons and plot a line denisty per season\nfor(i in 1:length(seasons)){\n  # subset the azimuth\n  x &lt;- azimuth[azimuth$Season==seasons[i],'Dcirc']\n\n  # calculate density and plot as a line\n  lines(density(x, bw=180, kernel=\"vonmises\"), lwd=2, lty=i)\n\n  # draw an arrow showing mean and resultant length\n  arrows.circular(mean(x), y=rho.circular(x), lwd=2, length=0.1, lty=i)\n}\n\n# add a legend\nlegend(\"bottomleft\", lty=c(1,2,3,4), seasons, bty=\"n\", cex=0.85)"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-data-for-vulture-5",
+    "href": "classes/3/class_3.html#visualizing-data-for-vulture-5",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing data for vulture",
+    "text": "Visualizing data for vulture\nAzimuthal distribution of data"
+  },
+  {
+    "objectID": "classes/3/class_3.html#movement-pattern-analysis",
+    "href": "classes/3/class_3.html#movement-pattern-analysis",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Movement pattern analysis",
+    "text": "Movement pattern analysis\n\nAzimuth and turning angles:\n\ndirection of travel, directionality of movement, and relation to speed\nrecommended to exclude stationary segments from analysis\n\nNet square displacement (NSD):\n\nquantifies the net squared distance traveled over time compared to an point of reference (calculates distance from each location to the point of reference)\npoint of reference (nest, den, colony) needed. If there is no point of reference, or animal is nomadic, use e.g. FPT"
+  },
+  {
+    "objectID": "classes/3/class_3.html#movement-pattern-analysis-1",
+    "href": "classes/3/class_3.html#movement-pattern-analysis-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Movement pattern analysis",
+    "text": "Movement pattern analysis\n\nFirst Time Passage (FTP)\n\ncalculates the time it takes to cross a circle of a given radius, i.e. time the animal spends in a given area at a certain spatial scale (”draws” circle around each point and calculates how long it takes to leave the circle)\nthe variance of log(fpt) can inform about the scales at which processes are likely to be changing\nthe slopes of the log(meanFPT) ∼ log(radii), can indicate the type of movement at each scale. Flatter slopes indicate more directional movement, steeper slopes more brownian movement"
+  },
+  {
+    "objectID": "classes/3/class_3.html#install-and-load-the-appropriate-toolset",
+    "href": "classes/3/class_3.html#install-and-load-the-appropriate-toolset",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Install and load the appropriate toolset",
+    "text": "Install and load the appropriate toolset\n\ninstall.packages(\"move\")\ninstall.packages(\"mapdata\")\ninstall.packages(\"scales\")\ninstall.packages(\"ggmap\")\ninstall.packages(\"mapproj\")\ninstall.packages(\"ggsn\") # or devtools::install_github('oswaldosantos/ggsn')\ninstall.packages(\"lubridate\")\ninstall.packages(\"circular\")\ninstall.packages(\"adehabitatLT\")\n\n\nWe can now load all the libraries that are going to be needed to run the exercise\n\n\nlibrary(move)\nlibrary(dplyr)\nlibrary(sf)\nlibrary(readr)\nlibrary(mapdata)\nlibrary(scales)\nlibrary(ggmap)\nlibrary(mapproj)\nlibrary(ggsn)\nlibrary(lubridate)\nlibrary(circular)\nlibrary(adehabitatLT)"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-randomly-generated-data",
+    "href": "classes/3/class_3.html#visualizing-randomly-generated-data",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing randomly generated data",
+    "text": "Visualizing randomly generated data\nNet squared displacement\n\n# simulate 500 tracks with 1000 steps, with different levels of correlation of turning angles (r) \n# and convert into move object\nsets &lt;- sort(rep((0.8 + log10(c(seq(1,100, length.out=10)))/10)[1:9],500))\nrCRW &lt;- lapply(lapply(sets, simm.crw, date=1:1000, h=1), as, \"Move\")\n\n# calculate NSD for all tracks, from origin of trajectory\nrNSD &lt;- unlist(lapply(lapply(lapply(rCRW, coordinates), spDistsN1, pt=c(0,0)), \"^\", 2))\nmNSD &lt;- tapply(rNSD, list(sort(rep(sets,1000)), rep(1:1000, length(sets))), mean)\n\npar(mar=c(5, 4, 4, 4) + 0.1)\nplot(0,0, type=\"n\", xlim=c(0,1300), ylim=c(0, max(mNSD)),\n     bty=\"n\", xlab=\"Step\", ylab=\"Net square distance\", xaxt=\"n\")\naxis(1, at=c(0,200,400,600,800,1000))\ntest &lt;- apply(as.matrix(mNSD), 1, lines, x=1:1000)\ntext(cbind(rep(c(1250, 1100), length.out=length(row.names(mNSD))), mNSD[,ncol(mNSD)]), \n     paste(\"r=\", as.character(round(as.numeric(row.names(mNSD)),3)),sep=\"\"), cex=0.5)"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-randomly-generated-data-1",
+    "href": "classes/3/class_3.html#visualizing-randomly-generated-data-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing randomly generated data",
+    "text": "Visualizing randomly generated data\nNet squared displacement"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-randomly-generated-data-2",
+    "href": "classes/3/class_3.html#visualizing-randomly-generated-data-2",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing randomly generated data",
+    "text": "Visualizing randomly generated data\nNet squared displacement\n\n# - r=0.99: very correlated, movement almost in a steady direction, it's walking away from the origin.\nplot(rCRW[[4500]], pch=19)\npoints(rCRW[[4500]][1], col=\"green3\", pch=20)\npoints(rCRW[[4500]][1000], col=\"red\", pch=20)"
+  },
+  {
+    "objectID": "classes/3/class_3.html#visualizing-randomly-generated-data-3",
+    "href": "classes/3/class_3.html#visualizing-randomly-generated-data-3",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Visualizing randomly generated data",
+    "text": "Visualizing randomly generated data\nNet squared displacement\n\n# - r=0.8: fairly correlated. movement is wiggly. For example:\nplot(rCRW[[1]], pch=19)\npoints(rCRW[[1]][1], col=\"green3\", pch=20)\npoints(rCRW[[1]][1000], col=\"red\", pch=20)"
+  },
+  {
+    "objectID": "classes/1/class_1.html#references",
+    "href": "classes/1/class_1.html#references",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "References",
+    "text": "References\n\n\n\n\nAnimal tracking nella biologia della conservazione - Giuliano Colosimo, PhD\n\n\n\n\nCosta, H., Foody, G., Jiménez, S., & Silva, L. (2015). Impacts of species misidentification on species distribution modeling with presence-only data. ISPRS International Journal of Geo-Information, 4(4), 2496–2518. MDPI AG. Retrieved from https://doi.org/10.3390%2Fijgi4042496\n\n\nGuisan, Antoine, Thuiller, W., & Zimmermann, N. E. (2020). Habitat Suitability and Distribution Models (With Applications in R). Ecology, biodiversity and conservation (p. 462). Cambridge, United Kingdom: Cambridge University Press.\n\n\nGuisan, Antoie, & Zimmermann, N. E. (2000). Predictive habitat distribution models in ecology. Ecological Modelling, 135(2), 147–186. Retrieved from https://www.sciencedirect.com/science/article/pii/S0304380000003549\n\n\nLamb, C. T., Ford, A. T., Proctor, M. F., Royle, J. A., Mowat, G., & Boutin, S. (2019). Genetic tagging in the anthropocene: Scaling ecology from alleles to ecosystems. Ecological Applications, 29(4), e01876. Wiley. Retrieved from https://doi.org/10.1002%2Feap.1876\n\n\nWaichman, A. (1992). An alphanumeric code for toe clipping amphibians and reptiles. Herpetological Review, 23, 19–21."
   }
 ]

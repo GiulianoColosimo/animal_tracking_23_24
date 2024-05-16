@@ -43,7 +43,7 @@ The course will be thought in Italian unless international students are present.
 
 This is an introductory course, so no prior knowledge of this topic is required. Throughout the course students will be extensively exposed to various software and web-tools. All software used is freely available. It is necessary that each student has his/her own laptop in order to better follow the various demonstrations/exercises presented throughout the course. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful. This course does not teach you system administration skills and you should know how to read help files and software guides, as well as retrieve information on-line. Should a student not have a portable computer, all code, demonstrations, and class slides will be uploaded to this website and are available for practice on a desktop computer.
 
-# Textbook
+# Textbook and resources
 
 As this is an introductory and discretionary course there is no textbook. All the material covered in class will be available to you on this website. Most of the readings you will be doing is based on peer-reviewed manuscripts published on various scientific journals. Still, if you are really interested in this topic a really good, and advanced book is @Guisan2020. As this course will heavily rely on the use of R and R-Studio I am adding here some very useful resources that I encourage to use.
 
@@ -51,6 +51,7 @@ As this is an introductory and discretionary course there is no textbook. All th
 -   [StackOverflow](https://stackoverflow.com)
 -   [Bioconductor](http://www.bioconductor.org)
 -   [Un Viaggio nell'Ambiente R](https://tommaso-russo.github.io/libroR/index.html)
+-   [AniMove](https://animove.org)
 
 # Learning objectives
 

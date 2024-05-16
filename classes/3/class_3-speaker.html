@@ -517,15 +517,44 @@
 <li><p>Sometimes is not possible to measure and map the variables that actually have a measurable effect on species distribution</p></li>
 </ul>
 </section>
-<section id="preliminary-data-analysis" class="slide level2">
-<h2>Preliminary data analysis</h2>
+<section id="movement-pattern-analysis" class="slide level2">
+<h2>Movement pattern analysis</h2>
+<ul>
+<li>Azimuth and turning angles:
+<ul>
+<li>direction of travel, directionality of movement, and relation to speed</li>
+<li>recommended to exclude stationary segments from analysis</li>
+</ul></li>
+<li>Net square displacement (NSD):
+<ul>
+<li>quantifies the net squared distance traveled over time compared to an point of reference (calculates distance from each location to the point of reference)</li>
+<li>point of reference (nest, den, colony) needed. If there is no point of reference, or animal is nomadic, use e.g.&nbsp;FPT</li>
+</ul></li>
+</ul>
+</section>
+<section id="movement-pattern-analysis-1" class="slide level2">
+<h2>Movement pattern analysis</h2>
+<ul>
+<li>First Time Passage (FTP)
+<ul>
+<li>calculates the time it takes to cross a circle of a given radius, i.e.&nbsp;time the animal spends in a given area at a certain spatial scale (”draws” circle around each point and calculates how long it takes to leave the circle)</li>
+<li>the variance of log(fpt) can inform about the scales at which processes are likely to be changing</li>
+<li>the slopes of the log(meanFPT) ∼ log(radii), can indicate the type of movement at each scale. Flatter slopes indicate more directional movement, steeper slopes more brownian movement</li>
+</ul></li>
+</ul>
+</section>
+<section id="install-and-load-the-appropriate-toolset" class="slide level2">
+<h2>Install and load the appropriate toolset</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"move"</span>)</span>
 <span id="cb1-2"><a></a><span class="fu">install.packages</span>(<span class="st">"mapdata"</span>)</span>
 <span id="cb1-3"><a></a><span class="fu">install.packages</span>(<span class="st">"scales"</span>)</span>
 <span id="cb1-4"><a></a><span class="fu">install.packages</span>(<span class="st">"ggmap"</span>)</span>
 <span id="cb1-5"><a></a><span class="fu">install.packages</span>(<span class="st">"mapproj"</span>)</span>
-<span id="cb1-6"><a></a><span class="fu">install.packages</span>(<span class="st">"ggsn"</span>) <span class="co"># or devtools::install_github('oswaldosantos/ggsn')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a></a><span class="fu">install.packages</span>(<span class="st">"ggsn"</span>) <span class="co"># or devtools::install_github('oswaldosantos/ggsn')</span></span>
+<span id="cb1-7"><a></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span>
+<span id="cb1-8"><a></a><span class="fu">install.packages</span>(<span class="st">"circular"</span>)</span>
+<span id="cb1-9"><a></a><span class="fu">install.packages</span>(<span class="st">"adehabitatLT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>We can now load all the libraries that are going to be needed to run the exercise</li>
@@ -539,11 +568,23 @@
 <span id="cb2-6"><a></a><span class="fu">library</span>(scales)</span>
 <span id="cb2-7"><a></a><span class="fu">library</span>(ggmap)</span>
 <span id="cb2-8"><a></a><span class="fu">library</span>(mapproj)</span>
-<span id="cb2-9"><a></a><span class="fu">library</span>(ggsn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a></a><span class="fu">library</span>(ggsn)</span>
+<span id="cb2-10"><a></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb2-11"><a></a><span class="fu">library</span>(circular)</span>
+<span id="cb2-12"><a></a><span class="fu">library</span>(adehabitatLT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preliminary-data-analysis-1" class="slide level2">
+<section id="preliminary-data-analysis" class="slide level2">
 <h2>Preliminary data analysis</h2>
+<ul>
+<li>Use <a href="https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10">this</a> link to download a .csv file with with the dataset we will be using</li>
+<li>Place the dataset in a directory where you will be working</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="do">### We read in this dataset downloaded from Movebank directly as a move2 object</span></span>
+<span id="cb3-2"><a></a>bats <span class="ot">&lt;-</span> <span class="fu">move</span>(<span class="st">"/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv"</span>)</span>
+<span id="cb3-3"><a></a><span class="fu">str</span>(bats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Formal class 'MoveStack' [package "move"] with 17 slots
@@ -590,50 +631,50 @@
 </div>
 </div>
 </section>
-<section id="preliminary-data-analysis-2" class="slide level2">
+<section id="preliminary-data-analysis-1" class="slide level2">
 <h2>Preliminary data analysis</h2>
 <h3 id="basic-plots-1">Basic plots 1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">plot</span>(bats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(bats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="class_3_files/figure-revealjs/pda2-1.png" width="960" class="r-stretch"></section>
-<section id="preliminary-data-analysis-3" class="slide level2">
+<section id="preliminary-data-analysis-2" class="slide level2">
 <h2>Preliminary data analysis</h2>
 <h3 id="basic-plots-2">Basic plots 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(bats, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>, <span class="at">type=</span><span class="st">"b"</span>, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">plot</span>(bats, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>, <span class="at">type=</span><span class="st">"b"</span>, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="class_3_files/figure-revealjs/pda3-1.png" width="960" class="r-stretch"></section>
-<section id="preliminary-data-analysis-4" class="slide level2">
+<section id="preliminary-data-analysis-3" class="slide level2">
 <h2>Preliminary data analysis</h2>
 <h3 id="plot-on-a-map">Plot on a map</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">map</span>(<span class="st">'worldHires'</span>, <span class="at">col=</span><span class="st">"grey"</span>, <span class="at">fill=</span>T)</span>
-<span id="cb6-2"><a></a><span class="fu">points</span>(<span class="fu">t</span>(<span class="fu">colMeans</span>(<span class="fu">coordinates</span>(bats))), <span class="at">col=</span><span class="fu">alpha</span>(<span class="st">'red'</span>,<span class="fl">0.5</span>), <span class="at">pch=</span><span class="dv">16</span>)</span>
-<span id="cb6-3"><a></a><span class="fu">points</span>(<span class="fu">t</span>(<span class="fu">colMeans</span>(<span class="fu">coordinates</span>(bats))), <span class="at">col=</span><span class="st">'cyan'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">map</span>(<span class="st">'worldHires'</span>, <span class="at">col=</span><span class="st">"grey"</span>, <span class="at">fill=</span>T)</span>
+<span id="cb7-2"><a></a><span class="fu">points</span>(<span class="fu">t</span>(<span class="fu">colMeans</span>(<span class="fu">coordinates</span>(bats))), <span class="at">col=</span><span class="fu">alpha</span>(<span class="st">'red'</span>,<span class="fl">0.5</span>), <span class="at">pch=</span><span class="dv">16</span>)</span>
+<span id="cb7-3"><a></a><span class="fu">points</span>(<span class="fu">t</span>(<span class="fu">colMeans</span>(<span class="fu">coordinates</span>(bats))), <span class="at">col=</span><span class="st">'cyan'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="class_3_files/figure-revealjs/pda4-1.png" width="960" class="r-stretch"></section>
-<section id="preliminary-data-analysis-5" class="slide level2">
+<section id="preliminary-data-analysis-4" class="slide level2">
 <h2>Preliminary data analysis</h2>
 <h3 id="plot-on-a-zoomed-map">Plot on a zoomed map</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>(e<span class="ot">&lt;-</span><span class="fu">bbox</span>(<span class="fu">extent</span>(bats)<span class="sc">*</span><span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>(e<span class="ot">&lt;-</span><span class="fu">bbox</span>(<span class="fu">extent</span>(bats)<span class="sc">*</span><span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         min      max
 s1  3.691055 12.02844
 s2 45.388508 49.16696</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># note here that the brackets around the assignment ensure that the result is also printed to the console</span></span>
-<span id="cb9-2"><a></a><span class="fu">map</span>(<span class="st">'worldHires'</span>, <span class="at">xlim =</span> e[<span class="dv">1</span>, ], <span class="at">ylim =</span> e[<span class="dv">2</span>, ])</span>
-<span id="cb9-3"><a></a><span class="fu">points</span>(bats)</span>
-<span id="cb9-4"><a></a><span class="fu">lines</span>(bats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># note here that the brackets around the assignment ensure that the result is also printed to the console</span></span>
+<span id="cb10-2"><a></a><span class="fu">map</span>(<span class="st">'worldHires'</span>, <span class="at">xlim =</span> e[<span class="dv">1</span>, ], <span class="at">ylim =</span> e[<span class="dv">2</span>, ])</span>
+<span id="cb10-3"><a></a><span class="fu">points</span>(bats)</span>
+<span id="cb10-4"><a></a><span class="fu">lines</span>(bats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="class_3_files/figure-revealjs/pda5-1.png" width="960" class="r-stretch"></section>
-<section id="preliminary-data-analysis-6" class="slide level2">
+<section id="preliminary-data-analysis-5" class="slide level2">
 <h2>Preliminary data analysis</h2>
 <h3 id="plot-on-a-google-map-background">Plot on a google map background</h3>
 <ul>
@@ -648,32 +689,224 @@ s2 45.388508 49.16696</code></pre>
 <li>Download a new data set from <a href="https://drive.proton.me/urls/Z8YWTNZET8#lg4QAn0g2Qgk">this link</a></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">load</span>(<span class="st">"PATH_TO_YOUR_DATA/buffalo_cleaned.Rdata"</span>) <span class="co"># buffalo</span></span>
-<span id="cb10-2"><a></a><span class="do">## Create gray scale</span></span>
-<span id="cb10-3"><a></a>buffaloGray<span class="ot">&lt;-</span><span class="fu">gray</span>((<span class="fu">nrow</span>(<span class="fu">idData</span>(buffalo))<span class="sc">-</span><span class="dv">1</span>)<span class="sc">:</span><span class="dv">0</span><span class="sc">/</span><span class="fu">nrow</span>(<span class="fu">idData</span>(buffalo)))</span>
-<span id="cb10-4"><a></a><span class="do">## Plot with gray scale</span></span>
-<span id="cb10-5"><a></a><span class="fu">plot</span>(buffalo, <span class="at">col=</span>buffaloGray, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">load</span>(<span class="st">"PATH_TO_YOUR_DATA/buffalo_cleaned.Rdata"</span>) <span class="co"># buffalo</span></span>
+<span id="cb11-2"><a></a><span class="do">## Create gray scale</span></span>
+<span id="cb11-3"><a></a>buffaloGray<span class="ot">&lt;-</span><span class="fu">gray</span>((<span class="fu">nrow</span>(<span class="fu">idData</span>(buffalo))<span class="sc">-</span><span class="dv">1</span>)<span class="sc">:</span><span class="dv">0</span><span class="sc">/</span><span class="fu">nrow</span>(<span class="fu">idData</span>(buffalo)))</span>
+<span id="cb11-4"><a></a><span class="do">## Plot with gray scale</span></span>
+<span id="cb11-5"><a></a><span class="fu">plot</span>(buffalo, <span class="at">col=</span>buffaloGray, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="class_3_files/figure-revealjs/tidyPoints2-1.png" width="960" class="r-stretch"></section>
 <section id="tidy-your-data-1" class="slide level2">
 <h2>Tidy your data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">## get the position of the coordinate that has the max longitude</span></span>
-<span id="cb11-2"><a></a><span class="fu">which.max</span>(<span class="fu">coordinates</span>(buffalo)[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="do">## get the position of the coordinate that has the max longitude</span></span>
+<span id="cb12-2"><a></a><span class="fu">which.max</span>(<span class="fu">coordinates</span>(buffalo)[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24606</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="do">## drop the point with the largest coordinate values</span></span>
-<span id="cb13-2"><a></a>buffalo <span class="ot">&lt;-</span> buffalo[<span class="sc">-</span><span class="fu">which.max</span>(<span class="fu">coordinates</span>(buffalo)[,<span class="dv">1</span>])]</span>
-<span id="cb13-3"><a></a><span class="fu">plot</span>(buffalo, <span class="at">col=</span>buffaloGray, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="do">## drop the point with the largest coordinate values</span></span>
+<span id="cb14-2"><a></a>buffalo <span class="ot">&lt;-</span> buffalo[<span class="sc">-</span><span class="fu">which.max</span>(<span class="fu">coordinates</span>(buffalo)[,<span class="dv">1</span>])]</span>
+<span id="cb14-3"><a></a><span class="fu">plot</span>(buffalo, <span class="at">col=</span>buffaloGray, <span class="at">xlab=</span><span class="st">"Longitude"</span>, <span class="at">ylab=</span><span class="st">"Latitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="class_3_files/figure-revealjs/tidyPoints3-1.png" width="960" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="do">## save the clean dataset for the following days</span></span>
-<span id="cb14-2"><a></a><span class="fu">save</span>(buffalo, <span class="at">file=</span><span class="st">"PATH_TO_YOUR_DIRECTORY/buffalos.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="do">## save the clean dataset for the following days</span></span>
+<span id="cb15-2"><a></a><span class="fu">save</span>(buffalo, <span class="at">file=</span><span class="st">"PATH_TO_YOUR_DIRECTORY/buffalos.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="visualizing-data-for-vulture" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<ul>
+<li>Download the <a href="https://drive.proton.me/urls/0ME89QYNS4#AY9gJIEXEqqq">Leo</a> dataset and put it in your working directory</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>Leo <span class="ot">&lt;-</span> <span class="fu">move</span>(<span class="st">"PATH/TO/FILE/Leo-65545.csv.gz"</span>)</span>
+<span id="cb16-2"><a></a>Leo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>class       : Move 
+features    : 35256 
+extent      : -108.8262, -68.58033, 7.16283, 53.82783  (xmin, xmax, ymin, ymax)
+crs         : +proj=longlat +datum=WGS84 +no_defs 
+variables   : 10
+names       :  event.id,  timestamp, ground.speed, heading, height.raw, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.migration.state,      utm.easting,     utm.northing, utm.zone, study.local.timestamp 
+min values  :   2333006, 1182024000,            0,       0,          0,                                                                                   , 169798.059287902, 791836.814945502,      12N,            1181991600 
+max values  : 180011334, 1363680000,          110,     359,       1982,                                                                    SpringMigration, 829886.257338918, 5967229.98624054,      19N,            1363651200 
+timestamps  : 2007-06-16 20:00:00 ... 2013-03-19 08:00:00 Time difference of 2102 days  (start ... end, duration) 
+sensors     : gps 
+indiv. data : behavioural.classification, manually.marked.outlier, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.behaviour, http...vocabulary.movebank.org.extended.raptor.workshop.attributes.deployment.special.event, visible, sensor.type, individual.taxon.canonical.name, tag.local.identifier, individual.local.identifier, study.name, study.timezone 
+indiv. value: NA NA NA NA true gps Cathartes aura 65545 Leo Turkey Vulture Acopian Center USA GPS Pacific Standard Time 
+study name  : Turkey Vulture Acopian Center USA GPS 
+date created: 2023-07-07 03:20:52 </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">map</span>(<span class="st">'worldHires'</span>, <span class="at">xlim =</span> Leo<span class="sc">@</span>bbox[<span class="dv">1</span>, ]<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>), <span class="at">ylim =</span> Leo<span class="sc">@</span>bbox[<span class="dv">2</span>, ]<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>),<span class="at">col=</span><span class="st">"grey"</span>, <span class="at">fill=</span>T)</span>
+<span id="cb18-2"><a></a><span class="fu">lines</span>(Leo, <span class="at">col=</span><span class="st">"firebrick"</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="class_3_files/figure-revealjs/leo3-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-data-for-vulture-1" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<h3 id="check-and-tidy-data">Check and tidy data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="do">## get locations per year and month</span></span>
+<span id="cb19-2"><a></a><span class="fu">tapply</span>(<span class="fu">timestamps</span>(Leo), <span class="fu">list</span>(<span class="fu">year</span>(<span class="fu">timestamps</span>(Leo)), <span class="fu">month</span>(<span class="fu">timestamps</span>(Leo))), length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1   2   3   4   5   6   7   8   9  10  11  12
+2007  NA  NA  NA  NA  NA 300 699 701 698 717 658 677
+2008 716 626 685 705 710 701 713 727 705 687 621 672
+2009 643 579 648 671 616 510 641 728 702 706 660 622
+2010 680 562 558 556 537 502 721 683 639 706 599 640
+2011 601 586 649 609 563 344 541 706 667 307  NA  NA
+2012  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 321 444
+2013 432 404 255  NA  NA  NA  NA  NA  NA  NA  NA  NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="do">## removing years 2012-13 because there is a large gap</span></span>
+<span id="cb21-2"><a></a>Leo <span class="ot">&lt;-</span> Leo[<span class="fu">year</span>(Leo<span class="sc">$</span>timestamp)<span class="sc">&lt;</span><span class="dv">2012</span>,]</span>
+<span id="cb21-3"><a></a><span class="fu">tapply</span>(<span class="fu">timestamps</span>(Leo), <span class="fu">list</span>(<span class="fu">year</span>(<span class="fu">timestamps</span>(Leo)), <span class="fu">month</span>(<span class="fu">timestamps</span>(Leo))), length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1   2   3   4   5   6   7   8   9  10  11  12
+2007  NA  NA  NA  NA  NA 300 699 701 698 717 658 677
+2008 716 626 685 705 710 701 713 727 705 687 621 672
+2009 643 579 648 671 616 510 641 728 702 706 660 622
+2010 680 562 558 556 537 502 721 683 639 706 599 640
+2011 601 586 649 609 563 344 541 706 667 307  NA  NA</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-data-for-vulture-2" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<h3 id="azimuthal-distribution-of-data">Azimuthal distribution of data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>categories<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span><span class="st">"Wintering"</span>, <span class="st">"2"</span><span class="ot">=</span><span class="st">"Wintering"</span>, </span>
+<span id="cb23-2"><a></a>               <span class="st">"3"</span><span class="ot">=</span><span class="st">"Wintering"</span>, <span class="st">"4"</span><span class="ot">=</span><span class="st">"North migration"</span>, </span>
+<span id="cb23-3"><a></a>               <span class="st">"5"</span><span class="ot">=</span><span class="st">"North migration"</span>, <span class="st">"6"</span><span class="ot">=</span><span class="st">"Breeding"</span>, </span>
+<span id="cb23-4"><a></a>               <span class="st">"7"</span><span class="ot">=</span><span class="st">"Breeding"</span>, <span class="st">"8"</span><span class="ot">=</span><span class="st">"Breeding"</span>, </span>
+<span id="cb23-5"><a></a>               <span class="st">"9"</span><span class="ot">=</span><span class="st">"South migration"</span>, <span class="st">"10"</span><span class="ot">=</span><span class="st">"South migration"</span>, </span>
+<span id="cb23-6"><a></a>               <span class="st">"11"</span><span class="ot">=</span><span class="st">"Wintering"</span>, <span class="st">"12"</span><span class="ot">=</span><span class="st">"Wintering"</span>)</span>
+<span id="cb23-7"><a></a></span>
+<span id="cb23-8"><a></a><span class="co"># assign the categories to a new variable based on the timestamp</span></span>
+<span id="cb23-9"><a></a>Leo<span class="sc">$</span>cat<span class="ot">&lt;-</span><span class="fu">factor</span>(categories[<span class="fu">month</span>(<span class="fu">timestamps</span>(Leo))],</span>
+<span id="cb23-10"><a></a>                <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"South migration"</span>, <span class="st">"Wintering"</span>, <span class="st">"North migration"</span>, <span class="st">"Breeding"</span>))</span>
+<span id="cb23-11"><a></a></span>
+<span id="cb23-12"><a></a><span class="co"># assign NA to segments where subsequent locations fall in different seasons</span></span>
+<span id="cb23-13"><a></a>Leo<span class="sc">$</span>cat[<span class="fu">c</span>(Leo<span class="sc">$</span>cat[<span class="sc">-</span><span class="fu">n.locs</span>(Leo)]<span class="sc">!=</span>Leo<span class="sc">$</span>cat[<span class="sc">-</span><span class="dv">1</span>], <span class="cn">TRUE</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb23-14"><a></a></span>
+<span id="cb23-15"><a></a><span class="co"># store the information in a new data frame</span></span>
+<span id="cb23-16"><a></a>azimuth <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">D=</span><span class="fu">angle</span>(Leo),</span>
+<span id="cb23-17"><a></a>                      <span class="at">V=</span><span class="fu">speed</span>(Leo), </span>
+<span id="cb23-18"><a></a>                      <span class="at">Season=</span>Leo<span class="sc">$</span>cat[<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-data-for-vulture-3" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<h3 id="azimuthal-distribution-of-data-1">Azimuthal distribution of data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Define the direction as a circular</span></span>
+<span id="cb24-2"><a></a>azimuth<span class="sc">$</span>Dcirc<span class="ot">&lt;-</span><span class="fu">as.circular</span>(azimuth<span class="sc">$</span>D, </span>
+<span id="cb24-3"><a></a>                           <span class="at">rotation=</span><span class="st">"clock"</span>, </span>
+<span id="cb24-4"><a></a>                           <span class="at">units=</span><span class="st">"degrees"</span>, </span>
+<span id="cb24-5"><a></a>                           <span class="at">type=</span><span class="st">"angles"</span>, </span>
+<span id="cb24-6"><a></a>                           <span class="at">modulo=</span><span class="st">"asis"</span>, </span>
+<span id="cb24-7"><a></a>                           <span class="at">zero=</span><span class="dv">0</span>, </span>
+<span id="cb24-8"><a></a>                           <span class="at">template=</span><span class="st">"geographic"</span>)</span>
+<span id="cb24-9"><a></a></span>
+<span id="cb24-10"><a></a><span class="co"># select segments above 2 m/s, we are only interested in segments when Leo is moving, and not the stationary error</span></span>
+<span id="cb24-11"><a></a>azimuth <span class="ot">&lt;-</span> azimuth[azimuth<span class="sc">$</span>V<span class="sc">&gt;=</span><span class="dv">2</span>,]</span>
+<span id="cb24-12"><a></a></span>
+<span id="cb24-13"><a></a><span class="co"># remove missing values</span></span>
+<span id="cb24-14"><a></a>azimuth <span class="ot">&lt;-</span> azimuth[<span class="fu">complete.cases</span>(azimuth),]</span>
+<span id="cb24-15"><a></a></span>
+<span id="cb24-16"><a></a><span class="co"># define a vector that is used to set the order of plotting</span></span>
+<span id="cb24-17"><a></a>seasons <span class="ot">&lt;-</span> <span class="fu">levels</span>(Leo<span class="sc">$</span>cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-data-for-vulture-4" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<h3 id="azimuthal-distribution-of-data-2">Azimuthal distribution of data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># change margins of plot</span></span>
+<span id="cb25-2"><a></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>))</span>
+<span id="cb25-3"><a></a></span>
+<span id="cb25-4"><a></a><span class="co"># plot all the azimuths</span></span>
+<span id="cb25-5"><a></a><span class="fu">plot</span>(azimuth<span class="sc">$</span>Dcirc, <span class="at">stack=</span>T, <span class="at">shrink=</span><span class="fl">1.6</span>, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">sep=</span><span class="fl">0.05</span>, <span class="at">col=</span><span class="st">"grey"</span>)</span>
+<span id="cb25-6"><a></a></span>
+<span id="cb25-7"><a></a><span class="co"># loop through seasons and plot a line denisty per season</span></span>
+<span id="cb25-8"><a></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(seasons)){</span>
+<span id="cb25-9"><a></a>  <span class="co"># subset the azimuth</span></span>
+<span id="cb25-10"><a></a>  x <span class="ot">&lt;-</span> azimuth[azimuth<span class="sc">$</span>Season<span class="sc">==</span>seasons[i],<span class="st">'Dcirc'</span>]</span>
+<span id="cb25-11"><a></a></span>
+<span id="cb25-12"><a></a>  <span class="co"># calculate density and plot as a line</span></span>
+<span id="cb25-13"><a></a>  <span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw=</span><span class="dv">180</span>, <span class="at">kernel=</span><span class="st">"vonmises"</span>), <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">lty=</span>i)</span>
+<span id="cb25-14"><a></a></span>
+<span id="cb25-15"><a></a>  <span class="co"># draw an arrow showing mean and resultant length</span></span>
+<span id="cb25-16"><a></a>  <span class="fu">arrows.circular</span>(<span class="fu">mean</span>(x), <span class="at">y=</span><span class="fu">rho.circular</span>(x), <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">length=</span><span class="fl">0.1</span>, <span class="at">lty=</span>i)</span>
+<span id="cb25-17"><a></a>}</span>
+<span id="cb25-18"><a></a></span>
+<span id="cb25-19"><a></a><span class="co"># add a legend</span></span>
+<span id="cb25-20"><a></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), seasons, <span class="at">bty=</span><span class="st">"n"</span>, <span class="at">cex=</span><span class="fl">0.85</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-data-for-vulture-5" class="slide level2">
+<h2>Visualizing data for vulture</h2>
+<h3 id="azimuthal-distribution-of-data-3">Azimuthal distribution of data</h3>
+
+<img data-src="class_3_files/figure-revealjs/leo8-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-randomly-generated-data" class="slide level2">
+<h2>Visualizing randomly generated data</h2>
+<h3 id="net-squared-displacement">Net squared displacement</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># simulate 500 tracks with 1000 steps, with different levels of correlation of turning angles (r) </span></span>
+<span id="cb26-2"><a></a><span class="co"># and convert into move object</span></span>
+<span id="cb26-3"><a></a>sets <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>((<span class="fl">0.8</span> <span class="sc">+</span> <span class="fu">log10</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>, <span class="at">length.out=</span><span class="dv">10</span>)))<span class="sc">/</span><span class="dv">10</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>],<span class="dv">500</span>))</span>
+<span id="cb26-4"><a></a>rCRW <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">lapply</span>(sets, simm.crw, <span class="at">date=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="at">h=</span><span class="dv">1</span>), as, <span class="st">"Move"</span>)</span>
+<span id="cb26-5"><a></a></span>
+<span id="cb26-6"><a></a><span class="co"># calculate NSD for all tracks, from origin of trajectory</span></span>
+<span id="cb26-7"><a></a>rNSD <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(<span class="fu">lapply</span>(<span class="fu">lapply</span>(rCRW, coordinates), spDistsN1, <span class="at">pt=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)), <span class="st">"^"</span>, <span class="dv">2</span>))</span>
+<span id="cb26-8"><a></a>mNSD <span class="ot">&lt;-</span> <span class="fu">tapply</span>(rNSD, <span class="fu">list</span>(<span class="fu">sort</span>(<span class="fu">rep</span>(sets,<span class="dv">1000</span>)), <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="fu">length</span>(sets))), mean)</span>
+<span id="cb26-9"><a></a></span>
+<span id="cb26-10"><a></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb26-11"><a></a><span class="fu">plot</span>(<span class="dv">0</span>,<span class="dv">0</span>, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1300</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(mNSD)),</span>
+<span id="cb26-12"><a></a>     <span class="at">bty=</span><span class="st">"n"</span>, <span class="at">xlab=</span><span class="st">"Step"</span>, <span class="at">ylab=</span><span class="st">"Net square distance"</span>, <span class="at">xaxt=</span><span class="st">"n"</span>)</span>
+<span id="cb26-13"><a></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">400</span>,<span class="dv">600</span>,<span class="dv">800</span>,<span class="dv">1000</span>))</span>
+<span id="cb26-14"><a></a>test <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.matrix</span>(mNSD), <span class="dv">1</span>, lines, <span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
+<span id="cb26-15"><a></a><span class="fu">text</span>(<span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1250</span>, <span class="dv">1100</span>), <span class="at">length.out=</span><span class="fu">length</span>(<span class="fu">row.names</span>(mNSD))), mNSD[,<span class="fu">ncol</span>(mNSD)]), </span>
+<span id="cb26-16"><a></a>     <span class="fu">paste</span>(<span class="st">"r="</span>, <span class="fu">as.character</span>(<span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">row.names</span>(mNSD)),<span class="dv">3</span>)),<span class="at">sep=</span><span class="st">""</span>), <span class="at">cex=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-randomly-generated-data-1" class="slide level2">
+<h2>Visualizing randomly generated data</h2>
+<h3 id="net-squared-displacement-1">Net squared displacement</h3>
+
+<img data-src="class_3_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-randomly-generated-data-2" class="slide level2">
+<h2>Visualizing randomly generated data</h2>
+<h3 id="net-squared-displacement-2">Net squared displacement</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># - r=0.99: very correlated, movement almost in a steady direction, it's walking away from the origin.</span></span>
+<span id="cb27-2"><a></a><span class="fu">plot</span>(rCRW[[<span class="dv">4500</span>]], <span class="at">pch=</span><span class="dv">19</span>)</span>
+<span id="cb27-3"><a></a><span class="fu">points</span>(rCRW[[<span class="dv">4500</span>]][<span class="dv">1</span>], <span class="at">col=</span><span class="st">"green3"</span>, <span class="at">pch=</span><span class="dv">20</span>)</span>
+<span id="cb27-4"><a></a><span class="fu">points</span>(rCRW[[<span class="dv">4500</span>]][<span class="dv">1000</span>], <span class="at">col=</span><span class="st">"red"</span>, <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="class_3_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-randomly-generated-data-3" class="slide level2">
+<h2>Visualizing randomly generated data</h2>
+<h3 id="net-squared-displacement-3">Net squared displacement</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># - r=0.8: fairly correlated. movement is wiggly. For example:</span></span>
+<span id="cb28-2"><a></a><span class="fu">plot</span>(rCRW[[<span class="dv">1</span>]], <span class="at">pch=</span><span class="dv">19</span>)</span>
+<span id="cb28-3"><a></a><span class="fu">points</span>(rCRW[[<span class="dv">1</span>]][<span class="dv">1</span>], <span class="at">col=</span><span class="st">"green3"</span>, <span class="at">pch=</span><span class="dv">20</span>)</span>
+<span id="cb28-4"><a></a><span class="fu">points</span>(rCRW[[<span class="dv">1</span>]][<span class="dv">1000</span>], <span class="at">col=</span><span class="st">"red"</span>, <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="class_3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
