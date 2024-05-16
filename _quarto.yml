@@ -33,9 +33,9 @@ website:
     contents: 
        - href: ./classes/1/class_1.html
          text: "Class 1 - Introduction"
-       - href: ./classes/2/class_1.html
+       - href: ./classes/2/class_2.html
          text: "Class 2"
-       - href: ./classes/3/class_1.html
+       - href: ./classes/3/class_3.html
          text: "Class 3"
 #       - href: ./classes/4/class_1.html
 #         text: "Class 4"

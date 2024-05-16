@@ -107,11 +107,15 @@ rm(x)
 ## Preliminary data analysis
 
 ```{r install, echo=TRUE, eval=FALSE}
-install.packages("move2")
-install.packages("readr")
+install.packages("move")
+install.packages("mapdata")
+install.packages("scales")
+install.packages("ggmap")
+install.packages("mapproj")
+install.packages("ggsn") # or devtools::install_github('oswaldosantos/ggsn')
 ```
 
-- We can now load all the libraries that are going to be needed to run the excercise
+- We can now load all the libraries that are going to be needed to run the exercise
 
 ```{r loadlibraries}
 library(move)

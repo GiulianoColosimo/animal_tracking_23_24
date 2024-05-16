@@ -86,7 +86,6 @@ rm(x)
 
 ![A simulated path of a tracked animal!](./1_12_randomWalk.gif){fig-align="center"}
 
-
 ## Topics
 
 ::: columns
@@ -254,10 +253,9 @@ Eventually, data can be organized and analyzed to produce informative animations
 
 -   The earth is represented by a spherical or ellipsoidal surface. The geometric representation of the earth that is used is called *datum*. Distances between points cannot be measured out with geographical coordinates.
 
-- Latitude: denoted by the Greek letter phi (𝜙). It is given as an angle that ranges from −90° at the south pole to 90° at the north pole, with 0° at the Equator.
+-   Latitude: denoted by the Greek letter phi (𝜙). It is given as an angle that ranges from −90° at the south pole to 90° at the north pole, with 0° at the Equator.
 
-- Longitude: denoted by the Greek letter lambda (λ). It is given as an angle that ranges from -180° to 180° from east to west and the 0°.
-
+-   Longitude: denoted by the Greek letter lambda (λ). It is given as an angle that ranges from -180° to 180° from east to west and the 0°.
 :::
 
 ::: {.column width="50%"}
@@ -269,7 +267,6 @@ Eventually, data can be organized and analyzed to produce informative animations
 
 ::: columns
 ::: {.column width="50%"}
-
 #### Projected coordinates
 
 -   Measured on a two-dimensional flat space (e.g. in meters; x and y), related to an ellipsoid by projection. In the transition from geometric coordinates to projected ones, a deformation of the images occurs.
@@ -279,7 +276,6 @@ Eventually, data can be organized and analyzed to produce informative animations
 ![There is no system of projections that is not affected by errors and distortions. [Image source.](https://en.wikipedia.org/wiki/Geographic_coordinate_system)](./2_2_projected.png){align="center"}
 :::
 :::
-
 
 ## Telemetry e GPS
 

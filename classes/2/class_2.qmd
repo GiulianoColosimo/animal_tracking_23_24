@@ -48,7 +48,6 @@ rm(x)
 5.  [On-line databases]{style="color: orange;"}
     -   [GBIF]{style="color: orange;"}
     -   [Movebank]{style="color: orange;"}
-
 :::
 
 ::: {.column width="50%"}
@@ -67,59 +66,62 @@ rm(x)
 
 ## R packages
 
-![Packages and R tools. Image borrowed from AniMove e-learning classes](./Screenshot 2024-05-08 at 21.48.05.png)
+![Packages and R tools. Image borrowed from AniMove e-learning classes](./Screenshot%202024-05-08%20at%2021.48.05.png)
 
 ## Movement data
+
 ### Lagragian movement data
 
-- Usually we think of and work with movement data where the position of an animal is collected through a device attached to the animal that allows in principle knowing where the animal is at any time: Lagragian data
+-   Usually we think of and work with movement data where the position of an animal is collected through a device attached to the animal that allows in principle knowing where the animal is at any time: Lagragian data
 
-    - Radio tracking
-    - Satellite tracking
-    - GPS
-    - Geo-Locators
+    -   Radio tracking
+    -   Satellite tracking
+    -   GPS
+    -   Geo-Locators
 
-- The methods differ mainly in their precision
+-   The methods differ mainly in their precision
 
 ## Movement data
-### Eulerian movement data    
 
-- Eulerian methods violate the unbiased sampling assumption in the spatial domain
+### Eulerian movement data
 
-    - Camera traps
-    - RFID Tags
-    - Microphon arrays
-    - Rings and band
+-   Eulerian methods violate the unbiased sampling assumption in the spatial domain
 
-- The data they provide allow often in specific systems quite a reliable reconstruction of paths
+    -   Camera traps
+    -   RFID Tags
+    -   Microphon arrays
+    -   Rings and band
+
+-   The data they provide allow often in specific systems quite a reliable reconstruction of paths
 
 ## What is movement?
 
-- Movement is defined as **locations through time**. We can think of movement as a spatio-temporal object. Therefore, a proper definition of space and time is fundamental to analyse data in the proper way
+-   Movement is defined as **locations through time**. We can think of movement as a spatio-temporal object. Therefore, a proper definition of space and time is fundamental to analyse data in the proper way
 
-![Brief example of how "movement" could be formalized](./Screenshot 2024-05-08 at 21.52.55.png)
+![Brief example of how "movement" could be formalized](./Screenshot%202024-05-08%20at%2021.52.55.png)
 
 ## Space problem
 
-- We have already talked about the space problem...
+-   We have already talked about the space problem...
 
-:::: columns
+::: columns
 ::: {.column width="50%"}
-![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot 2024-05-08 at 21.56.05.png)
+![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot%202024-05-08%20at%2021.56.05.png)
 :::
-::: {.column width="50%"}
-![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot 2024-05-08 at 21.56.29.png)
-:::
-::::
 
-- We will soon see how to work with CRS in R, how to set them and how to change them
+::: {.column width="50%"}
+![Image from [ESRI website](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/)](./Screenshot%202024-05-08%20at%2021.56.29.png)
+:::
+:::
+
+-   We will soon see how to work with CRS in R, how to set them and how to change them
 
 ## Time problem
 
-- Time settings are crucial
-- You need to know what your device uses as time
-- Many handheld GPS use and report local time, others use UTC
-- Time in R is relatively easy to work with
+-   Time settings are crucial
+-   You need to know what your device uses as time
+-   Many handheld GPS use and report local time, others use UTC
+-   Time in R is relatively easy to work with
 
 ```{r time}
 Sys.time()
@@ -133,30 +135,30 @@ Sys.time()
 
 ### [movebank.org](https://www.movebank.org/cms/movebank-main)
 
-:::: columns
+::: columns
 ::: {.column width="50%"}
-- As of February 2024, Movebank stores 6.1 billion animal locations
-- Billions bio-logged sensor measurements managed by thousands of researchers and wildlife managers 
-- Data represent the movements and behavior of over 200,000 animals and 1,383 species 
-- Approximately over 11 million new data records per day
+-   As of February 2024, Movebank stores 6.1 billion animal locations
+-   Billions bio-logged sensor measurements managed by thousands of researchers and wildlife managers
+-   Data represent the movements and behavior of over 200,000 animals and 1,383 species
+-   Approximately over 11 million new data records per day
 :::
 
 ::: {.column width="50%"}
-![The movebank.org homepage](./Screenshot 2024-05-08 at 14.05.41.png)
+![The movebank.org homepage](./Screenshot%202024-05-08%20at%2014.05.41.png)
 :::
-::::
+:::
 
 ## Lets work with some data...
 
-- These are the libraries that we will use. In particular, *move2* [@Kranstauber2023] is a library that allows to access MoveBank data directly and import them in R
-- If you do not have them already, install them using the following lines of code
+-   These are the libraries that we will use. In particular, *move2* [@Kranstauber2023] is a library that allows to access MoveBank data directly and import them in R
+-   If you do not have them already, install them using the following lines of code
 
 ```{r install, echo=TRUE, eval=FALSE}
 install.packages("move2")
 install.packages("readr")
 ```
 
-- We can now load all the libraries that are going to be needed to run the excercise
+-   We can now load all the libraries that are going to be needed to run the excercise
 
 ```{r loadlibraries}
 library(move2)
@@ -201,7 +203,6 @@ movebank_download_study_info() %>%
 
 . . .
 
-
 ```{r getMovebank4}
 # retrieve all sensor ids recognized by Movebank
 movebank_retrieve(
@@ -233,16 +234,15 @@ movebank_download_study(study_id = 1918503)
 
 ## Get data from a CSV file downloaded from Movebank
 
-- We will now assume we downloaded a dataset from Movebank and we will import it in to R
-- Use [this](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10) link to download a .csv file with with the dataset we will be using
-- Place the dataset in a directory where you will be working
+-   We will now assume we downloaded a dataset from Movebank and we will import it in to R
+-   Use [this](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10) link to download a .csv file with with the dataset we will be using
+-   Place the dataset in a directory where you will be working
 
 ```{r getMovebank7, eval=FALSE}
 ### We read in this dataset downloaded from Movebank directly as a move2 object
 bats <- mt_read("/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv")
 str(bats)
 ```
-
 
 ```{r getMovebank7real, eval=TRUE, echo=FALSE}
 ### We read in this dataset downloaded from Movebank directly as a move2 object

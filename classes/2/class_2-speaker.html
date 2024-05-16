@@ -441,9 +441,9 @@
 </ul></li>
 <li><span style="color: green;">CRS</span>
 <ul>
-<li><span style="color: green;">Telemetry and GPS</span></li>
+<li><span style="color: orange;">Telemetry and GPS</span></li>
 </ul></li>
-<li><a href="#/movement-data">Movement Data</a></li>
+<li><span style="color: orange;">Movement Data</span></li>
 <li><span style="color: orange;">On-line databases</span>
 <ul>
 <li><span style="color: orange;">GBIF</span></li>
@@ -546,7 +546,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-05-14 10:42:49 CEST"</code></pre>
+<pre><code>[1] "2024-05-16 11:38:28 CEST"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -614,7 +614,7 @@
 <span id="cb7-12"><a></a><span class="co"># get the metadata of the studies visible from this account</span></span>
 <span id="cb7-13"><a></a>(allStudies <span class="ot">&lt;-</span> <span class="fu">movebank_download_study_info</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6,809 × 31
+<pre><code># A tibble: 6,828 × 31
    acknowledgements           citation go_public_date grants_used      has_quota
    &lt;chr&gt;                      &lt;chr&gt;    &lt;dttm&gt;         &lt;chr&gt;            &lt;lgl&gt;    
  1  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
@@ -627,7 +627,7 @@
  8  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
  9  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
 10  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
-# ℹ 6,799 more rows
+# ℹ 6,818 more rows
 # ℹ 26 more variables: i_am_owner &lt;lgl&gt;, id &lt;int64&gt;, is_test &lt;lgl&gt;,
 #   license_terms &lt;chr&gt;, license_type &lt;fct&gt;, name &lt;fct&gt;,
 #   number_of_individuals [count], number_of_tags [count],
