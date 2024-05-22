@@ -546,7 +546,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-05-16 11:38:28 CEST"</code></pre>
+<pre><code>[1] "2024-05-22 09:15:36 CEST"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -614,7 +614,7 @@
 <span id="cb7-12"><a></a><span class="co"># get the metadata of the studies visible from this account</span></span>
 <span id="cb7-13"><a></a>(allStudies <span class="ot">&lt;-</span> <span class="fu">movebank_download_study_info</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6,828 × 31
+<pre><code># A tibble: 6,847 × 31
    acknowledgements           citation go_public_date grants_used      has_quota
    &lt;chr&gt;                      &lt;chr&gt;    &lt;dttm&gt;         &lt;chr&gt;            &lt;lgl&gt;    
  1  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
@@ -627,7 +627,7 @@
  8  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
  9  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
 10  &lt;NA&gt;                      &lt;NA&gt;     NA              &lt;NA&gt;            TRUE     
-# ℹ 6,818 more rows
+# ℹ 6,837 more rows
 # ℹ 26 more variables: i_am_owner &lt;lgl&gt;, id &lt;int64&gt;, is_test &lt;lgl&gt;,
 #   license_terms &lt;chr&gt;, license_type &lt;fct&gt;, name &lt;fct&gt;,
 #   number_of_individuals [count], number_of_tags [count],
@@ -643,7 +643,7 @@
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># list studies for which we have download access</span></span>
 <span id="cb9-2"><a></a><span class="fu">movebank_download_study_info</span>(<span class="at">i_have_download_access=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 821 × 31
+<pre><code># A tibble: 822 × 31
    acknowledgements           citation go_public_date grants_used      has_quota
    &lt;chr&gt;                      &lt;chr&gt;    &lt;dttm&gt;         &lt;chr&gt;            &lt;lgl&gt;    
  1 "Graduate students in the… "MCKINN… NA             "Natural Scienc… TRUE     
@@ -656,7 +656,7 @@
  8  &lt;NA&gt;                      "Carras… NA              &lt;NA&gt;            TRUE     
  9  &lt;NA&gt;                       &lt;NA&gt;    NA              &lt;NA&gt;            TRUE     
 10 "These data were collecte… "Dokter… NA             "ZKO grant NWO,… TRUE     
-# ℹ 811 more rows
+# ℹ 812 more rows
 # ℹ 26 more variables: i_am_owner &lt;lgl&gt;, id &lt;int64&gt;, is_test &lt;lgl&gt;,
 #   license_terms &lt;chr&gt;, license_type &lt;fct&gt;, name &lt;fct&gt;,
 #   number_of_individuals [count], number_of_tags [count],

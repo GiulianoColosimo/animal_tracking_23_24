@@ -1,7 +1,7 @@
 ---
 title: "Animal tracking nella biologia della conservazione"
 subtitle: "Class 4"
-date: "2024-05-16"
+date: "2024-05-21"
 footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
 logo: ../../figures/Tor-Vergata_logo_cmyk.png
 format: 
@@ -25,3 +25,256 @@ csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@
 citation_package: biblatex
 citecolor: "red"
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("rgdal", "raster", "rgeso", "sf",
+       "ggplot2", "tidyr", "lubridate")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+
+## Package to load for the class
+
+- If you do not yet have the packages installed, remember to install it first!
+
+```{r echo=TRUE, eval=FALSE}
+
+library(sf)
+library(spData)
+library(raster)
+library(spDataLarge)
+library(ggplot2)
+library(lubridate)
+library(tidyr)
+
+```
+
+
+## Using movement to inform conservation corridor design for Mojave desert tortoise
+
+- Study from @Hromada2020
+
+::: {layout-ncol=2}
+![*Gopherus agassizii*. Image source: [Wikipedia](https://en.wikipedia.org/wiki/Desert_tortoise)](./des_tort_1.jpg)
+
+![*Gopherus agassizii*. Image source: [Wikipedia](https://en.wikipedia.org/wiki/Desert_tortoise)](./des_tort_2.jpg)
+:::
+
+##
+
+- Manuscript in which the authors integrate ecological aspects with genetic aspects (taken from the literature) to improve conservation practices for the species *G. agassizzi* (i.e., identification and maintenance of ecological corridors)
+- The aim is to identify regions of the landscape that serve to maintain or facilitate functional connections between populations of organisms through areas of inhospitable landscape
+- Usage and integration of different data types:
+    - Telemetry
+    - Opportunistic and designed sampling schemes
+    - GPS
+    - Raster data
+- Complex algorithms to estimate home ranges, path selection analysis, auto correlation and habitat modeling
+
+##
+
+::: {layout-ncol=2}
+![After @Hromada2020](./hromada_fig_1.png)
+
+![](./hromada_fig_2.png)
+:::
+
+##
+
+![After @Hromada2020](./hromada_fig_5.png)
+
+## Estimate distance between point A and point B
+
+```{r echo=TRUE}
+set.seed(50821)  # makes sure the results are always the same 
+x <- rnorm(20, 10, 2) # takes 20 random points from a normal distribution with mean 10 and sd 2
+y <- rnorm(20, 10, 2) 
+df_points <- data.frame(x = x, y = y) # create a data frame with points coordinates
+pts_nms <- LETTERS[1:20]
+plot(df_points$x, df_points$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A" | pts_nms == "B", "red", "blue"),
+xlab = "X", ylab = "Y")
+text(x = df_points$x + 0.1, y = df_points$y + 0.1, labels = pts_nms)
+arrows(df_points$x[1], df_points$y[1], df_points$x[2],
+df_points$y[2], code = 3, angle = 20, col = "darkgreen", lwd = 1.5)
+```
+
+##
+
+```{r}
+plot(df_points$x[1:2], df_points$y[1:2], xlim = c(min(df_points$x), max(df_points$x)),
+     ylim = c(min(df_points$y), max(df_points$y)), pch = 21, cex = 1.5,
+     bg = ifelse(pts_nms == "A" | pts_nms == "B", "red", "blue"), xlab = "X", ylab = "Y")
+text(x = df_points$x[1:2] + 0.1, y = df_points$y[1:2] + 0.1, labels = pts_nms[1:2])
+arrows(df_points$x[1], df_points$y[1], df_points$x[2], df_points$y[2], code = 3, angle = 20, col = "darkgreen", lwd = 1.5)
+```
+
+## 
+
+```{r}
+plot(df_points$x[1:2], df_points$y[1:2], xlim = c(min(df_points$x), max(df_points$x)),
+     ylim = c(min(df_points$y), max(df_points$y)), pch = 21, cex = 1.5,
+     bg = ifelse(pts_nms == "A" | pts_nms == "B", "red", "blue"), xlab = "X", ylab = "Y")
+text(x = df_points$x[1:2] + 0.1, y = df_points$y[1:2] + 0.1, labels = pts_nms[1:2])
+arrows(df_points$x[1], df_points$y[1], df_points$x[2], df_points$y[2], code = 3, angle = 20, col = "darkgreen", lwd = 1.5)
+points(df_points$x[2], df_points$y[1], pch = 21, cex = 1.5, bg = "gold")
+text(x = df_points$x[2]- 0.05, y = df_points$y[1] - 0.2, labels = "Z")
+segments(df_points$x[2], df_points$y[1], df_points$x[1], df_points$y[1])
+segments(df_points$x[2], df_points$y[1], df_points$x[2], df_points$y[2])
+```
+
+##
+
+```{r echo=FALSE}
+plot(df_points$x[1:2], df_points$y[1:2], xlim = c(min(df_points$x), max(df_points$x)),
+     ylim = c(min(df_points$y), max(df_points$y)), pch = 21, cex = 1.5,
+     bg = ifelse(pts_nms == "A" | pts_nms == "B", "red", "blue"), xlab = "X", ylab = "Y")
+text(x = df_points$x[1:2] + 0.1, y = df_points$y[1:2] + 0.1, labels = pts_nms[1:2])
+arrows(df_points$x[1], df_points$y[1], df_points$x[2], df_points$y[2], code = 3, angle = 20, col = "darkgreen", lwd = 1.5)
+points(df_points$x[2], df_points$y[1], pch = 21, cex = 1.5, bg = "gold")
+text(x = df_points$x[2]- 0.05, y = df_points$y[1] - 0.2, labels = "Z")
+segments(df_points$x[2], df_points$y[1], df_points$x[1], df_points$y[1])
+segments(df_points$x[2], df_points$y[1], df_points$x[2], df_points$y[2])
+segments(df_points$x[1], 0, df_points$x[1], df_points$y[1], lty = 2)
+segments(df_points$x[2], 0, df_points$x[2], df_points$y[1], lty = 2)
+segments(0, df_points$y[1], df_points$x[2], df_points$y[1], lty = 2)
+segments(0, df_points$y[2], df_points$x[2], df_points$y[2], lty = 2)
+text(x = 8, y = 8, labels = expression("AZ = X"[A] - "X"[Z]))
+text(x = 8, y = 7.5, labels = expression("BZ = Y"[B] - "Y"[Z]))
+text(x = 8, y = 7, labels = expression(paste("AB =", sqrt("AZ"^2 + "BZ"^2), sep = "")))
+```
+
+##
+
+```{r}
+plot(df_points$x, df_points$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A", "red", "blue"), type = "n", xlab = "X", ylab = "Y")
+arrows(df_points[1,1], df_points[1,2], df_points[-c(1),1], df_points[-c(1),2], code = 2, angle = 20, col = "darkgreen")
+text(x = df_points$x + 0.1, y = df_points$y + 0.1, labels = pts_nms)
+points(df_points$x, df_points$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A", "red", "blue"))
+```
+
+
+##
+
+```{r}
+euc_dist <- function(df_points){
+  dist_mtx <- matrix(nrow = nrow(df_points), ncol = 1)
+  rownames(dist_mtx) <- LETTERS[1:20]
+  colnames(dist_mtx) <- LETTERS[1]
+  
+  for(i in 1:nrow(df_points)){
+    dist_mtx[i,1] <- sqrt((df_points[i,1]-df_points[1,1])^2 + (df_points[i,2]-df_points[1,2])^2)
+  }
+  return(dist_mtx)
+}
+
+euc_dist(df_points)
+```
+
+##
+
+```{r}
+plot(x, y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == 1, "red", "blue"), type = "n", xlab = "X", ylab = "Y")
+for(i in 1:nrow(df_points)){
+  for(e in 1:nrow(df_points)){
+    arrows(df_points[i,1], df_points[i,2], df_points[e,1], df_points[e,2], code = 0, angle = 20, col = "darkgreen")
+  }
+}
+points(x, y, pch = 21, cex = 1.5, bg = "blue")
+text(x = x + 0.1, y = y + 0.1, labels = pts_nms)
+```
+
+##
+
+```{r}
+euc_dist <- function(df_points){
+  dist_mtx <- matrix(nrow = nrow(df_points), ncol = nrow(df_points))
+  
+  rownames(dist_mtx) <- LETTERS[1:20]
+  colnames(dist_mtx) <- LETTERS[1:20]
+  
+  for(i in 1:nrow(df_points)){
+    for(e in 1:nrow(df_points)){
+      dist_mtx[i,e] <- sqrt((df_points[e,1]-df_points[i,1])^2 + (df_points[e,2]-df_points[i,2])^2)
+    }
+  }
+  
+  return(dist_mtx)
+}
+euc_dist(df_points)
+```
+
+##
+
+```{r}
+df_points_2 <- data.frame(x = sort(x), y = sort(y))
+plot(df_points_2$x, df_points_2$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A", "red", "blue"), type = "n", xlab = "X", ylab = "Y")
+points(df_points_2$x, df_points_2$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A", "red", "blue"))
+for (i in 1:(nrow(df_points_2)-1)) {
+  arrows(df_points_2[i,1], df_points_2[i,2], df_points_2[i+1,1], df_points_2[i+1, 2], code = 2, angle = 20, col = "darkgreen")
+}
+text(x = df_points_2$x, y = df_points_2$y - 0.2, labels = pts_nms)
+```
+
+##
+
+```{r}
+euc_cum_dist <- function(df_points){
+  # sum the distance between each consecutive point
+  # take the first point and estimate the distance from the second
+  i <-nrow(df_points) - 1
+  cumm_dist <- as.numeric(vector())
+  for (e in 1:i) {
+  cumm_dist <- c(cumm_dist, sqrt((df_points[e+1,1] - df_points[e,1])^2 + (df_points[e+1,2] - df_points[e,2])^2))
+  }
+  return(data.frame("D_b_P" = cumm_dist,
+                    "CD_b_P" = cumsum(cumm_dist)))
+}
+
+euc_cum_dist(df_points_2)
+```
+
+## Creating a Simple Feature object from scratch
+
+```{r}
+my_point_sfg1 = st_point(c(1, 5))
+my_point_sfg2 = st_point(c(3, 3))
+my_point_sfc = st_sfc(my_point_sfg1, my_point_sfg2, crs = 4326)
+my_df = data.frame(name = c("first", "second"))
+my_point_sf = st_sf(my_df, geometry = my_point_sfc)
+my_point_sf
+```
+
+## Raster objects
+
+```{r}
+# shuttle radar topography mission 
+raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge")
+new_raster = raster(raster_filepath)
+new_raster
+plot(new_raster)
+```
+
+## Creating a raster from scratch
+
+```{r}
+# create raster
+my_raster = raster(nrows = 10, ncols = 20,
+                   xmn = 0, xmx = 20, ymn = -10, ymx = 0,
+                   crs = "+init=epsg:4326",
+                   vals = 1:200)
+plot(my_raster)
+```
+
+
+## Creating a raster from scratch
+
+```{r}
+r = raster(matrix(sample(1:9, 100, replace = TRUE), 10, 10))
+plot(r)
+```
+
+
+## References

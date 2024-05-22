@@ -43,6 +43,12 @@ The course will be thought in Italian unless international students are present.
 
 This is an introductory course, so no prior knowledge of this topic is required. Throughout the course students will be extensively exposed to various software and web-tools. All software used is freely available. It is necessary that each student has his/her own laptop in order to better follow the various demonstrations/exercises presented throughout the course. Problem-solving skills and a good knowledge of your own computer OS structure and function will definitely be useful. This course does not teach you system administration skills and you should know how to read help files and software guides, as well as retrieve information on-line. Should a student not have a portable computer, all code, demonstrations, and class slides will be uploaded to this website and are available for practice on a desktop computer.
 
+# Course overview
+
+This course is an introduction to the use of spatial data to track and monitor wildlife. In this course I will assume the student has little to know knowledge of what spatial data is, or how it can be used to analyse the movement patterns of an individual, species and/or population. At the same time, throughout the course we will go over the installation and usage of all the R packages needed to performa analyses and visualize data.
+
+The course is articulated in the following modules. Each module is broken down in various subsection. Note that the list presented here is not to be considered set in stone, as things may change and I may be adding/removing/moving-around sections and other parts of the course. 
+
 # Textbook and resources
 
 As this is an introductory and discretionary course there is no textbook. All the material covered in class will be available to you on this website. Most of the readings you will be doing is based on peer-reviewed manuscripts published on various scientific journals. Still, if you are really interested in this topic a really good, and advanced book is @Guisan2020. As this course will heavily rely on the use of R and R-Studio I am adding here some very useful resources that I encourage to use.
