@@ -40,8 +40,8 @@ website:
          text: "Class 3"
        - href: ./classes/4/class_4.html
          text: "Class 4"
-#       - href: ./classes/5/class_5.html
-#         text: "Class 5"
+       - href: ./classes/5/class_5.html
+         text: "Class 5"
 #       - href: ./classes/6/class_6.html
 #         text: "Class 6"
 #       - href: ./classes/7/class_7.html
