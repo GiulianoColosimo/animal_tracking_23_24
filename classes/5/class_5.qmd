@@ -65,7 +65,7 @@ rm(x)
 
 ## What is a home range?
 
-- Home range estimators are widely used in spatial ecology studies, as they provide basic mea- surements of animal space-use patterns
+- Home range estimators are widely used in spatial ecology studies, as they provide basic measurements of animal space-use patterns
 
 . . .
 
