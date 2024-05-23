@@ -803,5 +803,96 @@
     "title": "Animal tracking nella biologia della conservazione",
     "section": "Package to load for the class",
     "text": "Package to load for the class\n\nIf you do not yet have the packages installed, remember to install it first!\n\n\nlibrary(sf)\nlibrary(spData)\nlibrary(raster)\nlibrary(spDataLarge)\nlibrary(ggplot2)\nlibrary(lubridate)\nlibrary(tidyr)"
+  },
+  {
+    "objectID": "classes/5/class_5.html#references",
+    "href": "classes/5/class_5.html#references",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "References",
+    "text": "References\n\n\n\n\nAnimal tracking nella biologia della conservazione - Giuliano Colosimo, PhD\n\n\n\n\nBorger, L., Dalziel, B. D., & Fryxell, J. M. (2008). Are there general mechanisms of animal home range behaviour? A review and prospects for future research. Ecology Letters, 11(6), 637â650. Wiley. Retrieved from http://dx.doi.org/10.1111/j.1461-0248.2008.01182.x\n\n\nSilva, I., Crane, M., Suwanwaree, P., Strine, C., & Goode, M. (2018). Using dynamic brownian bridge movement models to identify home range size and movement patterns in king cobras. (U. G. Munderloh, Ed.)PLOS ONE, 13(9), e0203449. Public Library of Science (PLoS). Retrieved from http://dx.doi.org/10.1371/journal.pone.0203449\n\n\nViana, D. S., Granados, J. E., Fandos, P., Pérez, J. M., Cano-Manuel, F. J., Burón, D., Fandos, G., et al. (2018). Linking seasonal home range size with habitat selection and movement in a mountain ungulate. Movement Ecology, 6(1). Springer Science; Business Media LLC. Retrieved from https://doi.org/10.1186%2Fs40462-017-0119-8\n\n\nWebster, R., & Oliver, M. (2007). Kriging in the presence of trend and factorial kriging. Geostatistics for environmental scientists (pp. 195–218). John Wiley & Sons, Ltd. Retrieved from https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470517277.ch9"
+  },
+  {
+    "objectID": "classes/5/class_5.html#what-is-a-home-range",
+    "href": "classes/5/class_5.html#what-is-a-home-range",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "What is a home range?",
+    "text": "What is a home range?\n\nHome range estimators are widely used in spatial ecology studies, as they provide basic mea- surements of animal space-use patterns\n\n\n\nHome range estimators are a critical component for understanding animal spatial ecology. The choice of home range estimator in spatial ecology studies can significantly influence management and conservation actions, as different methods lead to vastly different inter- pretations of movement patterns, habitat selection, as well as home range requirements (Silva, Crane, Suwanwaree, Strine, & Goode, 2018)"
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimates-of-home-range",
+    "href": "classes/5/class_5.html#estimates-of-home-range",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimates of home-range",
+    "text": "Estimates of home-range\n\nMinimum Convex Polygon\n\nThe simplest way to draw the boundaries of a home range from a set of location data is to construct the smallest possible convex polygon around the data\n\nKernel Density Estimators\n\nExtrapolate where a geo-tracked animal spends its time\n\nKriging\n\nSpatial prediction based on a geostatistical model (Webster & Oliver, 2007)\n\nBrownian Bridge Movements\n\nExplicitly models an animal’s movement path and estimates an animal mobility feature called Brownian motion variance"
+  },
+  {
+    "objectID": "classes/5/class_5.html#what-is-a-home-range-1",
+    "href": "classes/5/class_5.html#what-is-a-home-range-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "What is a home range?",
+    "text": "What is a home range?\n\nThe geography area to which an organism normally confines its activities\n\n\n\nThe extent of space animals use to live and reproduce (Viana et al., 2018)\nHome range is defined by the interaction between animals and the environment, and its size is the direct result of movement driven by habitat selection and other external factors, biotic interactions, and intrinsic factors related to individual state and characteristics (Borger, Dalziel, & Fryxell, 2008)\nHome range formation is thus the result of dynamic processes. Both the habitat and internal state of animals might change through time and cause home range size to vary (Viana et al., 2018)\n\n\n\n\nHow can we estimate home-range?"
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimation-using-mcp",
+    "href": "classes/5/class_5.html#estimation-using-mcp",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimation using MCP",
+    "text": "Estimation using MCP\n\nWe will be working with the bat databases that you should already have downloaded\nIn case you need it again you can find it here\n\n\nlibrary(move)\nlibrary(adehabitatHR)\nlibrary(scales)\nbats &lt;- move(\"PATH/TO_YOUR/FILE/Parti-colored bat Safi Switzerland.csv\")\nX330 &lt;- bats[[\"X330\"]]\nX330$id &lt;- \"X330\"\nmcpX330&lt;-mcp(as(X330[,'id'], 'SpatialPointsDataFrame'))\nplot(X330, type=\"n\", bty=\"na\", xlab=\"Longitude\", ylab=\"Latitude\")\nplot(mcpX330, col=\"grey90\", lty=2, lwd=1.25, add=TRUE)\npoints(X330, pch=16)\npoints(X330, pch=1, col=\"white\")\nlegend(\"topright\", as.character(\"95% MCP\"), fill=\"grey90\", bty=\"n\")"
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimation-using-mcp-1",
+    "href": "classes/5/class_5.html#estimation-using-mcp-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimation using MCP",
+    "text": "Estimation using MCP"
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimation-using-mcp-2",
+    "href": "classes/5/class_5.html#estimation-using-mcp-2",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimation using MCP",
+    "text": "Estimation using MCP\n\nmcpX330\n\nObject of class \"SpatialPolygonsDataFrame\" (package sp):\n\nNumber of SpatialPolygons:  1\n\nVariables measured:\n       id         area\nX330 X330 7.053224e-07\n\n\n\n\nArea value seems strange. That is because our used locations are in the geographic coordinates system (long/lat)\n\nadehabitatHR calculated the area according to the units of the projection, in this case decimal degrees\nTherefore we have to project our data into a equidistant projection"
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimation-using-mcp-3",
+    "href": "classes/5/class_5.html#estimation-using-mcp-3",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimation using MCP",
+    "text": "Estimation using MCP\n\nbats$id &lt;- trackId(bats) \nmcpData&lt;-mcp(as(bats[,'id'],'SpatialPointsDataFrame'))\nbats.proj &lt;- spTransform(bats, CRS(\"+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +x_0=600000 +y_0=200000 +ellps=bessel +units=m +no_defs\"))\nmcpData.proj &lt;- mcp(as(bats.proj[, 'id'],'SpatialPointsDataFrame'))\nmcpData.proj\n\nObject of class \"SpatialPolygonsDataFrame\" (package sp):\n\nNumber of SpatialPolygons:  17\n\nVariables measured:\n       id      area\nX21   X21  5107.168\nX42   X42  5633.081\nX127 X127  8385.456\nX146 X146  9285.353\nX168 X168 11898.905\nX191 X191  2577.603\n..."
+  },
+  {
+    "objectID": "classes/5/class_5.html#estimation-using-mcp-4",
+    "href": "classes/5/class_5.html#estimation-using-mcp-4",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Estimation using MCP",
+    "text": "Estimation using MCP\n\nplot(bats.proj[[\"X21\"]], bty=\"na\", xlab=\"Longitude\", ylab=\"Latitude\")\nplot(mcpData.proj[mcpData.proj$id==\"X21\",], add=TRUE)\nlegend(\"bottomleft\", c(\"First reproject then mcp\"), lty=1, bty=\"n\")"
+  },
+  {
+    "objectID": "classes/5/class_5.html#size-of-mcp-changes-with-sampling-effort",
+    "href": "classes/5/class_5.html#size-of-mcp-changes-with-sampling-effort",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Size of MCP changes with sampling effort",
+    "text": "Size of MCP changes with sampling effort\n\nhrBootstrap(bats[['X21']], rep=500, levelMax=95)\nlegend(\"bottomright\", \nlegend=c(\"real MCP size\",\"100% percentil\",\"75% percentil\",\"50% percentil\",\"25% percentil\",\"0% percentil\"), \nlty=c(4,2,3,1,3,2), col=c(\"black\",\"cyan\",\"red\",\"black\",\"red\",\"cyan\"))\n\n\nBootstrap of MCP"
+  },
+  {
+    "objectID": "classes/5/class_5.html#mcp-using-a-kde",
+    "href": "classes/5/class_5.html#mcp-using-a-kde",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "MCP using a KDE",
+    "text": "MCP using a KDE\n\ntemplate &lt;- raster(extent(bats.proj[[1]]))\nres(template)&lt;-500\ncount &lt;- rasterize(split(bats.proj)[[1]], template,field=1,  fun=\"count\")\nplot(count, col=grey(10:0/12))\nplot(mcpData.proj[1,], add=TRUE)\npoints(bats.proj[[1]], pch=16, cex=0.5)"
+  },
+  {
+    "objectID": "classes/5/class_5.html#mcp-using-a-kde-1",
+    "href": "classes/5/class_5.html#mcp-using-a-kde-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "MCP using a KDE",
+    "text": "MCP using a KDE\n\nh: degree of smoothness or how tightly the data should be hugged by the distribution function\nh=“LSCV”: h calculated from the data via least square cross validation\nh=“ad-hoc”: h calculated from the data via sample size and spatial spread\n\n\nX21 &lt;- bats.proj[['X21']]\nkern1 &lt;- kernelUD(as(X21, \"SpatialPoints\"), h=500)\nkern2 &lt;- kernelUD(as(X21, \"SpatialPoints\"))\nkern3 &lt;- kernelUD(as(X21, \"SpatialPoints\"), h=2000)\nkern4 &lt;- kernelUD(as(X21, \"SpatialPoints\"), h=\"LSCV\")\nkern &lt;- c(\"kern1\", \"kern2\", \"kern3\", \"kern4\")\nhName &lt;- c(\"h=500\",\n           \"h='ad-hoc'\",\n           \"h=2000\",\n           \"h=LSCV\")"
+  },
+  {
+    "objectID": "classes/5/class_5.html#mcp-using-a-kde-2",
+    "href": "classes/5/class_5.html#mcp-using-a-kde-2",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "MCP using a KDE",
+    "text": "MCP using a KDE\n\npar(mfrow=c(2,2))\npar(mar=c(1,0.5,3,0.5))\nfor(i in 1:4){\n  plot(getverticeshr(get(kern[i])))\n  points(X21, pch=16, cex=0.75, col=alpha(\"black\", 0.2))\n  points(X21, cex=0.75)\n  title(hName[i])\n}"
   }
 ]

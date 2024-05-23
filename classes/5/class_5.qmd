@@ -1,0 +1,228 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 5"
+date: "2024-05-23"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("rgdal", "raster", "rgeso", "sf",
+       "ggplot2", "tidyr", "lubridate")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: green;"}
+    -   [Packages to install]{style="color: green;"}
+2.  [An introduction to Animal tracking]{style="color: green;"}
+    -   [Tagging systems]{style="color: green;"}
+3.  [CRS]{style="color: green;"}
+    -   [Telemetry and GPS]{style="color: green;"}
+4.  [Movement Data]{style="color: green;"}
+5.  [On-line databases]{style="color: green;"}
+    -   [GBIF]{style="color: green;"}
+    -   [Movebank]{style="color: green;"}
+:::
+
+::: {.column width="50%"}
+6.  [Drivers of species distribution]{style="color: green;"}
+7.  [Home range estimates]{style="color: orange;"}
+    -   [MPC]{style="color: orange;"}
+    -   [KDE]{style="color: orange;"}
+    -   [Kriging]{style="color: orange;"}
+    -   [BBM]{style="color: orange;"}
+8.  [Species distribution modeling]{style="color: GhostWhite;"}
+    -   [Resource selection functions]{style="color: GhostWhite;"}
+    -   [Step selection functions]{style="color: GhostWhite;"}
+9.  [Modeling approaches]{style="color: GhostWhite;"}
+:::
+:::
+
+## What is a home range?
+
+- Home range estimators are widely used in spatial ecology studies, as they provide basic mea- surements of animal space-use patterns
+
+. . .
+
+> Home range estimators are a critical component for understanding animal spatial ecology. The choice of home range estimator in spatial ecology studies can significantly influence management and conservation actions, as different methods lead to vastly different inter- pretations of movement patterns, habitat selection, as well as home range requirements [@Silva2018]
+
+
+## What is a home range?
+
+- The geography area to which an organism normally confines its activities
+
+. . .
+
+- The extent of space animals use to live and reproduce [@Viana2018]
+
+- Home range is defined by the interaction between animals and the environment, and its size is the direct result of movement driven by habitat selection and other external factors, biotic interactions, and intrinsic factors related to individual state and characteristics [@Borger2008]
+
+- Home range formation is thus the result of dynamic processes. Both the habitat and internal state of animals might change through time and cause home range size to vary [@Viana2018]
+
+. . .
+
+- How can we estimate home-range?
+
+## Estimates of home-range
+
+- Minimum Convex Polygon
+    - The simplest way to draw the boundaries of a home range from a set of location data is to construct the smallest possible convex polygon around the data
+- Kernel Density Estimators
+    - Extrapolate where a geo-tracked animal spends its time
+- Kriging
+    - Spatial prediction based on a geostatistical model [@Webster2007]
+- Brownian Bridge Movements
+    -  Explicitly models an animal’s movement path and estimates an animal mobility feature called Brownian motion variance
+
+## Estimation using MCP
+
+- We will be working with the bat databases that you should already have downloaded
+- In case you need it again you can find it [here](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10)
+
+```{r echo=TRUE, eval=FALSE}
+library(move)
+library(adehabitatHR)
+library(scales)
+bats <- move("PATH/TO_YOUR/FILE/Parti-colored bat Safi Switzerland.csv")
+X330 <- bats[["X330"]]
+X330$id <- "X330"
+mcpX330<-mcp(as(X330[,'id'], 'SpatialPointsDataFrame'))
+plot(X330, type="n", bty="na", xlab="Longitude", ylab="Latitude")
+plot(mcpX330, col="grey90", lty=2, lwd=1.25, add=TRUE)
+points(X330, pch=16)
+points(X330, pch=1, col="white")
+legend("topright", as.character("95% MCP"), fill="grey90", bty="n")
+```
+
+```{r echo=FALSE}
+library(move)
+library(adehabitatHR)
+library(scales)
+```
+
+## Estimation using MCP
+
+```{r echo=FALSE}
+bats <- move("../../data/Parti-colored bat Safi Switzerland.csv")
+X330 <- bats[["X330"]]
+X330$id <- "X330"
+mcpX330<-mcp(as(X330[,'id'], 'SpatialPointsDataFrame'))
+plot(X330, type="n", bty="na", xlab="Longitude", ylab="Latitude")
+plot(mcpX330, col="grey90", lty=2, lwd=1.25, add=TRUE)
+points(X330, pch=16)
+points(X330, pch=1, col="white")
+legend("topright", as.character("95% MCP"), fill="grey90", bty="n")
+```
+
+## Estimation using MCP
+
+```{r echo=TRUE}
+mcpX330
+```
+
+. . .
+
+- Area value seems strange. That is because our used locations are in the geographic coordinates system (long/lat)  
+- *adehabitatHR* calculated the area according to the units of the projection, in this case decimal degrees
+- Therefore we have to project our data into a equidistant projection
+
+## Estimation using MCP
+
+```{r}
+bats$id <- trackId(bats) 
+mcpData<-mcp(as(bats[,'id'],'SpatialPointsDataFrame'))
+bats.proj <- spTransform(bats, CRS("+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +x_0=600000 +y_0=200000 +ellps=bessel +units=m +no_defs"))
+mcpData.proj <- mcp(as(bats.proj[, 'id'],'SpatialPointsDataFrame'))
+mcpData.proj
+```
+
+## Estimation using MCP
+
+```{r}
+plot(bats.proj[["X21"]], bty="na", xlab="Longitude", ylab="Latitude")
+plot(mcpData.proj[mcpData.proj$id=="X21",], add=TRUE)
+legend("bottomleft", c("First reproject then mcp"), lty=1, bty="n")
+
+```
+
+## Size of MCP changes with sampling effort 
+
+```{r echo=TRUE, eval=FALSE}
+hrBootstrap(bats[['X21']], rep=500, levelMax=95)
+legend("bottomright", 
+legend=c("real MCP size","100% percentil","75% percentil","50% percentil","25% percentil","0% percentil"), 
+lty=c(4,2,3,1,3,2), col=c("black","cyan","red","black","red","cyan"))
+```
+
+![Bootstrap of MCP](./mcpbootstrap.png)
+
+## MCP using a KDE
+
+```{r}
+template <- raster(extent(bats.proj[[1]]))
+res(template)<-500
+count <- rasterize(split(bats.proj)[[1]], template,field=1,  fun="count")
+plot(count, col=grey(10:0/12))
+plot(mcpData.proj[1,], add=TRUE)
+points(bats.proj[[1]], pch=16, cex=0.5)
+```
+
+## MCP using a KDE
+
+- h: degree of smoothness or how tightly the data should be hugged by the distribution function
+- h="LSCV": h calculated from the data via least square cross validation
+- h="ad-hoc": h calculated from the data via sample size and spatial spread
+
+```{r}
+X21 <- bats.proj[['X21']]
+kern1 <- kernelUD(as(X21, "SpatialPoints"), h=500)
+kern2 <- kernelUD(as(X21, "SpatialPoints"))
+kern3 <- kernelUD(as(X21, "SpatialPoints"), h=2000)
+kern4 <- kernelUD(as(X21, "SpatialPoints"), h="LSCV")
+kern <- c("kern1", "kern2", "kern3", "kern4")
+hName <- c("h=500",
+           "h='ad-hoc'",
+           "h=2000",
+           "h=LSCV")
+```
+
+## MCP using a KDE
+
+```{r}
+par(mfrow=c(2,2))
+par(mar=c(1,0.5,3,0.5))
+for(i in 1:4){
+  plot(getverticeshr(get(kern[i])))
+  points(X21, pch=16, cex=0.75, col=alpha("black", 0.2))
+  points(X21, cex=0.75)
+  title(hName[i])
+}
+```
+
+
+## References
