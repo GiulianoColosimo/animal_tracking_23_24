@@ -1,0 +1,104 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 6"
+date: "2024-05-28"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("rgdal", "raster", "rgeso", "sf",
+       "ggplot2", "tidyr", "lubridate")
+lapply(x, require, character.only = T)
+rm(x)
+
+```
+
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: green;"}
+    -   [Packages to install]{style="color: green;"}
+2.  [An introduction to Animal tracking]{style="color: green;"}
+    -   [Tagging systems]{style="color: green;"}
+3.  [CRS]{style="color: green;"}
+    -   [Telemetry and GPS]{style="color: green;"}
+4.  [Movement Data]{style="color: green;"}
+5.  [On-line databases]{style="color: green;"}
+    -   [GBIF]{style="color: green;"}
+    -   [Movebank]{style="color: green;"}
+:::
+
+::: {.column width="50%"}
+6.  [Drivers of species distribution]{style="color: green;"}
+7.  [Home range estimates]{style="color: green;"}
+    -   [MPC]{style="color: green;"}
+    -   [KDE]{style="color: green;"}
+    -   [Kriging]{style="color: green;"}
+    -   [BBM]{style="color: green;"}
+8.  [Species distribution modeling]{style="color: orange;"}
+    -   [Resource selection functions]{style="color: orange;"}
+    -   [Step selection functions]{style="color: orange;"}
+9.  [Modeling approaches]{style="color: orange;"}
+:::
+:::
+
+## Linking movement and environment
+
+The following slides were prepared by [Björn Reineking](https://www.researchgate.net/profile/Bjoern-Reineking), distributed via AniMove, and adapted for this course 
+
+- Predict (possibly for new environmental conditions)
+    - Movement paths (only SSF)
+    - Utilization distributions
+- Understand
+    - How the environment (resources such as food, risks such as predation, conditions such as temperature) shapes movement paths and long-term utilization distributions (as a function of animal characteristics such as size, sex, diet)
+    - Quantify effect of drivers
+
+## Model the probability of presence in a certain area
+
+- Resource selection functions (RSF)
+    - Predicts occurrence distribution (fraction of time the animal spends at a given site)
+    - Assumes positions are statistically independent
+- Step selection functions (SSF)
+    - Predicts position at time t + Δt based on current position
+    - Assumes velocities of successive steps are independent
+    - Can simulate trajectories
+    - More difficult to get predictions of utilisation distributions
+    
+Both RSF and SSF model the probability of presence in a given area based on the environment and spatial constraints
+
+## 
+
+- RSF assumes that successive positions are independent
+- Autocorrelation can be accounted for!
+- effective sample sizes are in general much lower than the number of tracking points
+
+- SSF predicts the probability of the animal’s next position based on its current position (and bearing) and environmental conditions
+
+- Movement is discrete in time, with a single fixed time step length (e.g. 4 hours)
+- Successive steps are stochastically independent (potentially accounting for direction of last step) (no autocorrelation in velocities)
+
+## 
+
+![RSF and SSF comparison](./slide1.png)

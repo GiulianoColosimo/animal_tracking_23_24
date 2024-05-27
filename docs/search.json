@@ -894,5 +894,40 @@
     "title": "Animal tracking nella biologia della conservazione",
     "section": "MCP using a KDE",
     "text": "MCP using a KDE\n\npar(mfrow=c(2,2))\npar(mar=c(1,0.5,3,0.5))\nfor(i in 1:4){\n  plot(getverticeshr(get(kern[i])))\n  points(X21, pch=16, cex=0.75, col=alpha(\"black\", 0.2))\n  points(X21, cex=0.75)\n  title(hName[i])\n}"
+  },
+  {
+    "objectID": "classes/6/class_6.html#linking-movement-and-environment",
+    "href": "classes/6/class_6.html#linking-movement-and-environment",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Linking movement and environment",
+    "text": "Linking movement and environment\nThe following slides were prepared by Björn Reineking, distributed via AniMove, and adapted for this course\n\nPredict (possibly for new environmental conditions)\n\nMovement paths (only SSF)\nUtilization distributions\n\nUnderstand\n\nHow the environment (resources such as food, risks such as predation, conditions such as temperature) shapes movement paths and long-term utilization distributions (as a function of animal characteristics such as size, sex, diet)\nQuantify effect of drivers"
+  },
+  {
+    "objectID": "classes/6/class_6.html#references",
+    "href": "classes/6/class_6.html#references",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "References",
+    "text": "References\n\n\n\n\nAnimal tracking nella biologia della conservazione - Giuliano Colosimo, PhD"
+  },
+  {
+    "objectID": "classes/6/class_6.html#model-the-probability-of-presence-in-a-certain-area",
+    "href": "classes/6/class_6.html#model-the-probability-of-presence-in-a-certain-area",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "Model the probability of presence in a certain area",
+    "text": "Model the probability of presence in a certain area\n\nResource selection functions (RSF)\n\nPredicts occurrence distribution (fraction of time the animal spends at a given site)\nAssumes positions are statistically independent\n\nStep selection functions (SSF)\n\nPredicts position at time t + Δt based on current position\nAssumes velocities of successive steps are independent\nCan simulate trajectories\nMore difficult to get predictions of utilisation distributions\n\n\nBoth RSF and SSF model the probability of presence in a given area based on the environment and spatial constraints"
+  },
+  {
+    "objectID": "classes/6/class_6.html#section",
+    "href": "classes/6/class_6.html#section",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "",
+    "text": "RSF assumes that successive positions are independent\nAutocorrelation can be accounted for!\neffective sample sizes are in general much lower than the number of tracking points\nSSF predicts the probability of the animal’s next position based on its current position (and bearing) and environmental conditions\nMovement is discrete in time, with a single fixed time step length (e.g. 4 hours)\nSuccessive steps are stochastically independent (potentially accounting for direction of last step) (no autocorrelation in velocities)"
+  },
+  {
+    "objectID": "classes/6/class_6.html#section-1",
+    "href": "classes/6/class_6.html#section-1",
+    "title": "Animal tracking nella biologia della conservazione",
+    "section": "",
+    "text": "RSF and SSF comparison\n\n\n\n\n\n\nAnimal tracking nella biologia della conservazione - Giuliano Colosimo, PhD"
   }
 ]
