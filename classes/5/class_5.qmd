@@ -65,44 +65,43 @@ rm(x)
 
 ## What is a home range?
 
-- Home range estimators are widely used in spatial ecology studies, as they provide basic measurements of animal space-use patterns
+-   Home range estimators are widely used in spatial ecology studies, as they provide basic measurements of animal space-use patterns
 
 . . .
 
 > Home range estimators are a critical component for understanding animal spatial ecology. The choice of home range estimator in spatial ecology studies can significantly influence management and conservation actions, as different methods lead to vastly different inter- pretations of movement patterns, habitat selection, as well as home range requirements [@Silva2018]
 
-
 ## What is a home range?
 
-- The geography area to which an organism normally confines its activities
+-   The geography area to which an organism normally confines its activities
 
 . . .
 
-- The extent of space animals use to live and reproduce [@Viana2018]
+-   The extent of space animals use to live and reproduce [@Viana2018]
 
-- Home range is defined by the interaction between animals and the environment, and its size is the direct result of movement driven by habitat selection and other external factors, biotic interactions, and intrinsic factors related to individual state and characteristics [@Borger2008]
+-   Home range is defined by the interaction between animals and the environment, and its size is the direct result of movement driven by habitat selection and other external factors, biotic interactions, and intrinsic factors related to individual state and characteristics [@Borger2008]
 
-- Home range formation is thus the result of dynamic processes. Both the habitat and internal state of animals might change through time and cause home range size to vary [@Viana2018]
+-   Home range formation is thus the result of dynamic processes. Both the habitat and internal state of animals might change through time and cause home range size to vary [@Viana2018]
 
 . . .
 
-- How can we estimate home-range?
+-   How can we estimate home-range?
 
 ## Estimates of home-range
 
-- Minimum Convex Polygon
-    - The simplest way to draw the boundaries of a home range from a set of location data is to construct the smallest possible convex polygon around the data
-- Kernel Density Estimators
-    - Extrapolate where a geo-tracked animal spends its time
-- Kriging
-    - Spatial prediction based on a geostatistical model [@Webster2007]
-- Brownian Bridge Movements
-    -  Explicitly models an animal’s movement path and estimates an animal mobility feature called Brownian motion variance
+-   Minimum Convex Polygon
+    -   The simplest way to draw the boundaries of a home range from a set of location data is to construct the smallest possible convex polygon around the data
+-   Kernel Density Estimators
+    -   Extrapolate where a geo-tracked animal spends its time
+-   Kriging
+    -   Spatial prediction based on a geostatistical model [@Webster2007]
+-   Brownian Bridge Movements
+    -   Explicitly models an animal’s movement path and estimates an animal mobility feature called Brownian motion variance
 
 ## Estimation using MCP
 
-- We will be working with the bat databases that you should already have downloaded
-- In case you need it again you can find it [here](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10)
+-   We will be working with the bat databases that you should already have downloaded
+-   In case you need it again you can find it [here](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10)
 
 ```{r echo=TRUE, eval=FALSE}
 library(move)
@@ -147,9 +146,9 @@ mcpX330
 
 . . .
 
-- Area value seems strange. That is because our used locations are in the geographic coordinates system (long/lat)  
-- *adehabitatHR* calculated the area according to the units of the projection, in this case decimal degrees
-- Therefore we have to project our data into a equidistant projection
+-   Area value seems strange. That is because our used locations are in the geographic coordinates system (long/lat)\
+-   *adehabitatHR* calculated the area according to the units of the projection, in this case decimal degrees
+-   Therefore we have to project our data into a equidistant projection
 
 ## Estimation using MCP
 
@@ -170,7 +169,7 @@ legend("bottomleft", c("First reproject then mcp"), lty=1, bty="n")
 
 ```
 
-## Size of MCP changes with sampling effort 
+## Size of MCP changes with sampling effort
 
 ```{r echo=TRUE, eval=FALSE}
 hrBootstrap(bats[['X21']], rep=500, levelMax=95)
@@ -194,9 +193,9 @@ points(bats.proj[[1]], pch=16, cex=0.5)
 
 ## MCP using a KDE
 
-- h: degree of smoothness or how tightly the data should be hugged by the distribution function
-- h="LSCV": h calculated from the data via least square cross validation
-- h="ad-hoc": h calculated from the data via sample size and spatial spread
+-   h: degree of smoothness or how tightly the data should be hugged by the distribution function
+-   h="LSCV": h calculated from the data via least square cross validation
+-   h="ad-hoc": h calculated from the data via sample size and spatial spread
 
 ```{r}
 X21 <- bats.proj[['X21']]
@@ -223,6 +222,5 @@ for(i in 1:4){
   title(hName[i])
 }
 ```
-
 
 ## References

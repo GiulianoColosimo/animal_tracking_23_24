@@ -64,68 +64,61 @@ rm(x)
 :::
 :::
 
-## Drivers of species distribution 
+## Drivers of species distribution
 
-- Advances in ecological research have contributed to make the study and understanding of the distribution of biodiversity at various spatial and temporal scale a core aspect of macro-ecology and biodiversity research [@Guisan2020]
-- Three main condition need to met in order for a species to occupy an area and maintain a viable population:
-    1. the species has to reach the site
-    2. the abiotic conditions have to be suitable for the species 
-    3. the biotic environment must be suitable for the species
-    
-## Drivers of species distribution 
+-   Advances in ecological research have contributed to make the study and understanding of the distribution of biodiversity at various spatial and temporal scale a core aspect of macro-ecology and biodiversity research [@Guisan2020]
+-   Three main condition need to met in order for a species to occupy an area and maintain a viable population:
+    1.  the species has to reach the site
+    2.  the abiotic conditions have to be suitable for the species
+    3.  the biotic environment must be suitable for the species
+
+## Drivers of species distribution
 
 ![Figure 3.1 after @Guisan2020](./ecoProcesses.png)
 
 ## The abiotic environment
 
-- How does the abiotic environment influence the distribution of organisms?
-- What are the different types of environmental influences on species distribution?
-- How do multiple variables jointly determine a species geographic distribution?
-- Habitat: A description of environmental condition (abiotic and biotic) at a given locality at a particular scale of space and time, where organisms are or could potentially live
-- Species can colonize a range of conditions along an environmental gradient, but in most cases the range occupies a small portion of all possible conditions
-- The reasons lie in the physiology of organisms and the specific physiological adaptations that allow certain species to be better competitors in certain habitats and worst competitors in other
+-   How does the abiotic environment influence the distribution of organisms?
+-   What are the different types of environmental influences on species distribution?
+-   How do multiple variables jointly determine a species geographic distribution?
+-   Habitat: A description of environmental condition (abiotic and biotic) at a given locality at a particular scale of space and time, where organisms are or could potentially live
+-   Species can colonize a range of conditions along an environmental gradient, but in most cases the range occupies a small portion of all possible conditions
+-   The reasons lie in the physiology of organisms and the specific physiological adaptations that allow certain species to be better competitors in certain habitats and worst competitors in other
 
 ## The abiotic environment
 
-- The transition from optimal to poor performance in a specific habitat can be a smooth transition or an abrupt transition
-- In conifer tree, the cambium activity allowing root growth tend to stop rather abruptly below ca. 7ºC at 10cm below ground [@Korner2021]
-- Smoother transitions occur when the gradient has a linear effect on some metabolic rate, progressively lowering individual fitness
-- All important variables should be considered jointly in an analysis in order to define what is known as the environmental niche of a species
-- When considered jointly, the physiological responses of a given species to several environmental variables define a multidimensional volume called a species fundamental environmental niche
-- For plants, the axes of the fundamental niche may typically be resource variable related to light, heat, water and nutrient variability [@Guisan2020]
+-   The transition from optimal to poor performance in a specific habitat can be a smooth transition or an abrupt transition
+-   In conifer tree, the cambium activity allowing root growth tend to stop rather abruptly below ca. 7ºC at 10cm below ground [@Korner2021]
+-   Smoother transitions occur when the gradient has a linear effect on some metabolic rate, progressively lowering individual fitness
+-   All important variables should be considered jointly in an analysis in order to define what is known as the environmental niche of a species
+-   When considered jointly, the physiological responses of a given species to several environmental variables define a multidimensional volume called a species fundamental environmental niche
+-   For plants, the axes of the fundamental niche may typically be resource variable related to light, heat, water and nutrient variability [@Guisan2020]
 
 ## The abiotic environment
 
-- If we could estimate the species fundamental niche we would be able to make predictions about where the species could live and thrive
+-   If we could estimate the species fundamental niche we would be able to make predictions about where the species could live and thrive
 
-- In practice, measuring the fundamental niche based on field observation is practically impossible as interactions with other species should be factored in
+-   In practice, measuring the fundamental niche based on field observation is practically impossible as interactions with other species should be factored in
 
-- The response of species in nature is modified by the presence of other species within the same group or across groups combined with the effects of the changing environment.These effects constrint the fundamental niche to what is known as the realized niche
+-   The response of species in nature is modified by the presence of other species within the same group or across groups combined with the effects of the changing environment.These effects constrint the fundamental niche to what is known as the realized niche
 
-- Sometimes is not possible to measure and map the variables that actually have a measurable effect on species distribution
-
-
-## Movement pattern analysis
-
-- Azimuth and turning angles:
-    - direction of travel, directionality of movement, and relation to speed
-    - recommended to exclude stationary segments from analysis
-
-- Net square displacement (NSD):
-    - quantifies the net squared distance traveled over time compared to an point of reference (calculates
-distance from each location to the point of reference)
-    - point of reference (nest, den, colony) needed. If there is no point of reference, or animal is nomadic, use
-e.g. FPT
+-   Sometimes is not possible to measure and map the variables that actually have a measurable effect on species distribution
 
 ## Movement pattern analysis
 
-- First Time Passage (FTP)
-    - calculates the time it takes to cross a circle of a given radius, i.e. time the animal spends in a given area
-at a certain spatial scale (”draws” circle around each point and calculates how long it takes to leave the
-circle)
-    - the variance of log(fpt) can inform about the scales at which processes are likely to be changing
-    - the slopes of the log(meanFPT) ∼ log(radii), can indicate the type of movement at each scale. Flatter
-slopes indicate more directional movement, steeper slopes more brownian movement
+-   Azimuth and turning angles:
+    -   direction of travel, directionality of movement, and relation to speed
+    -   recommended to exclude stationary segments from analysis
+-   Net square displacement (NSD):
+    -   quantifies the net squared distance traveled over time compared to an point of reference (calculates distance from each location to the point of reference)
+    -   point of reference (nest, den, colony) needed. If there is no point of reference, or animal is nomadic, use e.g. FPT
+
+## Movement pattern analysis
+
+-   First Time Passage (FTP)
+    -   calculates the time it takes to cross a circle of a given radius, i.e. time the animal spends in a given area at a certain spatial scale (”draws” circle around each point and calculates how long it takes to leave the circle)
+    -   the variance of log(fpt) can inform about the scales at which processes are likely to be changing
+    -   the slopes of the log(meanFPT) ∼ log(radii), can indicate the type of movement at each scale. Flatter slopes indicate more directional movement, steeper slopes more brownian movement
 
 ## Install and load the appropriate toolset
 
@@ -141,7 +134,7 @@ install.packages("circular")
 install.packages("adehabitatLT")
 ```
 
-- We can now load all the libraries that are going to be needed to run the exercise
+-   We can now load all the libraries that are going to be needed to run the exercise
 
 ```{r loadlibraries}
 library(move)
@@ -163,7 +156,6 @@ library(adehabitatLT)
 -   Use [this](https://drive.proton.me/urls/JKGD8SYASR#qYRvkKaVjr10) link to download a .csv file with with the dataset we will be using
 -   Place the dataset in a directory where you will be working
 
-
 ```{r getMovebank7, eval=FALSE}
 ### We read in this dataset downloaded from Movebank directly as a move2 object
 bats <- move("/PATH TO YOUR DIRECTORY/Parti-colored bat Safi Switzerland.csv")
@@ -177,6 +169,7 @@ str(bats)
 ```
 
 ## Preliminary data analysis
+
 ### Basic plots 1
 
 ```{r pda2}
@@ -184,12 +177,15 @@ plot(bats)
 ```
 
 ## Preliminary data analysis
+
 ### Basic plots 2
+
 ```{r pda3}
 plot(bats, xlab="Longitude", ylab="Latitude", type="b", pch=16, cex=0.5)
 ```
 
 ## Preliminary data analysis
+
 ### Plot on a map
 
 ```{r pda4, cache=TRUE}
@@ -199,6 +195,7 @@ points(t(colMeans(coordinates(bats))), col='cyan')
 ```
 
 ## Preliminary data analysis
+
 ### Plot on a zoomed map
 
 ```{r pda5}
@@ -209,10 +206,12 @@ points(bats)
 lines(bats)
 ```
 
-
 ## Preliminary data analysis
+
 ### Plot on a google map background
-- This code is not shown because it won't work for you unless you activate your personal google API key 
+
+-   This code is not shown because it won't work for you unless you activate your personal google API key
+
 ```{r api, echo=F}
 bats_df <- as.data.frame(bats)
 m <- get_map(e, zoom=9, source="google", maptype="terrain")
@@ -220,11 +219,10 @@ ggmap(m) + geom_path(data=bats_df, aes(x=location.long, y=location.lat, colour=t
 
 ```
 
+## Tidy your data
 
-## Tidy your data 
-
-- We can identify and remove outliers after a graphical inspection of our data
-- Download a new data set from [this link](https://drive.proton.me/urls/Z8YWTNZET8#lg4QAn0g2Qgk)
+-   We can identify and remove outliers after a graphical inspection of our data
+-   Download a new data set from [this link](https://drive.proton.me/urls/Z8YWTNZET8#lg4QAn0g2Qgk)
 
 ```{r tidyPoints, echo=T, eval=FALSE}
 load("PATH_TO_YOUR_DATA/buffalo_cleaned.Rdata") # buffalo
@@ -234,7 +232,6 @@ buffaloGray<-gray((nrow(idData(buffalo))-1):0/nrow(idData(buffalo)))
 plot(buffalo, col=buffaloGray, xlab="Longitude", ylab="Latitude")
 ```
 
-
 ```{r tidyPoints2, echo=FALSE}
 load("../../data/buffalo_cleaned.Rdata") # buffalo
 ## Create gray scale
@@ -242,7 +239,6 @@ buffaloGray<-gray((nrow(idData(buffalo))-1):0/nrow(idData(buffalo)))
 ## Plot with gray scale
 plot(buffalo, col=buffaloGray, xlab="Longitude", ylab="Latitude")
 ```
-
 
 ## Tidy your data
 
@@ -267,20 +263,19 @@ save(buffalo, file="PATH_TO_YOUR_DIRECTORY/buffalos.Rdata")
 
 ## Visualizing data for vulture
 
-- Download the [Leo](https://drive.proton.me/urls/0ME89QYNS4#AY9gJIEXEqqq) dataset and put it in your working directory
+-   Download the [Leo](https://drive.proton.me/urls/0ME89QYNS4#AY9gJIEXEqqq) dataset and put it in your working directory
 
 ```{r leo1, echo=TRUE, eval=FALSE}
 Leo <- move("PATH/TO/FILE/Leo-65545.csv.gz")
 Leo
 ```
 
-
 ```{r leo2, echo=F}
 Leo <- move("../../data/Leo-65545.csv.gz")
 Leo
 ```
 
----
+------------------------------------------------------------------------
 
 ```{r leo3}
 map('worldHires', xlim = Leo@bbox[1, ]+c(-5,5), ylim = Leo@bbox[2, ]+c(-5,5),col="grey", fill=T)
@@ -288,6 +283,7 @@ lines(Leo, col="firebrick", lwd=1.5)
 ```
 
 ## Visualizing data for vulture
+
 ### Check and tidy data
 
 ```{r leo4}
@@ -300,6 +296,7 @@ tapply(timestamps(Leo), list(year(timestamps(Leo)), month(timestamps(Leo))), len
 ```
 
 ## Visualizing data for vulture
+
 ### Azimuthal distribution of data
 
 ```{r leo5}
@@ -323,8 +320,8 @@ azimuth <- data.frame(D=angle(Leo),
                       Season=Leo$cat[-1])
 ```
 
-
 ## Visualizing data for vulture
+
 ### Azimuthal distribution of data
 
 ```{r leo6}
@@ -348,6 +345,7 @@ seasons <- levels(Leo$cat)
 ```
 
 ## Visualizing data for vulture
+
 ### Azimuthal distribution of data
 
 ```{r leo7, echo=T, eval=FALSE}
@@ -374,6 +372,7 @@ legend("bottomleft", lty=c(1,2,3,4), seasons, bty="n", cex=0.85)
 ```
 
 ## Visualizing data for vulture
+
 ### Azimuthal distribution of data
 
 ```{r , leo8, echo=F, eval=T}
@@ -398,6 +397,7 @@ legend("bottomleft", lty=c(1,2,3,4), seasons, bty="n", cex=0.85)
 ```
 
 ## Visualizing randomly generated data
+
 ### Net squared displacement
 
 ```{r echo=T, eval=F}
@@ -420,7 +420,9 @@ text(cbind(rep(c(1250, 1100), length.out=length(row.names(mNSD))), mNSD[,ncol(mN
 ```
 
 ## Visualizing randomly generated data
+
 ### Net squared displacement
+
 ```{r echo=F, eval=T}
 # simulate 500 tracks with 1000 steps, with different levels of correlation of turning angles (r) 
 # and convert into move object
@@ -443,6 +445,7 @@ text(cbind(rep(c(1250, 1100), length.out=length(row.names(mNSD))), mNSD[,ncol(mN
 ```
 
 ## Visualizing randomly generated data
+
 ### Net squared displacement
 
 ```{r}
@@ -453,13 +456,14 @@ points(rCRW[[4500]][1000], col="red", pch=20)
 ```
 
 ## Visualizing randomly generated data
+
 ### Net squared displacement
+
 ```{r}
 # - r=0.8: fairly correlated. movement is wiggly. For example:
 plot(rCRW[[1]], pch=19)
 points(rCRW[[1]][1], col="green3", pch=20)
 points(rCRW[[1]][1000], col="red", pch=20)
 ```
-
 
 ## References

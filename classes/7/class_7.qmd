@@ -1,0 +1,217 @@
+---
+title: "Animal tracking nella biologia della conservazione"
+subtitle: "Class 7"
+date: "2024-05-30"
+footer:  "[Animal tracking nella biologia della conservazione - Giuliano Colosimo, PhD](https://giulianocolosimo.github.io/animal_tracking_23_24/)"
+logo: ../../figures/Tor-Vergata_logo_cmyk.png
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    theme: slides.scss
+    multiplex: true
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      boardmarker-width: 5
+editor: visual
+from: markdown+emoji
+execute:
+  freeze: auto
+editor_options: 
+  chunk_output_type: console
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- c("rgdal", "raster", "rgeso", "sf",
+       "ggplot2", "tidyr", "lubridate", "plotrix")
+lapply(x, require, character.only = T)
+rm(x)
+```
+
+
+::: columns
+::: {.column width="50%"}
+1.  [Setting up your computers]{style="color: green;"}
+-   [Packages to install]{style="color: green;"}
+2.  [An introduction to Animal tracking]{style="color: green;"}
+    -   [Tagging systems]{style="color: green;"}
+3.  [CRS]{style="color: green;"}
+    -   [Telemetry and GPS]{style="color: green;"}
+4.  [Movement Data]{style="color: green;"}
+5.  [On-line databases]{style="color: green;"}
+    -   [GBIF]{style="color: green;"}
+    -   [Movebank]{style="color: green;"}
+:::
+  
+::: {.column width="50%"}
+6.  [Drivers of species distribution]{style="color: green;"}
+7.  [Home range estimates]{style="color: green;"}
+    -   [MPC]{style="color: green;"}
+    -   [KDE]{style="color: green;"}
+    -   [Kriging]{style="color: green;"}
+    -   [BBM]{style="color: green;"}
+8.  [Species distribution modeling]{style="color: green;"}
+-   [Resource selection functions]{style="color: green;"}
+-   [Step selection functions]{style="color: green;"}
+9.  [Modeling approaches]{style="color: green;"}
+:::
+:::
+
+# Course recap
+
+##
+
+- What is animal tracking? 
+- What are the requirements to conduct animal tracking?
+    - Identify
+    - Geo-locate
+    - Include covariates of interest
+- Tagging techniques
+    - Colored beads/Rings/Branding
+    - Passive Integrated Transponder
+    - Patterns or feature tagging
+    - Photo tagging
+    - Molecular tagging
+    - Satellite tagging
+
+##
+
+![Image adapted from the [ECEF](https://en.wikipedia.org/wiki/Earth-centered%2C_Earth-fixed_coordinate_system) Wikipedia page.](./ECEF.png)
+
+##
+
+![Image from QGIS website available [here](https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/coordinate_reference_systems.html).](./projection_families.png)
+
+## 
+
+![Comparing the shape of different projection systems](./prj_comparison.png)
+
+##
+
+- Telemetry
+- GPS (NAVSTAR)
+
+```{r echo=FALSE}
+plot(x = 1:20, y = 1:20, xlim = c(1, 20), ylim = c(1, 20), type = "n", asp = 1,
+     xlab = "", ylab = "", main = "Positioning with ranges",
+     xaxt = 'n', yaxt = 'n')
+points(x = 5 + 2, y = 7, pch = 21, bg = "red", cex = 2)
+points(x = 5, y = 7, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5, y0 = 7, x1 = 5 + 2, y1 = 7)
+draw.circle(x = 5, y = 7, radius = 2, border = "black", lty = 2)
+points(x = 8,  y = 12, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5 + 2, y0 = 7, x1 = 8,  y1 = 12)
+AB <- sqrt((8 - (5 + 2))^2 + (12 - 7)^2)
+draw.circle(x = 8, y = 12, radius = AB, border = "black", lty = 2)
+points(x = 17,  y = 5, pch = 21, bg = "blue", cex = 1.5)
+segments(x0 = 5 + 2, y0 = 7, x1 = 17,  y1 = 5)
+AC <- sqrt((17 - (5 + 2))^2 + (5 - 7)^2)
+draw.circle(x = 17, y = 5, radius = AC, border = "black", lty = 2)
+legend("topleft", legend = c("Point of interest (unknown)",
+                             "Reference point (known)",
+                             "Distance"),
+       pch = c(21, 21, NA), lty = c(NA, NA, 1), pt.bg = c("red", "blue"),
+       pt.cex = c(2, 1.5))
+```
+
+
+##
+
+![](./Screenshot 2024-05-08 at 21.52.55.png)
+
+- Movement data
+    - Lagragian 
+    - Eulerian 
+
+##
+
+![Vector type data](./collection.png)
+
+## 
+
+![Example of attributes for vector data](./Attribute_Table.png)
+
+## 
+
+![Raster with continuous data](./raster1.png)
+
+## 
+
+![Raster with categorical data](./raster2.png)
+
+## 
+
+```{r echo=FALSE}
+set.seed(50821)  # makes sure the results are always the same 
+x <- rnorm(20, 10, 2) # takes 20 random points from a normal distribution with mean 10 and sd 2
+y <- rnorm(20, 10, 2) 
+df_points <- data.frame(x = x, y = y) # create a data frame with points coordinates
+pts_nms <- LETTERS[1:20]
+plot(df_points$x, df_points$y, pch = 21, cex = 1.5, bg = ifelse(pts_nms == "A" | pts_nms == "B", "red", "blue"),
+xlab = "X", ylab = "Y")
+text(x = df_points$x + 0.1, y = df_points$y + 0.1, labels = pts_nms)
+arrows(df_points$x[1], df_points$y[1], df_points$x[2],
+df_points$y[2], code = 3, angle = 20, col = "darkgreen", lwd = 1.5)
+```
+
+##
+
+```{r echo=FALSE}
+library(move)
+library(adehabitatHR)
+bats <- move("../../data/Parti-colored bat Safi Switzerland.csv")
+X330 <- bats[["X330"]]
+X330$id <- "X330"
+mcpX330<-mcp(as(X330[,'id'], 'SpatialPointsDataFrame'))
+plot(X330, type="n", bty="na", xlab="Longitude", ylab="Latitude")
+plot(mcpX330, col="grey90", lty=2, lwd=1.25, add=TRUE)
+points(X330, pch=16)
+points(X330, pch=1, col="white")
+legend("topright", as.character("95% MCP"), fill="grey90", bty="n")
+```
+
+##
+
+```{r echo=FALSE}
+bats.proj <- spTransform(bats, CRS("+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +x_0=600000 +y_0=200000 +ellps=bessel +units=m +no_defs"))
+
+X21 <- bats.proj[['X21']]
+kern1 <- kernelUD(as(X21, "SpatialPoints"), h=500)
+kern2 <- kernelUD(as(X21, "SpatialPoints"))
+kern3 <- kernelUD(as(X21, "SpatialPoints"), h=2000)
+kern4 <- kernelUD(as(X21, "SpatialPoints"), h="LSCV")
+kern <- c("kern1", "kern2", "kern3", "kern4")
+hName <- c("h=500",
+           "h='ad-hoc'",
+           "h=2000",
+           "h=LSCV")
+
+par(mfrow=c(2,2))
+par(mar=c(1,0.5,3,0.5))
+for(i in 1:4){
+  plot(getverticeshr(get(kern[i])))
+  points(X21, pch=16, cex=0.75, col=alpha("black", 0.2))
+  points(X21, cex=0.75)
+  title(hName[i])
+}
+
+```
+
+
+## 
+
+- Resource selection functions (RSF)
+    - Predicts occurrence distribution (fraction of time the animal spends at a given site)
+    - Assumes positions are statistically independent
+- Step selection functions (SSF)
+    - Predicts position at time t + Δt based on current position
+    - Assumes velocities of successive steps are independent
+    - Can simulate trajectories
+    - More difficult to get predictions of utilisation distributions
+    

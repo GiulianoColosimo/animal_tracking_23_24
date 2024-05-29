@@ -44,8 +44,8 @@ website:
          text: "Class 5"
        - href: ./classes/6/class_6.html
          text: "Class 6"
-#       - href: ./classes/7/class_7.html
-#         text: "Class 7"
+       - href: ./classes/7/class_7.html
+         text: "Class 7"
 #       - href: ./classes/8/class_8.html
 #         text: "Class 8"
 
